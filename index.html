@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:og="http://ogp.me/ns#">
+
+<head>
+  
+  <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-S3QXSR4H4Q"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-S3QXSR4H4Q');
+</script>
+  
+  <meta charset="utf-8">
+  <meta property="og:title" content="Sanjana Danait Portfolio" />
+  <meta property="og:type" content="Design Portfolio" />
+  <meta property="og:image" content="images/website-ss.png" />
+  <title>SanjanaDanait</title>
+  <link rel="icon" href="favicon.ico">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Montserrat|Ubuntu" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- three.js for Rubik's cube -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+
+  <!-- CSS Stylesheets -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link rel="stylesheet" href="css/styles.css">
+
+  <style>
+    /* ── Hero two-column layout (after styles.css so overrides win) ── */
+    .section-2 {
+      padding: 57px 7% 0 !important;
+      height: 100vh !important;
+      display: flex !important;
+      align-items: center !important;
+    }
+
+    .hero-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      gap: 40px;
+    }
+
+    .hero-text-col {
+      flex: 0 0 auto;
+      max-width: 540px;
+    }
+
+    .hero-cube-col {
+      flex: 1 1 auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      gap: 12px;
+      padding-top: 6px;
+    }
+
+    #cube-mount canvas {
+      display: block;
+      cursor: grab;
+    }
+
+    #cube-mount canvas:active {
+      cursor: grabbing;
+    }
+
+    .cube-btns {
+      display: flex;
+      gap: 10px;
+    }
+
+    .cube-btn {
+      font-family: 'Courier New', monospace;
+      font-size: 10px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: rgba(0,0,0,0.35);
+      background: none;
+      border: 1px solid rgba(0,0,0,0.15);
+      padding: 6px 18px;
+      cursor: pointer;
+      border-radius: 2px;
+      transition: color 0.15s, border-color 0.15s;
+      outline: none;
+    }
+
+    .cube-btn:hover {
+      color: rgba(0,0,0,0.65);
+      border-color: rgba(0,0,0,0.3);
+    }
+
+    .cube-btn:focus { outline: none; }
+    .cube-btn:focus-visible { outline: none; }
+    .cube-btn:disabled { opacity: 0.5; cursor: default; }
+
+    .cube-eyebrow {
+      font-family: 'Manrope', sans-serif !important;
+      font-size: 13px !important;
+      font-style: normal;
+      font-weight: 400;
+      color: #9d9d9d !important;
+      display: block !important;
+      text-align: center !important;
+      margin-bottom: 4px;
+    }
+
+    .cube-hint {
+      font-family: 'Manrope', sans-serif !important;
+      font-size: 11px !important;
+      font-weight: 500;
+      letter-spacing: 0.5px;
+      color: #c0c0c0 !important;
+      display: block !important;
+      text-align: center !important;
+      margin-top: 4px;
+    }
+
+    @media (max-width: 900px) {
+      .hero-inner { flex-direction: column; gap: 32px; }
+      .hero-cube-col { display: none; }
+      .section-2 { height: auto !important; padding: 80px 7% 60px !important; }
+    }
+  </style>
+
+  <!-- Favicon -->
+  <link rel="icon" href="favicon.ico">
+
+  <!-- Font Awesome -->
+  <script defer src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
+
+  <!-- Bootstrap Scripts -->
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</head>
+
+<body>
+
+  <!-- Section-1 Nav Bar -->
+
+  <section class="section-1" id="navbar">
+
+    <div class="container-fluid">
+
+      <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+        <div class="container">
+
+          <a class="navbar-brand" href="index.html">
+            Sanjana <em>Danait</em>
+          </a>
+
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+
+            <ul class="navbar-nav ml-auto">
+              <li class="nav-item">
+                <a class="nav-link" href="work.html">Work</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="about.html">About</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#contact">Contact</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="sanjanadanait-resume.pdf" target="_blank" rel="noopener noreferrer">Resume</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+      </nav>
+    </div>
+  </section>
+
+
+  <!-- Section-2 Title -->
+
+  <section class="section-2" id="title">
+
+    <div class="hero-inner">
+      <div class="hero-text-col">
+        <p class="hero-greeting">Hey, I'm</p>
+        <h1 class="hero-name">Sanjana <em>Danait</em></h1>
+        <p class="hero-statement">Product Designer currently building <strong>enterprise data and AI platforms</strong> at <a href="https://www.intuit.com/" target="_blank" rel="noopener noreferrer" class="intuit-link">Intuit</a> — improving technical and complex systems and workflows, to help product, data and AI teams ship faster.</p>
+        <div class="hero-expertise">
+          <span>Enterprise Platforms</span>
+          <span class="hero-dot">•</span>
+          <span>Agentic UX</span>
+          <span class="hero-dot">•</span>
+          <span>Data &amp; AI</span>
+          <span class="hero-dot">•</span>
+          <span>B2B SaaS</span>
+        </div>
+      </div>
+      <div class="hero-cube-col">
+        <p class="cube-eyebrow">One designer, different creative sides</p>
+        <div id="cube-mount"></div>
+        <div class="cube-btns">
+          <button class="cube-btn" id="cube-scramble-btn" onclick="heroCube && heroCube.scramble()">⊞ Scramble</button>
+          <button class="cube-btn" onclick="heroCube && heroCube.solve()">↺ Reset</button>
+        </div>
+        <p class="cube-hint">Drag to play — or let it run</p>
+      </div>
+    </div>
+
+  </section>
+
+
+  <!-- Section-3 Work -->
+
+  <section class="section-3" id="projects">
+    <div class="projects-header">
+      <span class="projects-label"><em>Featured</em> Projects</span>
+      <a class="projects-link" href="work.html">View all work →</a>
+    </div>
+
+    <!-- Card 1: Archy — public -->
+    <a class="project-card" href="archy.html">
+      <div class="card-image">
+        <img src="images/archy-project-image-new.png" alt="Archy">
+      </div>
+      <div class="card-content">
+        <p class="card-meta-top">Mindstix / Archy</p>
+        <h2 class="card-title"><em>Archy</em>: Dental Practice Management Platform</h2>
+        <p class="card-description">Led end-to-end design of a healthcare SaaS platform — from zero to shipped — helping the client raise $10M+ in seed funding.</p>
+        <div class="card-tags">
+          <span class="tag">Healthcare SaaS</span>
+          <span class="tag">Zero-to-One</span>
+          <span class="tag">End-to-End Design</span>
+        </div>
+        <div class="card-footer">
+          <span class="card-view-link">View project <span class="card-arrow">→</span></span>
+        </div>
+      </div>
+    </a>
+
+    <!-- Card 2: Chrome Extension — locked -->
+    <a class="project-card" href="clickstream-chrome-extension.html">
+      <div class="card-image">
+        <img src="images/cex-project-image.png" alt="Clickstream Event Explorer">
+      </div>
+      <div class="card-content">
+        <div class="card-meta-row">
+          <p class="card-meta-top">Intuit</p>
+          <span class="card-lock">🔒 Password protected</span>
+        </div>
+        <h2 class="card-title"><em>Clickstream Event Explorer</em>: Chrome Extension</h2>
+        <p class="card-description">Designed and shipped a browser extension for real-time event validation — from FMHs to prototype to live in the Chrome Web Store.</p>
+        <div class="card-tags">
+          <span class="tag">Product Analytics</span>
+          <span class="tag">Browser Extension</span>
+          <span class="tag">Zero-to-One</span>
+          <span class="tag">End-to-End Design</span>
+          <span class="tag">Product Strategy</span>
+        </div>
+        <div class="card-footer">
+          <span class="card-view-link">View project <span class="card-arrow">→</span></span>
+        </div>
+      </div>
+    </a>
+
+    <!-- Card 3: Data Access — locked -->
+    <a class="project-card" href="data-access.html">
+      <div class="card-image">
+        <div class="card-image-placeholder" style="background: #f0f6f4;">Coming Soon</div>
+      </div>
+      <div class="card-content">
+        <div class="card-meta-row">
+          <p class="card-meta-top">Intuit</p>
+          <span class="card-lock">🔒 Password protected</span>
+        </div>
+        <h2 class="card-title"><em>Access Unblocked</em>: Data Access and Governance</h2>
+        <p class="card-description">Redesigned how 8,000+ data workers request and govern access to sensitive data — saving 4,000+ hours/year and cutting access time by 66%.</p>
+        <div class="card-tags">
+          <span class="tag">Enterprise UX</span>
+          <span class="tag">Data Governance</span>
+          <span class="tag">Feature Redesigns</span>
+        </div>
+        <div class="card-footer">
+          <span class="card-view-link">View project <span class="card-arrow">→</span></span>
+        </div>
+      </div>
+    </a>
+
+    <!-- Card 4: Clickstream Studio — locked -->
+    <a class="project-card" href="clickstream-studio.html">
+      <div class="card-image">
+        <div class="card-image-placeholder" style="background: #f5f0f6;">Coming Soon</div>
+      </div>
+      <div class="card-content">
+        <div class="card-meta-row">
+          <p class="card-meta-top">Intuit</p>
+          <span class="card-lock">🔒 Password protected</span>
+        </div>
+        <h2 class="card-title"><em>Clickstream Studio</em>: AI-Powered Instrumentation Platform</h2>
+        <p class="card-description">Transformed behavior tracking from manual to AI-governed — reducing tracking plan review from 2 weeks to under 1 day.</p>
+        <div class="card-tags">
+          <span class="tag">Enterprise UX</span>
+          <span class="tag">Data Governance</span>
+          <span class="tag">Product Analytics</span>
+          <span class="tag">Zero-to-One</span>
+          <span class="tag">End-to-End Design</span>
+          <span class="tag">Product Strategy</span>
+        </div>
+        <div class="card-footer">
+          <span class="card-view-link">View project <span class="card-arrow">→</span></span>
+        </div>
+      </div>
+    </a>
+
+  </section>
+  
+
+  <!-- Footer/ Contact -->
+
+  <footer id="contact">
+    <div class="container-fluid">
+      <h3>Open to new opportunities, coffee chats, or collaborating on fun side-projects — <span class="footer-cta-italic">let's talk!</span></h3>
+      <div class="footer-links">
+        <a class="footer-link" href="mailto:sanjana2397@gmail.com"><i class="fas fa-envelope"></i> sanjana2397@gmail.com</a>
+        <a class="footer-link" href="https://www.linkedin.com/in/sanjana-danait/" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i> LinkedIn</a>
+      </div>
+      <hr>
+      <p>Designed and developed by Sanjana Danait with <img src="icons/claudecode-color.svg" alt="Claude Code" style="width:18px;height:18px;vertical-align:middle;display:inline-block;margin:0 3px 2px 3px"> &copy; 2026. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+  // ── Hero Rubik's Cube ──
+  const heroCube = (() => {
+    const FACE_LABELS = [
+      { image: 'images/cube-1.jpg', tint: '#C8E6C9' }, // sage green
+      { image: 'images/cube-2.jpg', tint: '#BBDEFB' }, // soft blue
+      { image: 'images/cube-3.jpg', tint: '#D1C4E9' }, // muted purple
+      { image: 'images/cube-4.jpg', tint: '#B2EBF2' }, // teal/cyan
+      { image: 'images/cube-5.jpg', tint: '#CFD8DC' }, // cool grey
+      { image: 'images/cube-6.jpg', tint: '#A5D6A7' }, // deeper green
+    ];
+
+    let renderer, threeScene, camera, cubeGroup, rafId;
+    let isHovering = false, isDragging = false;
+    let prevMouse = {x:0,y:0}, spinVel = {x:0, y:0.004};
+    let dragIntent = null, dragStart = {x:0,y:0}, hitInfo = null;
+    const DRAG_THRESHOLD = 6;
+    const raycaster = new THREE.Raycaster();
+    let cubies = [], layerAnim = null, holdTimer = 0;
+    const HOLD_TIME = 2.0, LAYER_DUR = 0.5;
+    let tileCache = [];
+
+    function loadFaceTiles(label) {
+      const TILE = 256;
+      const tint = label.tint || '#ffffff';
+      const tiles = Array.from({length:3}, () =>
+        Array.from({length:3}, () => {
+          const cv = document.createElement('canvas');
+          cv.width = cv.height = TILE;
+          cv.getContext('2d').fillStyle = tint;
+          cv.getContext('2d').fillRect(0,0,TILE,TILE);
+          return new THREE.CanvasTexture(cv);
+        })
+      );
+      if (label.image) {
+        const img = new Image();
+        img.onload = () => {
+          const full = TILE*3;
+          const scale = Math.max(full/img.naturalWidth, full/img.naturalHeight);
+          const sw = img.naturalWidth*scale, sh = img.naturalHeight*scale;
+          const ox = (full-sw)/2, oy = (full-sh)/2;
+          for (let row=0;row<3;row++) for (let col=0;col<3;col++) {
+            const cv = tiles[row][col].image;
+            const c = cv.getContext('2d');
+            c.fillStyle='#ffffff'; c.fillRect(0,0,TILE,TILE);
+            c.save(); c.translate(ox-col*TILE, oy-row*TILE); c.drawImage(img,0,0,sw,sh); c.restore();
+            c.globalAlpha=0.35; c.fillStyle=tint; c.fillRect(0,0,TILE,TILE); c.globalAlpha=1;
+            tiles[row][col].needsUpdate=true;
+          }
+        };
+        img.src = label.image;
+      }
+      return tiles;
+    }
+
+    function tileCoord(faceDir, gx, gy, gz) {
+      let u,v;
+      if (faceDir==='+x'){u=-gz;v=gy;} if (faceDir==='-x'){u=gz;v=gy;}
+      if (faceDir==='+y'){u=gx;v=-gz;} if (faceDir==='-y'){u=gx;v=gz;}
+      if (faceDir==='+z'){u=gx;v=gy;} if (faceDir==='-z'){u=-gx;v=gy;}
+      return { col:u+1, row:1-v };
+    }
+
+    function makeCubie(gx,gy,gz) {
+      const geo = new THREE.BoxGeometry(0.96,0.96,0.96);
+      const DIRS=['+x','-x','+y','-y','+z','-z'];
+      const OUTER=[gx===1,gx===-1,gy===1,gy===-1,gz===1,gz===-1];
+      const mats = DIRS.map((d,i)=>{
+        if (!OUTER[i]) return new THREE.MeshBasicMaterial({color:0xe8e8e8});
+        const {row,col}=tileCoord(d,gx,gy,gz);
+        return new THREE.MeshBasicMaterial({map:tileCache[i][row][col]});
+      });
+      const mesh = new THREE.Mesh(geo,mats);
+      mesh.position.set(gx,gy,gz);
+      mesh.add(new THREE.LineSegments(new THREE.EdgesGeometry(geo), new THREE.LineBasicMaterial({color:0x1a1a1a})));
+      return mesh;
+    }
+
+    function buildCube() {
+      cubeGroup = new THREE.Group();
+      cubeGroup.scale.setScalar(0.9);
+      cubeGroup.rotation.x = Math.PI/6;
+      cubeGroup.rotation.y = Math.PI/4;
+      cubies = [];
+      for (let x=-1;x<=1;x++) for (let y=-1;y<=1;y++) for (let z=-1;z<=1;z++) {
+        const m=makeCubie(x,y,z); cubeGroup.add(m); cubies.push({mesh:m,x,y,z});
+      }
+      threeScene.add(cubeGroup);
+    }
+
+    function startLayer(axis,layer,dir) {
+      if (layerAnim) return;
+      const pivot = new THREE.Group(); cubeGroup.add(pivot);
+      const inLayer = cubies.filter(c=>Math.round(c[axis])===layer);
+      inLayer.forEach(c=>{
+        const lp=c.mesh.position.clone(),lq=c.mesh.quaternion.clone();
+        cubeGroup.remove(c.mesh); pivot.add(c.mesh);
+        c.mesh.position.copy(lp); c.mesh.quaternion.copy(lq);
+      });
+      layerAnim={axis,dir,pivot,cubies:inLayer,progress:0};
+    }
+
+    function finishLayer() {
+      const {axis,dir,pivot,cubies:lc}=layerAnim;
+      const savedQ=cubeGroup.quaternion.clone();
+      const axVec=axis==='x'?new THREE.Vector3(1,0,0):axis==='y'?new THREE.Vector3(0,1,0):new THREE.Vector3(0,0,1);
+      const snapQ=new THREE.Quaternion().setFromAxisAngle(axVec,dir*Math.PI/2);
+      pivot.rotation.set(axis==='x'?dir*Math.PI/2:0,axis==='y'?dir*Math.PI/2:0,axis==='z'?dir*Math.PI/2:0);
+      pivot.updateMatrixWorld(true);
+      lc.forEach(c=>{
+        const lp=c.mesh.position.clone().applyMatrix4(pivot.matrix);
+        const lq=snapQ.clone().multiply(c.mesh.quaternion);
+        pivot.remove(c.mesh); cubeGroup.add(c.mesh);
+        c.mesh.position.set(Math.round(lp.x),Math.round(lp.y),Math.round(lp.z));
+        c.mesh.quaternion.copy(lq);
+        c.x=c.mesh.position.x; c.y=c.mesh.position.y; c.z=c.mesh.position.z;
+      });
+      cubeGroup.remove(pivot); cubeGroup.quaternion.copy(savedQ); layerAnim=null;
+    }
+
+    function queueRandom() {
+      const axes=['x','y','z'];
+      startLayer(axes[Math.floor(Math.random()*3)],[-1,0,1][Math.floor(Math.random()*3)],Math.random()<0.5?1:-1);
+    }
+
+    function raycastCubies(cx,cy) {
+      if (!renderer||!cubeGroup) return null;
+      const rect=document.getElementById('cube-mount').firstChild.getBoundingClientRect();
+      const ndc=new THREE.Vector2(((cx-rect.left)/rect.width)*2-1,((cy-rect.top)/rect.height)*-2+1);
+      raycaster.setFromCamera(ndc,camera);
+      const hits=raycaster.intersectObjects(cubies.map(c=>c.mesh),false);
+      if (!hits.length) return null;
+      return {cubie:cubies.find(c=>c.mesh===hits[0].object),faceNormal:hits[0].face.normal.clone()};
+    }
+
+    function resolveLayerDrag(info,dx,dy) {
+      const n=info.faceNormal.clone().applyQuaternion(info.cubie.mesh.quaternion);
+      const ax=Math.abs(n.x),ay=Math.abs(n.y),az=Math.abs(n.z);
+      const fa=ax>ay&&ax>az?'x':ay>az?'y':'z';
+      const horiz=Math.abs(dx)>=Math.abs(dy);
+      const ns=fa==='x'?Math.sign(n.x):fa==='y'?Math.sign(n.y):Math.sign(n.z);
+      let rotAxis,dir;
+      if (fa==='x'){if(horiz){rotAxis='y';dir=-ns*Math.sign(dx);}else{rotAxis='z';dir=ns*Math.sign(dy);}}
+      else if(fa==='y'){if(horiz){rotAxis='x';dir=ns*Math.sign(dx);}else{rotAxis='z';dir=-ns*Math.sign(dy);}}
+      else{if(horiz){rotAxis='y';dir=-ns*Math.sign(dx);}else{rotAxis='x';dir=ns*Math.sign(dy);}}
+      return {axis:rotAxis,layer:Math.round(info.cubie[rotAxis]),dir};
+    }
+
+    function onDown(e) {
+      isDragging=true; dragIntent=null; dragStart={x:e.clientX,y:e.clientY};
+      prevMouse={x:e.clientX,y:e.clientY}; spinVel={x:0,y:0};
+      const hit=raycastCubies(e.clientX,e.clientY);
+      const isFaceCenter=hit&&[Math.round(hit.cubie.x)===0,Math.round(hit.cubie.y)===0,Math.round(hit.cubie.z)===0].filter(Boolean).length>=2;
+      hitInfo=(hit&&!isFaceCenter)?hit:null;
+    }
+
+    function onMove(e) {
+      if (!isDragging||!cubeGroup) return;
+      const dx=e.clientX-prevMouse.x, dy=e.clientY-prevMouse.y;
+      const tdx=e.clientX-dragStart.x, tdy=e.clientY-dragStart.y;
+      if (!dragIntent) {
+        if (Math.hypot(tdx,tdy)<DRAG_THRESHOLD) return;
+        dragIntent=hitInfo?'layer':'cube';
+      }
+      if (dragIntent==='cube') {
+        const qY=new THREE.Quaternion().setFromAxisAngle(new THREE.Vector3(0,1,0),dx*0.012);
+        const qX=new THREE.Quaternion().setFromAxisAngle(new THREE.Vector3(1,0,0),dy*0.012);
+        cubeGroup.quaternion.premultiply(qY).premultiply(qX);
+        spinVel={x:dy*0.0015,y:dx*0.0015};
+      } else if (dragIntent==='layer'&&hitInfo&&!layerAnim) {
+        const move=resolveLayerDrag(hitInfo,tdx,tdy);
+        startLayer(move.axis,move.layer,move.dir);
+        dragIntent='cube'; hitInfo=null;
+      }
+      prevMouse={x:e.clientX,y:e.clientY};
+    }
+
+    function onUp() { isDragging=false; dragIntent=null; hitInfo=null; }
+
+    function init() {
+      const mount = document.getElementById('cube-mount');
+      if (!mount || renderer) return;
+
+      // Size cube to fit the right column — measure available space
+      const sz = Math.min(mount.offsetWidth || 400, 400);
+
+      const canvas = document.createElement('canvas');
+      canvas.style.cssText = `display:block; cursor:grab; border-radius:4px;`;
+      mount.appendChild(canvas);
+
+      renderer = new THREE.WebGLRenderer({canvas, antialias:true});
+      renderer.setSize(sz, sz);
+      renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+      renderer.setClearColor(0xffffff, 1);
+
+      threeScene = new THREE.Scene();
+      camera = new THREE.PerspectiveCamera(40, 1, 0.1, 100);
+      camera.position.set(0, 0, 7.5);
+
+      tileCache = FACE_LABELS.map(loadFaceTiles);
+      buildCube();
+
+      canvas.addEventListener('mouseenter', ()=>{ isHovering=true; });
+      canvas.addEventListener('mouseleave', ()=>{ isHovering=false; onUp(); });
+      canvas.addEventListener('mousedown', onDown);
+      canvas.addEventListener('mousemove', onMove);
+      canvas.addEventListener('mouseup', onUp);
+
+      let prevT=0;
+      function loop(ts) {
+        const dt=Math.min((ts-prevT)*0.001,0.05); prevT=ts;
+        if (!isHovering&&!isDragging) {
+          const qY=new THREE.Quaternion().setFromAxisAngle(new THREE.Vector3(0,1,0),spinVel.y);
+          const qX=new THREE.Quaternion().setFromAxisAngle(new THREE.Vector3(1,0,0),spinVel.x);
+          cubeGroup.quaternion.premultiply(qY).premultiply(qX);
+          spinVel.x*=0.96; spinVel.y=spinVel.y*0.98+0.004*0.02;
+        } else if (!isDragging) { spinVel.x*=0.9; spinVel.y*=0.9; }
+        if (layerAnim) {
+          layerAnim.progress+=dt/LAYER_DUR;
+          const p=Math.min(layerAnim.progress,1), ea=p<0.5?2*p*p:-1+(4-2*p)*p;
+          const ang=layerAnim.dir*Math.PI/2*ea, ax=layerAnim.axis;
+          layerAnim.pivot.rotation.set(ax==='x'?ang:0,ax==='y'?ang:0,ax==='z'?ang:0);
+          if (layerAnim.progress>=1){finishLayer();holdTimer=0;}
+        } else if (!isHovering) {
+          holdTimer+=dt;
+          if (holdTimer>=HOLD_TIME){holdTimer=0;queueRandom();}
+        } else { holdTimer=0; }
+        renderer.render(threeScene,camera);
+        rafId=requestAnimationFrame(loop);
+      }
+      rafId=requestAnimationFrame(loop);
+    }
+
+    function solve() {
+      if (!cubeGroup) return;
+      if (layerAnim) { layerAnim.cubies.forEach(c=>layerAnim.pivot.remove(c.mesh)); cubeGroup.remove(layerAnim.pivot); layerAnim=null; }
+      cubies.forEach(c=>{
+        c.mesh.geometry.dispose();
+        if (Array.isArray(c.mesh.material)) c.mesh.material.forEach(m=>m.dispose());
+        c.mesh.children.forEach(ch=>{ch.geometry&&ch.geometry.dispose();ch.material&&ch.material.dispose();});
+        cubeGroup.remove(c.mesh);
+      });
+      cubies=[];
+      for (let x=-1;x<=1;x++) for (let y=-1;y<=1;y++) for (let z=-1;z<=1;z++) {
+        const m=makeCubie(x,y,z); cubeGroup.add(m); cubies.push({mesh:m,x,y,z});
+      }
+      spinVel={x:0,y:0}; holdTimer=0;
+      const targetQ=new THREE.Quaternion().setFromEuler(new THREE.Euler(Math.PI/6,Math.PI/4,0));
+      function tween(){ cubeGroup.quaternion.slerp(targetQ,0.1); if(cubeGroup.quaternion.angleTo(targetQ)>0.001) requestAnimationFrame(tween); else cubeGroup.quaternion.copy(targetQ); }
+      tween();
+    }
+
+    function scramble() {
+      if (!cubeGroup) return;
+      const btn = document.getElementById('cube-scramble-btn');
+      if (btn && btn.disabled) return;
+      if (btn) { btn.disabled = true; btn.textContent = 'Scrambling...'; }
+      const MOVES = 10;
+      const axes = ['x','y','z'];
+      let i = 0;
+      function doNext() {
+        if (i >= MOVES) {
+          if (btn) { btn.disabled = false; btn.textContent = '⊞ Scramble'; }
+          return;
+        }
+        if (layerAnim) { setTimeout(doNext, 60); return; }
+        startLayer(axes[Math.floor(Math.random()*3)], [-1,0,1][Math.floor(Math.random()*3)], Math.random()<0.5?1:-1);
+        i++;
+        setTimeout(doNext, 180);
+      }
+      doNext();
+    }
+
+    window.addEventListener('DOMContentLoaded', init);
+    return { solve, scramble };
+  })();
+  </script>
+
+  <!-- Cursor style
+
+  <div id="cursor" class="cursor"> </div>
+
+  <script>
+    var cursor = document.getElementById("cursor");
+
+    document.onmousemove = function(e) {
+      cursor.style.left = (e.pageX) + "px";
+      cursor.style.top = (e.pageY) + "px";
+      cursor.style.display = "block";
+    }
+  </script> -->
+
+
+</body>
+
+</html>

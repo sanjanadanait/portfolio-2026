@@ -1,0 +1,1247 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  
+  <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-S3QXSR4H4Q"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-S3QXSR4H4Q');
+</script>
+  
+  <meta charset="utf-8">
+  <title>SanjanaDanait/Portfolio/Dental Practice Management SaaS Platform</title>
+  <link rel="icon" href="favicon.ico">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    /* ── Archy case study base styles ── */
+
+    .cs-body {
+      font-family: 'Manrope', sans-serif;
+      color: #1a1a1a;
+    }
+
+    .cs-body p,
+    .cs-body li,
+    .cs-body td,
+    .cs-body th {
+      font-family: 'Manrope', sans-serif;
+      font-size: 16px;
+      line-height: 1.75;
+      color: #353535;
+    }
+
+    .cs-body h1,
+    .cs-body h2,
+    .cs-body h3,
+    .cs-body h4 {
+      font-family: 'Instrument Serif', serif;
+      font-weight: 400;
+      font-style: italic;
+      color: #1a1a1a;
+    }
+
+    .cs-body h2 {
+      font-size: 2rem;
+      margin-bottom: 16px;
+    }
+
+    .cs-body h3 {
+      font-size: 1.4rem;
+      margin-bottom: 12px;
+    }
+
+    /* Reset footer h3 — overrides cs-body italic rule */
+    .cs-body footer h3 {
+      font-family: 'Manrope', sans-serif;
+      font-style: normal;
+      font-weight: 500;
+      font-size: 18px !important;
+      color: #353535;
+    }
+
+    .cs-body strong {
+      font-family: 'Manrope', sans-serif;
+      font-weight: 700;
+      color: #1a1a1a;
+    }
+
+    /* ── Chunk 4: Fixed sidebar + two-column section layout ── */
+
+    /* Fixed sidebar — vertically centered, semi-transparent bg */
+    .cs-sidebar {
+      position: fixed;
+      top: 50%;
+      transform: translateY(-50%);
+      left: 0;
+      width: 192px;
+      padding: 16px 16px 16px 20px;
+      z-index: 10;
+      background: rgba(255, 255, 255, 0.75);
+      backdrop-filter: blur(4px);
+      border-radius: 0 8px 8px 0;
+    }
+
+    .cs-sidenav {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .cs-sidenav-divider {
+      height: 1px;
+      background: #e0e0e0;
+      margin: 10px 0;
+    }
+
+    .cs-sidenav-back {
+      font-family: 'Manrope', sans-serif;
+      font-size: 12px;
+      font-weight: 500;
+      color: #9d9d9d;
+      text-decoration: none;
+      padding: 5px 0;
+      line-height: 1.4;
+      text-align: left;
+      transition: color 0.15s;
+      cursor: pointer;
+      background: none;
+      border: none;
+    }
+
+    .cs-sidenav-back:hover {
+      color: #1a1a1a;
+    }
+
+    .cs-sidenav-link {
+      font-family: 'Manrope', sans-serif;
+      font-size: 12px;
+      font-weight: 500;
+      color: #6a6a6a;
+      text-decoration: none;
+      padding: 5px 0;
+      line-height: 1.4;
+      text-align: left;
+      transition: color 0.15s;
+    }
+
+    .cs-sidenav-link:hover {
+      color: #1a1a1a;
+      text-decoration: none;
+    }
+
+    .cs-sidenav-link.active {
+      color: #1a1a1a;
+      font-weight: 700;
+    }
+
+    /* Main content wrapper — padding-left clears the fixed sidebar */
+    .cs-content {
+      padding: 48px 10% 80px 220px;
+    }
+
+    /* Each section: two-column grid — title left, body right */
+    .cs-section {
+      display: grid;
+      grid-template-columns: 300px 1fr;
+      gap: 40px;
+      align-items: start;
+      padding-top: 32px;
+      padding-bottom: 32px;
+      margin-bottom: 0;
+    }
+
+    .cs-section:last-of-type {
+      border-bottom: none;
+    }
+
+    /* Full-bleed grey background for image-heavy sections */
+    .cs-section-grey {
+      margin-left: -220px;
+      margin-right: calc(-10vw);
+      padding-left: 220px;
+      padding-right: 10vw;
+      width: calc(100% + 220px + 10vw);
+      box-sizing: border-box;
+      background: #f7f7f7;
+    }
+
+    .cs-section-heading {
+      font-family: 'Instrument Serif', serif;
+      font-size: 2rem;
+      font-weight: 400;
+      font-style: italic;
+      color: #1a1a1a;
+      line-height: 1.15;
+      margin: 0;
+      padding-top: 4px;
+      text-align: left;
+    }
+
+    .cs-section-body {
+      text-align: left;
+    }
+
+    .cs-section-body p,
+    .cs-section-body li {
+      font-family: 'Manrope', sans-serif;
+      font-size: 16px;
+      color: #353535;
+      line-height: 1.75;
+      text-align: left;
+      display: block !important;
+      width: 100%;
+      margin-bottom: 16px;
+    }
+
+    .cs-section-body h3 {
+      font-family: 'Instrument Serif', serif;
+      font-size: 1.3rem;
+      font-style: italic;
+      font-weight: 400;
+      color: #1a1a1a;
+      margin: 28px 0 12px;
+      text-align: left;
+      display: block !important;
+      width: 100%;
+    }
+
+    .cs-section-body ul {
+      padding-left: 20px;
+    }
+
+    .cs-section-body li {
+      margin-bottom: 8px;
+    }
+
+    /* Images */
+    .cs-img {
+      width: 100%;
+      border-radius: 8px;
+      display: block;
+    }
+
+    /* Sub-headings inside hi-fi section */
+    .cs-section-body .sub-heading {
+      font-family: 'Instrument Serif', serif;
+      font-size: 1.1rem;
+      font-style: italic;
+      font-weight: 400;
+      color: #1a1a1a;
+      margin: 24px 0 10px;
+      text-align: left;
+    }
+
+    /* Nav buttons */
+    .cs-nav-buttons {
+      padding: 40px 10% 80px 220px;
+    }
+
+    .cs-nav-btn {
+      font-family: 'Manrope', sans-serif;
+      font-size: 14px;
+      font-weight: 600;
+      color: #6a6a6a;
+      text-decoration: none;
+    }
+
+    .cs-nav-btn:hover {
+      color: #1a1a1a;
+      text-decoration: none;
+    }
+
+    /* ── Chunk 2: Hero ── */
+
+    .cs-hero {
+      margin-top: 57px; /* offset for fixed navbar */
+      display: flex;
+      flex-direction: column;
+    }
+
+    .cs-hero-text {
+      padding: 24px 7% 24px;
+    }
+
+    .cs-hero-title {
+      font-family: 'Instrument Serif', serif;
+      font-size: 32px;
+      font-weight: 400;
+      font-style: italic;
+      color: #1a1a1a;
+      letter-spacing: -0.5px;
+      line-height: 1.2;
+      margin: 0;
+    }
+
+    .cs-hero-subtitle {
+      font-family: 'Manrope', sans-serif;
+      font-size: 16px;
+      font-weight: 400;
+      color: #6a6a6a;
+      line-height: 1.6;
+      margin-top: 4px;
+      margin-bottom: 0;
+      display: block !important;
+      text-align: center;
+    }
+
+    .cs-hero-image {
+      width: 100%;
+    }
+
+    .cs-hero-image img {
+      width: 100%;
+      height: 80vh;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* ── Chunk 3: Metadata bar ── */
+
+    .cs-meta-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0;
+      padding: 0;
+      margin-bottom: 48px;
+    }
+
+    .cs-meta-item {
+      flex: 1 1 15%;
+      padding: 24px 24px 24px 0;
+      min-width: 120px;
+      text-align: left;
+    }
+
+    .cs-meta-item:last-child {
+      flex: 1 1 15%;
+    }
+
+    .cs-meta-label {
+      display: block;
+      font-family: 'Manrope', sans-serif;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #b0b0b0;
+      margin-bottom: 8px;
+    }
+
+    .cs-meta-value {
+      display: block;
+      font-family: 'Manrope', sans-serif;
+      font-size: 16px;
+      font-weight: 500;
+      color: #353535;
+      line-height: 1.5;
+    }
+
+    /* ── Chunk 5: Callout blocks ── */
+    .cs-callout {
+      background: #e6eeff;
+      margin-left: -220px;
+      margin-right: calc(-10vw);
+      padding: 48px 10vw 48px 220px;
+      border-radius: 0;
+      width: calc(100% + 220px + 10vw);
+      box-sizing: border-box;
+    }
+
+    .cs-callout-label {
+      font-family: 'Manrope', sans-serif;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #9d9d9d;
+      display: block;
+      margin-bottom: 16px;
+      text-align: left;
+    }
+
+    .cs-callout-text {
+      font-family: 'Manrope', sans-serif;
+      font-size: 22px;
+      font-weight: 700;
+      color: #003db8;
+      line-height: 1.45;
+      display: block;
+      text-align: left;
+    }
+
+    /* ── Chunk 6: Carousels ── */
+    .cs-carousel {
+      margin-top: 0;
+      position: relative;
+    }
+
+    .cs-carousel .carousel-inner {
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    .cs-carousel-caption {
+      font-family: 'Manrope', sans-serif;
+      font-size: 13px;
+      font-weight: 500;
+      color: #9d9d9d;
+      margin-top: 10px;
+      text-align: left;
+      display: block;
+    }
+
+    /* Dots — centered below image */
+    .cs-carousel-indicators {
+      position: absolute !important;
+      bottom: -20px !important;
+      left: 0;
+      right: 0;
+      display: flex;
+      justify-content: center;
+      margin: 0 !important;
+      padding: 0;
+      list-style: none;
+      gap: 6px;
+    }
+
+    .cs-carousel-indicators li {
+      background-color: #d0d0d0 !important;
+      width: 8px !important;
+      height: 8px !important;
+      border-radius: 50% !important;
+      border-top: 0 !important;
+      border-bottom: 0 !important;
+      margin: 0 !important;
+      cursor: pointer;
+      flex-shrink: 0;
+      display: inline-block !important;
+      opacity: 1 !important;
+    }
+
+    .cs-carousel-indicators li.active {
+      background-color: #1a1a1a !important;
+      opacity: 1 !important;
+    }
+
+    /* Both arrows — purple/blue bg, white icon */
+    .cs-carousel .carousel-control-prev,
+    .cs-carousel .carousel-control-next {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 36px;
+      height: 36px;
+      background: rgba(35, 108, 255, 0.6) !important;
+      border-radius: 50%;
+      display: flex !important;
+      align-items: center;
+      justify-content: center;
+      opacity: 1 !important;
+      z-index: 5;
+      text-decoration: none;
+      transition: background 0.15s;
+    }
+
+    .cs-carousel .carousel-control-prev { left: 12px; }
+    .cs-carousel .carousel-control-next { right: 12px; }
+
+    .cs-carousel .carousel-control-prev:hover,
+    .cs-carousel .carousel-control-next:hover {
+      background: rgba(35, 108, 255, 0.85) !important;
+      opacity: 1 !important;
+    }
+
+    /* Hide Bootstrap's default chevron icons */
+    .cs-carousel .carousel-control-prev-icon,
+    .cs-carousel .carousel-control-next-icon {
+      display: none;
+    }
+
+    .cs-carousel-arrow {
+      font-family: 'Manrope', sans-serif;
+      font-size: 16px;
+      font-weight: 700;
+      color: white;
+      line-height: 1;
+    }
+
+    /* ── Competitive Analysis — logos + insight cards ── */
+
+    .ca-logo-row {
+      display: flex;
+      gap: 32px;
+      margin-bottom: 32px;
+      align-items: flex-start;
+      width: 100%;
+    }
+
+    .ca-logo-group {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .ca-logo-group:first-child {
+      flex: 5;
+    }
+
+    .ca-logo-group:last-child {
+      flex: 3;
+    }
+
+    .ca-section-header {
+      font-family: 'Manrope', sans-serif;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: #b0b0b0;
+      display: block;
+      margin-bottom: 12px;
+      margin-top: 32px;
+    }
+
+    .ca-logos {
+      display: flex;
+      flex-wrap: nowrap;
+      gap: 6px;
+      align-items: center;
+      width: 100%;
+    }
+
+    .ca-logo {
+      height: 44px;
+      flex: 1 1 0;
+      min-width: 0;
+      border-radius: 6px;
+      border: none;
+      background: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2px 4px;
+    }
+
+    .ca-logo img {
+      max-width: 100%;
+      max-height: 28px;
+      object-fit: contain;
+    }
+
+    .ca-insight-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: auto auto;
+      gap: 14px;
+      margin-bottom: 32px;
+    }
+
+    /* First 3 cards: one each in row 1 */
+    .ca-insight-card:nth-child(4),
+    .ca-insight-card:nth-child(5) {
+      grid-column: span 1;
+    }
+
+    /* Last 2 cards: span 1.5 columns each to fill the row */
+    .ca-insight-grid {
+      grid-template-columns: repeat(6, 1fr);
+    }
+
+    .ca-insight-card:nth-child(1),
+    .ca-insight-card:nth-child(2),
+    .ca-insight-card:nth-child(3) {
+      grid-column: span 2;
+    }
+
+    .ca-insight-card:nth-child(4),
+    .ca-insight-card:nth-child(5) {
+      grid-column: span 3;
+    }
+
+    .ca-insight-card {
+      background: #f5f5f5;
+      border: none;
+      border-radius: 10px;
+      padding: 18px 20px;
+    }
+
+    .ca-insight-title {
+      font-family: 'Manrope', sans-serif;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: #1a1a1a;
+      display: block;
+      margin-bottom: 8px;
+    }
+
+    .ca-insight-body {
+      font-family: 'Manrope', sans-serif;
+      font-size: 14px;
+      font-weight: 400;
+      color: #353535;
+      line-height: 1.6;
+      display: block !important;
+      margin: 0;
+    }
+
+    .cs-img-caption {
+      font-family: 'Manrope', sans-serif !important;
+      font-size: 13px !important;
+      color: #9d9d9d !important;
+      margin-top: 8px !important;
+      margin-bottom: 28px !important;
+      display: block !important;
+      text-align: left;
+    }
+
+    /* Design Reasoning slide header — title + decision + caption above image */
+    .cs-di-slide-header {
+      margin-bottom: 12px;
+    }
+
+    .cs-di-slide-title {
+      font-family: 'Instrument Serif', serif !important;
+      font-size: 1.4rem !important;
+      font-style: italic;
+      font-weight: 400;
+      color: #1a1a1a;
+      display: block !important;
+      margin-top: 0 !important;
+      margin-bottom: 8px !important;
+    }
+
+    /* Caption above image inside carousel items */
+    .cs-carousel-item-caption {
+      font-family: 'Manrope', sans-serif;
+      font-size: 12px;
+      font-weight: 500;
+      color: #6a6a6a;
+      display: block;
+      margin-bottom: 10px;
+      text-align: left;
+    }
+
+    /* ── Chunk 7: Typography and spacing ── */
+    .cs-img {
+      margin-top: 20px;
+      margin-bottom: 20px;
+    }
+
+    .cs-section-body h3 {
+      margin-bottom: 20px;
+    }
+  </style>
+
+  <!-- CSS Stylesheets -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link rel="stylesheet" href="css/styles.css">
+
+  <!-- Favicon -->
+  <link rel="icon" href="favicon.ico">
+
+  <!-- Font Awesome -->
+  <script defer src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
+
+  <!-- Bootstrap Scripts -->
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+</head>
+
+
+<body class="cs-body">
+
+  <!-- Section-1 Nav Bar -->
+
+  <section class="section-1" id="navbar">
+
+    <div class="container-fluid">
+
+      <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+        <div class="container">
+
+          <a class="navbar-brand" href="index.html">
+            Sanjana <em>Danait</em>
+          </a>
+
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+
+            <ul class="navbar-nav ml-auto">
+              <li class="nav-item">
+                <a class="nav-link" href="work.html">Work</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="about.html">About</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#contact">Contact</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="sanjanadanait-resume.pdf" target="_blank" rel="noopener noreferrer">Resume</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+      </nav>
+    </div>
+  </section>
+
+  <!-- Hero -->
+
+  <section class="cs-hero">
+    <div class="cs-hero-text">
+      <h1 class="cs-hero-title">Archy: Dental Practice Management Platform</h1>
+      <p class="cs-hero-subtitle">Led end-to-end design of a healthcare SaaS platform from zero to shipped — helping Archy raise $10M+ in seed funding.</p>
+    </div>
+    <div class="cs-hero-image">
+      <img src="images/archy-1.jpg" alt="Archy platform screenshot">
+    </div>
+  </section>
+
+  <!-- Fixed sidebar nav -->
+  <aside class="cs-sidebar">
+    <nav class="cs-sidenav">
+      <a class="cs-sidenav-link active" href="#overview">Overview</a>
+      <a class="cs-sidenav-link" href="#solution">Final Designs & Impact</a>
+      <a class="cs-sidenav-link" href="#research">Research</a>
+      <a class="cs-sidenav-link" href="#competitive-analysis">Competitive Analysis</a>
+      <a class="cs-sidenav-link" href="#features">Feature Prioritization</a>
+      <a class="cs-sidenav-link" href="#design-system">Design System</a>
+      <a class="cs-sidenav-link" href="#designs-impact">Design Reasoning</a>
+      <a class="cs-sidenav-link" href="#takeaways">Takeaways</a>
+      <div class="cs-sidenav-divider"></div>
+      <button class="cs-sidenav-back" onclick="window.scrollTo({top:0,behavior:'smooth'})">Back to Top</button>
+    </nav>
+  </aside>
+
+  <!-- Main content -->
+  <main class="cs-content">
+
+    <!-- Metadata bar -->
+    <div class="cs-meta-bar">
+      <div class="cs-meta-item">
+        <span class="cs-meta-label">Role</span>
+        <span class="cs-meta-value">Lead Product Designer — sole designer, end-to-end</span>
+      </div>
+      <div class="cs-meta-item">
+        <span class="cs-meta-label">Timeline</span>
+        <span class="cs-meta-value">April 2021 – June 2022 (14 months)</span>
+      </div>
+      <div class="cs-meta-item">
+        <span class="cs-meta-label">Client</span>
+        <span class="cs-meta-value"><a href="https://www.linkedin.com/company/archydental/" target="_blank" rel="noopener noreferrer" style="color:#353535;text-decoration:underline;">Archy</a>, USA<br><span style="font-size:14px;color:#9d9d9d;">POC: Jonathan Rat</span></span>
+      </div>
+      <div class="cs-meta-item">
+        <span class="cs-meta-label">Tools</span>
+        <span class="cs-meta-value">Figma, Miro, Jira</span>
+      </div>
+    </div>
+
+      <!-- Overview -->
+
+      <div id="overview" class="cs-section cs-section-grey">
+        <h2 class="cs-section-heading">Overview</h2>
+        <div class="cs-section-body">
+          <p>Archy is a cloud-based dental practice management platform I designed from scratch over 14 months as the sole designer — spanning practice management, patient engagement, billing, imaging, and payroll across more than a hundred screens.</p>
+          <p>The dental industry runs on infrastructure that hasn't meaningfully changed in 30 years. Dentrix — the market leader since 1982 — requires over 50 clicks to process a single insurance claim. Dental staff don't hate their software because they're tech-averse; they hate it because it was never designed for the way they actually work.</p>
+          <p>Archy's brief was to replace that. My job was to design something dental staff would actually want to use — and to ship it fast enough for a seed-stage startup to raise on.</p>
+        </div>
+      </div>
+
+      <!-- Callout: Project Brief -->
+      <div class="cs-callout">
+        <span class="cs-callout-label">Project Brief</span>
+        <span class="cs-callout-text">How might we revolutionize dental practice management by replacing fragmented, legacy systems with a unified, cloud-based ecosystem?</span>
+      </div>
+
+      <!-- Solution -->
+
+      <div id="solution" class="cs-section">
+        <h2 class="cs-section-heading">Final Designs &amp; Impact</h2>
+        <div class="cs-section-body">
+          <p>Before diving into the process — here's a glimpse of what shipped across six of the thirteen product domains.</p>
+
+          <div id="carousel-solution" class="carousel slide cs-carousel" data-ride="carousel" data-interval="4000">
+            <ol class="carousel-indicators cs-carousel-indicators">
+              <li data-target="#carousel-solution" data-slide-to="0" class="active"></li>
+              <li data-target="#carousel-solution" data-slide-to="1"></li>
+              <li data-target="#carousel-solution" data-slide-to="2"></li>
+              <li data-target="#carousel-solution" data-slide-to="3"></li>
+              <li data-target="#carousel-solution" data-slide-to="4"></li>
+              <li data-target="#carousel-solution" data-slide-to="5"></li>
+            </ol>
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <span class="cs-carousel-item-caption">Scheduling — room view and doctor view in a single toggle, with patient details surfaced on demand.</span>
+                <img class="cs-img" src="images/archy-scheduling.png" alt="Scheduling">
+              </div>
+              <div class="carousel-item">
+                <span class="cs-carousel-item-caption">Odontogram charting — tooth status, procedures, and treatment plans in a single unified view.</span>
+                <img class="cs-img" src="images/archy-charting.png" alt="Charting">
+              </div>
+              <div class="carousel-item">
+                <span class="cs-carousel-item-caption">Treatment planning — proposed, accepted, and completed procedures tracked across visits in one place.</span>
+                <img class="cs-img" src="images/archy-treatment-planning.png" alt="Treatment Planning">
+              </div>
+              <div class="carousel-item">
+                <span class="cs-carousel-item-caption">Imaging — X-rays and intraoral scans integrated directly into the patient chart, no third-party tools.</span>
+                <img class="cs-img" src="images/archy-xray.png" alt="X-ray Imaging">
+              </div>
+              <div class="carousel-item">
+                <span class="cs-carousel-item-caption">Messaging — two-way communication between practice and patients, surfaced in the scheduling workflow.</span>
+                <img class="cs-img" src="images/archy-messaging.png" alt="Messaging">
+              </div>
+              <div class="carousel-item">
+                <span class="cs-carousel-item-caption">Patient portal — paperless intake, insurance, and appointment management from mobile.</span>
+                <img class="cs-img" src="images/archy-patient-portal.png" alt="Patient Portal">
+              </div>
+            </div>
+            <a class="carousel-control-prev cs-carousel-prev" href="#carousel-solution" role="button" data-slide="prev">
+              <span class="cs-carousel-arrow">←</span>
+            </a>
+            <a class="carousel-control-next cs-carousel-next" href="#carousel-solution" role="button" data-slide="next">
+              <span class="cs-carousel-arrow">→</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Research -->
+
+      <div id="research" class="cs-section">
+        <h2 class="cs-section-heading">Research</h2>
+        <div class="cs-section-body">
+          <p>Dental practices have two distinct user groups with almost no overlap in their daily workflows: the practice itself (dentists, front office, billing specialists, dental assistants) and their patients. Designing for both from a single platform meant the information architecture had to serve radically different mental models simultaneously.</p>
+          <p>I conducted user interviews and synthesized findings from Archy’s existing client relationships to build personas for each role.</p>
+
+          <!-- Carousel 1: Personas -->
+          <h3>User Personas</h3>
+          <div id="carousel-personas" class="carousel slide cs-carousel" data-ride="carousel" data-interval="3500">
+            <ol class="carousel-indicators cs-carousel-indicators">
+              <li data-target="#carousel-personas" data-slide-to="0" class="active"></li>
+              <li data-target="#carousel-personas" data-slide-to="1"></li>
+              <li data-target="#carousel-personas" data-slide-to="2"></li>
+            </ol>
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <img class="cs-img" src="images/archy-user-types.png" alt="User types">
+              </div>
+              <div class="carousel-item">
+                <img class="cs-img" src="images/archy-user-personas-1.png" alt="Direct user personas">
+              </div>
+              <div class="carousel-item">
+                <img class="cs-img" src="images/archy-user-personas-2.png" alt="Patient personas">
+              </div>
+            </div>
+            <a class="carousel-control-prev cs-carousel-prev" href="#carousel-personas" role="button" data-slide="prev">
+              <span class="cs-carousel-arrow">←</span>
+            </a>
+            <a class="carousel-control-next cs-carousel-next" href="#carousel-personas" role="button" data-slide="next">
+              <span class="cs-carousel-arrow">→</span>
+            </a>
+          </div>
+
+          <h3>User Journeys</h3>
+          <!-- Carousel 2: User Journey Maps -->
+          <div id="carousel-ujm" class="carousel slide cs-carousel" data-ride="carousel" data-interval="3500">
+            <ol class="carousel-indicators cs-carousel-indicators">
+              <li data-target="#carousel-ujm" data-slide-to="0" class="active"></li>
+              <li data-target="#carousel-ujm" data-slide-to="1"></li>
+              <li data-target="#carousel-ujm" data-slide-to="2"></li>
+              <li data-target="#carousel-ujm" data-slide-to="3"></li>
+            </ol>
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <img class="cs-img" src="images/archy-ujm-dentist.png" alt="User journey map - dentist">
+              </div>
+              <div class="carousel-item">
+                <img class="cs-img" src="images/archy-ujm-receptionist.png" alt="User journey map - receptionist">
+              </div>
+              <div class="carousel-item">
+                <img class="cs-img" src="images/archy-ujm-dental-assistant.png" alt="User journey map - dental assistant">
+              </div>
+              <div class="carousel-item">
+                <img class="cs-img" src="images/archy-ujm-patient.png" alt="User journey map - patient">
+              </div>
+            </div>
+            <a class="carousel-control-prev cs-carousel-prev" href="#carousel-ujm" role="button" data-slide="prev">
+              <span class="cs-carousel-arrow">←</span>
+            </a>
+            <a class="carousel-control-next cs-carousel-next" href="#carousel-ujm" role="button" data-slide="next">
+              <span class="cs-carousel-arrow">→</span>
+            </a>
+          </div>
+          <p><em>Angela's day revealed that dentists think in patient context, not schedule slots — which led us to make patient details surfaceable directly from the calendar card without navigating away.</em></p>
+          <p><em>Jennifer's workflow showed that back-office staff switch contexts constantly mid-task — which led us to use persistent side drawers rather than modals for charting and patient records.</em></p>
+        </div>
+      </div>
+
+      <!-- Competitive Analysis -->
+
+      <div id="competitive-analysis" class="cs-section">
+        <h2 class="cs-section-heading">Competitive Analysis</h2>
+        <div class="cs-section-body">
+          <p style="margin-bottom: 32px;">The dental software market is dominated by tools built in the 1980s and 90s that have been patched rather than redesigned. I analyzed eight products — established players and newer entrants — to identify where the market was vulnerable and where Archy had an opening.</p>
+
+          <!-- Competitor logos -->
+          <div class="ca-logo-row">
+            <div class="ca-logo-group">
+              <span class="ca-section-header" style="margin-top:0;">Established Players</span>
+              <div class="ca-logos">
+                <div class="ca-logo legacy"><img src="images/logos/dentrix-logo.png" alt="Dentrix"></div>
+                <div class="ca-logo legacy"><img src="images/logos/mogo-logo.png" alt="Mogo"></div>
+                <div class="ca-logo legacy"><img src="images/logos/eaglesoft-logo.jpg" alt="Eaglesoft"></div>
+                <div class="ca-logo legacy"><img src="images/logos/carestream-dental-logo.png" alt="Carestream"></div>
+                <div class="ca-logo legacy"><img src="images/logos/opendental-logo.png" alt="Open Dental"></div>
+              </div>
+            </div>
+            <div class="ca-logo-group">
+              <span class="ca-section-header" style="margin-top:0;">Newer Entrants</span>
+              <div class="ca-logos">
+                <div class="ca-logo modern"><img src="images/logos/curve-logo.svg" alt="Curve"></div>
+                <div class="ca-logo modern"><img src="images/logos/identalsoft-logo.png" alt="iDentalSoft"></div>
+                <div class="ca-logo modern"><img src="images/logos/carestack-logo.svg" alt="CareStack"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Key Insight cards -->
+          <span class="ca-section-header">Key Insights</span>
+          <div class="ca-insight-grid">
+            <div class="ca-insight-card">
+              <span class="ca-insight-title">Cloud Adoption</span>
+              <span class="ca-insight-body">Only three competitors — Dentrix, Carestream, and Curve — offered cloud-based solutions with full feature parity.</span>
+            </div>
+            <div class="ca-insight-card">
+              <span class="ca-insight-title">Legacy Friction</span>
+              <span class="ca-insight-body">Market leaders suffered from outdated UI and high cognitive load — simple tasks like claim processing required 50+ clicks.</span>
+            </div>
+            <div class="ca-insight-card">
+              <span class="ca-insight-title">Integration Costs</span>
+              <span class="ca-insight-body">Top-tier tools like Open Dental relied on expensive third-party integrations for core needs like X-rays and payroll.</span>
+            </div>
+            <div class="ca-insight-card">
+              <span class="ca-insight-title">Functional Gaps</span>
+              <span class="ca-insight-body">Most products lacked basic automation (e.g. auto-calculating age), leading to frequent user input errors.</span>
+            </div>
+            <div class="ca-insight-card">
+              <span class="ca-insight-title">Emerging Threats</span>
+              <span class="ca-insight-body">Newer players like Curve and CareStack posed the biggest threat due to superior UX and advanced analytics.</span>
+            </div>
+          </div>
+
+          <!-- Feature comparison table -->
+          <span class="ca-section-header">Feature analysis of existing players</span>
+          <img class="cs-img" src="images/archy-competitive-analysis-1.png" alt="Competitive analysis table">
+
+          <!-- Product screenshots -->
+          <span class="ca-section-header">Product and UX review of existing players</span>
+
+          <div id="carousel-competitive" class="carousel slide cs-carousel" data-ride="carousel" data-interval="3500">
+            <ol class="carousel-indicators cs-carousel-indicators">
+              <li data-target="#carousel-competitive" data-slide-to="0" class="active"></li>
+              <li data-target="#carousel-competitive" data-slide-to="1"></li>
+            </ol>
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <img class="cs-img" src="images/archy-competitive-analysis-2.png" alt="Competitive analysis screenshots">
+              </div>
+              <div class="carousel-item">
+                <img class="cs-img" src="images/archy-competitive-analysis-3.png" alt="Competitive analysis screenshots">
+              </div>
+            </div>
+            <a class="carousel-control-prev cs-carousel-prev" href="#carousel-competitive" role="button" data-slide="prev">
+              <span class="cs-carousel-arrow">←</span>
+            </a>
+            <a class="carousel-control-next cs-carousel-next" href="#carousel-competitive" role="button" data-slide="next">
+              <span class="cs-carousel-arrow">→</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Callout: Key Question -->
+      <div class="cs-callout">
+        <span class="cs-callout-label">The next most important question</span>
+        <span class="cs-callout-text">What features do we absolutely need to build for the MVP? What are the most critical — without which the product cannot ship?</span>
+      </div>
+
+      <!-- Feature Prioritization -->
+
+      <div id="features" class="cs-section cs-section-grey">
+        <h2 class="cs-section-heading">Feature Prioritization</h2>
+        <div class="cs-section-body">
+          <p>From the competitive analysis and user research, I mapped features against a Must Have / Should Have / Could Have / Won't Have framework to define the MVP scope. The non-negotiables were the domains where legacy software was most painful: scheduling, charting, claims, and patient management. Everything else was phased.</p>
+          <a href="images/archy-features-1.png" target="_blank" rel="noopener noreferrer">
+            <img class="cs-img" src="images/archy-features-1.png" alt="Feature prioritization matrix">
+          </a>
+        </div>
+      </div>
+
+
+      <!-- Design System -->
+
+      <div id="design-system" class="cs-section">
+        <h2 class="cs-section-heading">Design System</h2>
+        <div class="cs-section-body">
+          <p>With 13 product domains and a single designer, the design system wasn't optional — it was how I stayed consistent without slowing down. I built the component library in Figma from the first wireframe iteration, adding states and variants as new domains introduced new interaction patterns.</p>
+          <p>Color rationale: blue and teal for credibility and clinical authority — the same associations dental staff already bring to medical software — with semantic color reserved for status indicators across scheduling, claims, and pre-auth, where color-coding directly reduces cognitive load during high-volume workflows.</p>
+          <div id="carousel-design-system" class="carousel slide cs-carousel" data-ride="carousel">
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <img class="cs-img" src="images/archy-design-system.png" alt="Archy design system">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Callout: Impact Metrics -->
+      <div class="cs-callout">
+        <span class="cs-callout-label">Impact</span>
+        <span class="cs-callout-text">[PLACEHOLDER — Sanjana to add impact metrics here]</span>
+      </div>
+
+      <!-- Designs & Impact -->
+
+      <div id="designs-impact" class="cs-section">
+        <h2 class="cs-section-heading">Design Reasoning</h2>
+        <div class="cs-section-body">
+
+          <div id="carousel-design-reasoning" class="carousel slide cs-carousel" data-ride="carousel" data-interval="5000">
+            <ol class="carousel-indicators cs-carousel-indicators">
+              <li data-target="#carousel-design-reasoning" data-slide-to="0" class="active"></li>
+              <li data-target="#carousel-design-reasoning" data-slide-to="1"></li>
+              <li data-target="#carousel-design-reasoning" data-slide-to="2"></li>
+              <li data-target="#carousel-design-reasoning" data-slide-to="3"></li>
+              <li data-target="#carousel-design-reasoning" data-slide-to="4"></li>
+              <li data-target="#carousel-design-reasoning" data-slide-to="5"></li>
+              <li data-target="#carousel-design-reasoning" data-slide-to="6"></li>
+              <li data-target="#carousel-design-reasoning" data-slide-to="7"></li>
+              <li data-target="#carousel-design-reasoning" data-slide-to="8"></li>
+              <li data-target="#carousel-design-reasoning" data-slide-to="9"></li>
+              <li data-target="#carousel-design-reasoning" data-slide-to="10"></li>
+              <li data-target="#carousel-design-reasoning" data-slide-to="11"></li>
+            </ol>
+            <div class="carousel-inner">
+
+              <div class="carousel-item active">
+                <div class="cs-di-slide-header">
+                  <h3 class="cs-di-slide-title">Scheduling</h3>
+                  <span class="cs-carousel-item-caption">Built a role-based toggle between room view and doctor view — dentists default to their own schedule while front-desk staff see room availability across the practice.</span>
+                </div>
+                <img class="cs-img" src="images/archy-scheduling.png" alt="Scheduling">
+              </div>
+
+              <div class="carousel-item">
+                <div class="cs-di-slide-header">
+                  <h3 class="cs-di-slide-title">Charting &amp; Odontogram</h3>
+                  <span class="cs-carousel-item-caption">Used a persistent side panel instead of a modal so dental assistants can enter procedures without losing sight of the full tooth chart.</span>
+                </div>
+                <img class="cs-img" src="images/archy-charting.png" alt="Charting">
+              </div>
+
+              <div class="carousel-item">
+                <div class="cs-di-slide-header">
+                  <h3 class="cs-di-slide-title">Treatment Planning</h3>
+                  <span class="cs-carousel-item-caption">Proposed, accepted, and completed procedures tracked in one view across visits — reducing the need to cross-reference paper charts or separate tools.</span>
+                </div>
+                <img class="cs-img" src="images/archy-treatment-planning.png" alt="Treatment planning">
+              </div>
+
+              <div class="carousel-item">
+                <div class="cs-di-slide-header">
+                  <h3 class="cs-di-slide-title">Insurance &amp; Claims</h3>
+                  <span class="cs-carousel-item-caption">Submitted claims with inline status tracking and payer details — reviewed without navigating away from the list.</span>
+                </div>
+                <img class="cs-img" src="images/archy-claims-submitted.png" alt="Claims submitted">
+              </div>
+
+              <div class="carousel-item">
+                <div class="cs-di-slide-header">
+                  <h3 class="cs-di-slide-title">Insurance &amp; Claims</h3>
+                  <span class="cs-carousel-item-caption">Expand-in-place EOB rows let billing specialists review claim details without losing their position in the list — replacing the legacy pattern of 50+ clicks per claim.</span>
+                </div>
+                <img class="cs-img" src="images/archy-claims-completed.png" alt="Claims completed">
+              </div>
+
+              <div class="carousel-item">
+                <div class="cs-di-slide-header">
+                  <h3 class="cs-di-slide-title">Employee Payroll Management</h3>
+                  <span class="cs-carousel-item-caption">Automated payroll with deductions and overtime — replacing paper timesheets and manual calculations that had no audit trail.</span>
+                </div>
+                <img class="cs-img" src="images/archy-payroll.png" alt="Payroll">
+              </div>
+
+              <div class="carousel-item">
+                <div class="cs-di-slide-header">
+                  <h3 class="cs-di-slide-title">Employee Payroll Management</h3>
+                  <span class="cs-carousel-item-caption">Time analytics surfaced for practice managers — hours, overtime, and attendance in one view, previously tracked across spreadsheets.</span>
+                </div>
+                <img class="cs-img" src="images/archy-time-analytics.png" alt="Time analytics">
+              </div>
+
+              <div class="carousel-item">
+                <div class="cs-di-slide-header">
+                  <h3 class="cs-di-slide-title">Patient Portal</h3>
+                  <span class="cs-carousel-item-caption">Multi-step intake wizard instead of a single long form — pilot testing showed patients abandoned the long form at high rates; chunked steps with progress indicators cut abandonment significantly.</span>
+                </div>
+                <img class="cs-img" src="images/archy-patient-portal.png" alt="Patient portal">
+              </div>
+
+              <div class="carousel-item">
+                <div class="cs-di-slide-header">
+                  <h3 class="cs-di-slide-title">Patient Portal</h3>
+                  <span class="cs-carousel-item-caption">[PLACEHOLDER — add caption for family management screen]</span>
+                </div>
+                <img class="cs-img" src="images/archy-family.png" alt="Family management">
+              </div>
+
+              <div class="carousel-item">
+                <div class="cs-di-slide-header">
+                  <h3 class="cs-di-slide-title">Patient Engagement</h3>
+                  <span class="cs-carousel-item-caption">Two-way messaging between practice and patients surfaced directly in the scheduling workflow — reducing phone tag and keeping communication in context.</span>
+                </div>
+                <img class="cs-img" src="images/archy-messaging.png" alt="Messaging">
+              </div>
+
+              <div class="carousel-item">
+                <div class="cs-di-slide-header">
+                  <h3 class="cs-di-slide-title">Imaging</h3>
+                  <span class="cs-carousel-item-caption">X-ray viewer integrated directly into the patient chart — no switching to a third-party tool, annotations saved alongside the record.</span>
+                </div>
+                <img class="cs-img" src="images/archy-xray.png" alt="X-rays">
+              </div>
+
+              <div class="carousel-item">
+                <div class="cs-di-slide-header">
+                  <h3 class="cs-di-slide-title">Imaging</h3>
+                  <span class="cs-carousel-item-caption">Intraoral camera captures linked to the patient record in real time — replacing the manual process of exporting, renaming, and re-importing images.</span>
+                </div>
+                <img class="cs-img" src="images/archy-intraoral.png" alt="Intraoral imaging">
+              </div>
+
+            </div>
+            <a class="carousel-control-prev cs-carousel-prev" href="#carousel-design-reasoning" role="button" data-slide="prev"><span class="cs-carousel-arrow">←</span></a>
+            <a class="carousel-control-next cs-carousel-next" href="#carousel-design-reasoning" role="button" data-slide="next"><span class="cs-carousel-arrow">→</span></a>
+          </div>
+
+        </div><!-- end cs-section-body for designs-impact -->
+      </div><!-- end designs-impact cs-section -->
+
+      <!-- Takeaways -->
+
+      <div id="takeaways" class="cs-section">
+        <h2 class="cs-section-heading">Takeaways</h2>
+        <div class="cs-section-body">
+          <p>
+            Three things I carry from Archy into my current work:
+          </p>
+          <p>
+            <strong>Designing for expert users in high-stakes domains requires earning their trust before asking for their time.</strong> Dental staff using Archy were skeptical of new software — they'd been burned before. Every design decision I made had to feel obviously correct within the first ten seconds of use.
+          </p>
+          <p>
+            <strong>Scope discipline under constraint is a design skill.</strong> With 13 product domains, one designer, and a startup timeline, I had to make hard calls about what got depth and what got breadth. The decisions I'm most proud of are the ones where I said no to good ideas because better ones needed the cycles.
+          </p>
+          <p>
+            <strong>The architecture training shows up most in information architecture</strong> — in asking "how does a person move through this system over a full day" rather than "how do they complete this task." Dental staff aren't doing one thing; they're navigating a platform all day. Designing for that sustained context is a different problem than designing for a single flow.
+          </p>
+        </div>
+      </div>
+
+  </main>
+
+  <!-- Nav buttons -->
+  <div class="cs-nav-buttons">
+    <a class="cs-nav-btn" href="work.html">← Work</a>
+  </div>
+
+
+  <!-- Footer/ Contact -->
+
+  <footer id="contact">
+    <div class="container-fluid">
+      <h3>Open to new opportunities, coffee chats, or collaborating on fun side-projects — <span class="footer-cta-italic">let's talk!</span></h3>
+      <div class="footer-links">
+        <a class="footer-link" href="mailto:sanjana2397@gmail.com"><i class="fas fa-envelope"></i> sanjana2397@gmail.com</a>
+        <a class="footer-link" href="https://www.linkedin.com/in/sanjana-danait/" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i> LinkedIn</a>
+      </div>
+      <hr>
+      <p>Designed and developed by Sanjana Danait with <img src="icons/claudecode-color.svg" alt="Claude Code" style="width:18px;height:18px;vertical-align:middle;display:inline-block;margin:0 3px 2px 3px"> &copy; 2026. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- Carousel: pause on hover, resume on leave -->
+  <script>
+    document.querySelectorAll('.cs-carousel').forEach(function(el) {
+      el.addEventListener('mouseenter', function() {
+        $(el).carousel('pause');
+      });
+      el.addEventListener('mouseleave', function() {
+        $(el).carousel('cycle');
+      });
+    });
+  </script>
+
+  <!-- Scroll-spy for sidebar nav -->
+  <script>
+    (function() {
+      const sections = document.querySelectorAll('.cs-section[id]');
+      const navLinks = document.querySelectorAll('.cs-sidenav-link');
+
+      function onScroll() {
+        const threshold = window.innerHeight * 0.5; // highlight when section top crosses 50% down from viewport top
+        let current = '';
+        sections.forEach(section => {
+          const rect = section.getBoundingClientRect();
+          if (rect.top <= threshold) {
+            current = section.getAttribute('id');
+          }
+        });
+        navLinks.forEach(link => {
+          link.classList.remove('active');
+          if (link.getAttribute('href') === '#' + current) {
+            link.classList.add('active');
+          }
+        });
+      }
+
+      window.addEventListener('scroll', onScroll, { passive: true });
+      onScroll();
+    })();
+  </script>
+
+
+  <!-- Cursor style
+
+    <div id="cursor" class="cursor"> </div>
+
+    <script>
+      var cursor = document.getElementById("cursor");
+
+      document.onmousemove = function(e){
+        cursor.style.left = (e.pageX) + "px";
+        cursor.style.top = (e.pageY) + "px";
+        cursor.style.display = "block"
+      }
+
+    </script> -->
+
+</body>
+
+</html>

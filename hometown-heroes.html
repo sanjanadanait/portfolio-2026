@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-S3QXSR4H4Q"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-S3QXSR4H4Q');
+  </script>
+
+  <meta charset="utf-8">
+  <title>SanjanaDanait / Hometown Heroes: Musician Growth Platform</title>
+  <link rel="icon" href="favicon.ico">
+
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    /* ── Case study base styles (shared with archy.html) ── */
+    .cs-body { font-family: 'Manrope', sans-serif; color: #1a1a1a; }
+    .cs-body p, .cs-body li, .cs-body td, .cs-body th { font-family: 'Manrope', sans-serif; font-size: 16px; line-height: 1.75; color: #353535; }
+    .cs-body h1, .cs-body h2, .cs-body h3, .cs-body h4 { font-family: 'Instrument Serif', serif; font-weight: 400; font-style: italic; color: #1a1a1a; }
+    .cs-body h2 { font-size: 2rem; margin-bottom: 16px; }
+    .cs-body h3 { font-size: 1.4rem; margin-bottom: 12px; }
+    .cs-body footer h3 { font-family: 'Manrope', sans-serif; font-style: normal; font-weight: 500; font-size: 18px !important; color: #353535; }
+    .cs-body strong { font-family: 'Manrope', sans-serif; font-weight: 700; color: #1a1a1a; }
+
+    /* Sidebar */
+    .cs-sidebar { position: fixed; top: 50%; transform: translateY(-50%); left: 0; width: 148px; padding: 16px 16px 16px 20px; z-index: 10; background: rgba(255,255,255,0.75); backdrop-filter: blur(4px); border-radius: 0 8px 8px 0; }
+    .cs-sidenav { display: flex; flex-direction: column; gap: 2px; }
+    .cs-sidenav-divider { height: 1px; background: #e0e0e0; margin: 10px 0; }
+    .cs-sidenav-back { font-family: 'Manrope', sans-serif; font-size: 12px; font-weight: 500; color: #9d9d9d; text-decoration: none; padding: 5px 0; line-height: 1.4; text-align: left; transition: color 0.15s; cursor: pointer; background: none; border: none; }
+    .cs-sidenav-back:hover { color: #1a1a1a; }
+    .cs-sidenav-link { font-family: 'Manrope', sans-serif; font-size: 12px; font-weight: 500; color: #6a6a6a; text-decoration: none; padding: 5px 0; line-height: 1.4; text-align: left; transition: color 0.15s; }
+    .cs-sidenav-link:hover { color: #1a1a1a; text-decoration: none; }
+    .cs-sidenav-link.active { color: #1a1a1a; font-weight: 700; }
+
+    /* Content */
+    .cs-content { padding: 48px 7% 80px 168px; }
+    .cs-section { display: grid; grid-template-columns: 220px 1fr; gap: 40px; align-items: start; padding-top: 32px; padding-bottom: 32px; }
+    .cs-section:last-of-type { border-bottom: none; }
+    .cs-section-heading { font-family: 'Instrument Serif', serif; font-size: 2rem; font-weight: 400; font-style: italic; color: #1a1a1a; line-height: 1.15; margin: 0; padding-top: 4px; text-align: left; }
+    .cs-section-body { text-align: left; }
+    .cs-section-body p, .cs-section-body li { font-family: 'Manrope', sans-serif; font-size: 16px; color: #353535; line-height: 1.75; text-align: left; display: block !important; width: 100%; margin-bottom: 16px; }
+    .cs-section-body h3 { font-family: 'Instrument Serif', serif; font-size: 1.3rem; font-style: italic; font-weight: 400; color: #1a1a1a; margin: 28px 0 12px; text-align: left; display: block !important; width: 100%; }
+    .cs-section-body ul { padding-left: 20px; }
+    .cs-section-body li { margin-bottom: 8px; }
+    .cs-img { width: 100%; border-radius: 8px; display: block; }
+
+    /* Nav buttons */
+    .cs-nav-buttons { padding: 40px 7% 80px 168px; }
+    .cs-nav-btn { font-family: 'Manrope', sans-serif; font-size: 14px; font-weight: 600; color: #6a6a6a; text-decoration: none; }
+    .cs-nav-btn:hover { color: #1a1a1a; text-decoration: none; }
+
+    /* Hero */
+    .cs-hero { margin-top: 57px; display: flex; flex-direction: column; }
+    .cs-hero-text { padding: 32px 7% 24px; }
+    .cs-hero-title { font-family: 'Instrument Serif', serif; font-size: 32px; font-weight: 400; font-style: italic; color: #1a1a1a; letter-spacing: -0.5px; line-height: 1.2; margin: 0; }
+    .cs-hero-image { width: 100%; }
+    .cs-hero-image-placeholder { width: 100%; height: 80vh; background: #f5f5f0; display: flex; align-items: center; justify-content: center; font-family: 'Manrope', sans-serif; font-size: 13px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: #b0b0b0; }
+
+    /* Metadata bar */
+    .cs-meta-bar { display: flex; flex-wrap: wrap; gap: 0; padding: 0; margin-bottom: 48px; }
+    .cs-meta-item { flex: 1 1 15%; padding: 24px 24px 24px 0; min-width: 120px; text-align: left; }
+    .cs-meta-item:last-child { flex: 1.5 1 20%; }
+    .cs-meta-label { display: block; font-family: 'Manrope', sans-serif; font-size: 12px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: #b0b0b0; margin-bottom: 8px; }
+    .cs-meta-value { display: block; font-family: 'Manrope', sans-serif; font-size: 14px; font-weight: 500; color: #353535; line-height: 1.5; }
+
+    /* Callout */
+    .cs-callout { background: #f0f4ff; margin: 0 -7% 0 -168px; padding: 48px 7% 48px 168px; }
+    .cs-callout-label { font-family: 'Manrope', sans-serif; font-size: 12px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: #9d9d9d; display: block; margin-bottom: 16px; text-align: left; }
+    .cs-callout-text { font-family: 'Manrope', sans-serif; font-size: 22px; font-weight: 700; color: #236cff; line-height: 1.45; display: block; text-align: left; }
+
+    /* Placeholder section */
+    .cs-placeholder { background: #fafafa; border-radius: 8px; height: 200px; display: flex; align-items: center; justify-content: center; font-family: 'Manrope', sans-serif; font-size: 13px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: #c0c0c0; margin-bottom: 16px; }
+  </style>
+
+  <!-- CSS Stylesheets -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link rel="stylesheet" href="css/styles.css">
+  <script defer src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</head>
+
+<body class="cs-body">
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">Sanjana <em>Danait</em></a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggler">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarToggler">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item"><a class="nav-link" href="work.html">Work</a></li>
+          <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="index.html#contact">Contact</a></li>
+          <li class="nav-item"><a class="nav-link" href="sanjanadanait-resume.pdf" target="_blank" rel="noopener noreferrer">Resume</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Fixed sidebar -->
+  <aside class="cs-sidebar">
+    <nav class="cs-sidenav">
+      <a class="cs-sidenav-link active" href="#overview">Overview</a>
+      <a class="cs-sidenav-link" href="#problem">Problem</a>
+      <a class="cs-sidenav-link" href="#solution">Solution</a>
+      <a class="cs-sidenav-link" href="#process">Process</a>
+      <a class="cs-sidenav-link" href="#outcomes">Outcomes</a>
+      <a class="cs-sidenav-link" href="#takeaways">Takeaways</a>
+      <div class="cs-sidenav-divider"></div>
+      <button class="cs-sidenav-back" onclick="window.scrollTo({top:0,behavior:'smooth'})">Back to Top</button>
+    </nav>
+  </aside>
+
+  <!-- Hero -->
+  <div class="cs-hero">
+    <div class="cs-hero-text">
+      <h1 class="cs-hero-title">Hometown Heroes: Musician Growth Platform</h1>
+    </div>
+    <div class="cs-hero-image">
+      <div class="cs-hero-image-placeholder">Hero image coming soon</div>
+    </div>
+  </div>
+
+  <!-- Main content -->
+  <main class="cs-content">
+
+    <!-- Metadata bar -->
+    <div class="cs-meta-bar">
+      <div class="cs-meta-item">
+        <span class="cs-meta-label">Role</span>
+        <span class="cs-meta-value">UX Designer</span>
+      </div>
+      <div class="cs-meta-item">
+        <span class="cs-meta-label">Timeline</span>
+        <span class="cs-meta-value">Sep 2024 – Dec 2024</span>
+      </div>
+      <div class="cs-meta-item">
+        <span class="cs-meta-label">Company</span>
+        <span class="cs-meta-value">UMD / Academic Project</span>
+      </div>
+      <div class="cs-meta-item">
+        <span class="cs-meta-label">Team</span>
+        <span class="cs-meta-value">INST 728: User Experience</span>
+      </div>
+      <div class="cs-meta-item">
+        <span class="cs-meta-label">Tools</span>
+        <span class="cs-meta-value">Figma, Miro</span>
+      </div>
+    </div>
+
+    <!-- Callout -->
+    <div class="cs-callout">
+      <span class="cs-callout-label">Project Brief</span>
+      <span class="cs-callout-text">How might we connect local communities with grassroots artists and civic organizers — making it easy to discover, support, and grow local talent?</span>
+    </div>
+
+    <!-- Overview -->
+    <div id="overview" class="cs-section">
+      <h2 class="cs-section-heading">Overview</h2>
+      <div class="cs-section-body">
+        <div class="cs-placeholder">Content coming soon</div>
+      </div>
+    </div>
+
+    <!-- Problem -->
+    <div id="problem" class="cs-section">
+      <h2 class="cs-section-heading">Problem</h2>
+      <div class="cs-section-body">
+        <div class="cs-placeholder">Content coming soon</div>
+      </div>
+    </div>
+
+    <!-- Solution -->
+    <div id="solution" class="cs-section">
+      <h2 class="cs-section-heading">Solution</h2>
+      <div class="cs-section-body">
+        <div class="cs-placeholder">Content coming soon</div>
+      </div>
+    </div>
+
+    <!-- Process -->
+    <div id="process" class="cs-section">
+      <h2 class="cs-section-heading">Process</h2>
+      <div class="cs-section-body">
+        <div class="cs-placeholder">Content coming soon</div>
+      </div>
+    </div>
+
+    <!-- Outcomes -->
+    <div id="outcomes" class="cs-section">
+      <h2 class="cs-section-heading">Outcomes</h2>
+      <div class="cs-section-body">
+        <div class="cs-placeholder">Content coming soon</div>
+      </div>
+    </div>
+
+    <!-- Takeaways -->
+    <div id="takeaways" class="cs-section">
+      <h2 class="cs-section-heading">Takeaways</h2>
+      <div class="cs-section-body">
+        <div class="cs-placeholder">Content coming soon</div>
+      </div>
+    </div>
+
+  </main>
+
+  <div class="cs-nav-buttons">
+    <a class="cs-nav-btn" href="work.html">← Work</a>
+  </div>
+
+  <!-- Footer -->
+  <footer id="contact">
+    <div class="container-fluid">
+      <h3>Open to new opportunities, coffee chats, or collaborating on fun side-projects — <span class="footer-cta-italic">let's talk!</span></h3>
+      <div class="footer-links">
+        <a class="footer-link" href="mailto:sanjana2397@gmail.com"><i class="fas fa-envelope"></i> sanjana2397@gmail.com</a>
+        <a class="footer-link" href="https://www.linkedin.com/in/sanjana-danait/" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i> LinkedIn</a>
+      </div>
+      <hr>
+      <p>Designed and developed by Sanjana Danait with <img src="icons/claudecode-color.svg" alt="Claude Code" style="width:18px;height:18px;vertical-align:middle;display:inline-block;margin:0 3px 2px 3px"> &copy; 2026. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Scroll-spy
+    const sections = document.querySelectorAll('.cs-section[id]');
+    const navLinks = document.querySelectorAll('.cs-sidenav-link');
+    window.addEventListener('scroll', () => {
+      const threshold = window.innerHeight * 0.5;
+      let current = '';
+      sections.forEach(section => {
+        const rect = section.getBoundingClientRect();
+        if (rect.top <= threshold) current = section.getAttribute('id');
+      });
+      navLinks.forEach(link => {
+        link.classList.toggle('active', link.getAttribute('href') === '#' + current);
+      });
+    });
+  </script>
+
+</body>
+</html>

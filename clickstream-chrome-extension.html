@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-S3QXSR4H4Q"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-S3QXSR4H4Q');
+  </script>
+
+  <meta charset="utf-8">
+  <title>SanjanaDanait / Clickstream Event Explorer: Chrome Extension</title>
+  <link rel="icon" href="favicon.ico">
+
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    /* ── Case study base styles ── */
+    .cs-body { font-family: 'Manrope', sans-serif; color: #1a1a1a; }
+    .cs-body p, .cs-body li, .cs-body td, .cs-body th { font-family: 'Manrope', sans-serif; font-size: 16px; line-height: 1.75; color: #353535; }
+    .cs-body h1, .cs-body h2, .cs-body h3, .cs-body h4 { font-family: 'Instrument Serif', serif; font-weight: 400; font-style: italic; color: #1a1a1a; }
+    .cs-body h2 { font-size: 2rem; margin-bottom: 16px; }
+    .cs-body h3 { font-size: 1.4rem; margin-bottom: 12px; }
+    .cs-body footer h3 { font-family: 'Manrope', sans-serif; font-style: normal; font-weight: 500; font-size: 18px !important; color: #353535; }
+    .cs-body strong { font-family: 'Manrope', sans-serif; font-weight: 700; color: #1a1a1a; }
+
+    /* Sidebar */
+    .cs-sidebar { position: fixed; top: 50%; transform: translateY(-50%); left: 0; width: 148px; padding: 16px 16px 16px 20px; z-index: 10; background: rgba(255,255,255,0.75); backdrop-filter: blur(4px); border-radius: 0 8px 8px 0; }
+    .cs-sidenav { display: flex; flex-direction: column; gap: 2px; }
+    .cs-sidenav-divider { height: 1px; background: #e0e0e0; margin: 10px 0; }
+    .cs-sidenav-back { font-family: 'Manrope', sans-serif; font-size: 12px; font-weight: 500; color: #9d9d9d; text-decoration: none; padding: 5px 0; line-height: 1.4; text-align: left; transition: color 0.15s; cursor: pointer; background: none; border: none; }
+    .cs-sidenav-back:hover { color: #1a1a1a; }
+    .cs-sidenav-link { font-family: 'Manrope', sans-serif; font-size: 12px; font-weight: 500; color: #6a6a6a; text-decoration: none; padding: 5px 0; line-height: 1.4; text-align: left; transition: color 0.15s; }
+    .cs-sidenav-link:hover { color: #1a1a1a; text-decoration: none; }
+    .cs-sidenav-link.active { color: #1a1a1a; font-weight: 700; }
+
+    /* Content */
+    .cs-content { padding: 48px 10% 80px 180px; }
+    .cs-section { display: grid; grid-template-columns: 250px 1fr; gap: 28px; align-items: start; padding-top: 40px; padding-bottom: 40px; }
+    .cs-section-heading { font-family: 'Instrument Serif', serif; font-size: 2rem; font-weight: 400; font-style: italic; color: #1a1a1a; line-height: 1.15; margin: 0; padding-top: 4px; text-align: left; }
+    .cs-section-body { text-align: left; }
+    .cs-section-body p { font-family: 'Manrope', sans-serif; font-size: 16px; color: #353535; line-height: 1.75; text-align: left; display: block !important; width: 100%; margin-bottom: 16px; }
+    .cs-section-body h3 { font-family: 'Instrument Serif', serif; font-size: 1.3rem; font-style: italic; font-weight: 400; color: #1a1a1a; margin: 56px 0 12px; text-align: left; display: block !important; width: 100%; }
+    .cs-section-body h3:first-child { margin-top: 0; }
+    .cs-section-body ul { padding-left: 20px; margin-bottom: 16px; }
+    .cs-section-body li { font-family: 'Manrope', sans-serif; font-size: 16px; color: #353535; line-height: 1.75; display: block !important; margin-bottom: 8px; }
+    .cs-img { width: 100%; border-radius: 8px; display: block; margin-bottom: 8px; }
+
+    /* Grey section full-bleed */
+    .cs-section-grey {
+      margin-left: -220px;
+      margin-right: calc(-10vw);
+      padding-left: 220px;
+      padding-right: 10vw;
+      width: calc(100% + 220px + 10vw);
+      box-sizing: border-box;
+      background: #f7f7f7;
+    }
+
+    /* Hero */
+    .cs-hero { margin-top: 57px; display: flex; flex-direction: column; }
+    .cs-hero-text { padding: 24px 7% 24px; }
+    .cs-hero-title { font-family: 'Instrument Serif', serif; font-size: 32px; font-weight: 400; font-style: italic; color: #1a1a1a; letter-spacing: -0.5px; line-height: 1.2; margin: 0 0 8px; }
+    .cs-hero-subtitle { font-family: 'Manrope', sans-serif; font-size: 16px; color: #6a6a6a; line-height: 1.5; margin: 0; display: block !important; }
+    .cs-hero-image-placeholder { width: 100%; height: 80vh; background: #e6eeff; display: flex; align-items: center; justify-content: center; font-family: 'Manrope', sans-serif; font-size: 13px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: #b0b0b0; }
+
+    /* Metadata bar */
+    .cs-meta-bar { display: flex; flex-wrap: wrap; gap: 0; padding: 0; margin-bottom: 48px; }
+    .cs-meta-item { flex: 1 1 15%; padding: 24px 24px 24px 0; min-width: 120px; text-align: left; }
+    .cs-meta-label { display: block; font-family: 'Manrope', sans-serif; font-size: 12px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: #b0b0b0; margin-bottom: 8px; }
+    .cs-meta-value { display: block; font-family: 'Manrope', sans-serif; font-size: 16px; font-weight: 500; color: #353535; line-height: 1.5; }
+    .cs-meta-value a { color: #236cff; text-decoration: none; }
+    .cs-meta-value a:hover { text-decoration: underline; }
+
+    /* Callout — full bleed */
+    .cs-callout {
+      background: linear-gradient(to bottom right, #F0F9FF, #E8FFF1);
+      margin-left: -220px;
+      margin-right: calc(-10vw);
+      padding: 48px 10vw 48px 220px;
+      width: calc(100% + 220px + 10vw);
+      box-sizing: border-box;
+      margin-bottom: 0;
+    }
+    .cs-callout-label { font-family: 'Manrope', sans-serif; font-size: 12px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: #9d9d9d; display: block; margin-bottom: 16px; text-align: left; }
+    .cs-callout-text { font-family: 'Manrope', sans-serif; font-size: 22px; font-weight: 700; color: #236cff; line-height: 1.45; display: block; text-align: left; }
+
+    /* Image placeholder */
+    .cs-img-placeholder { width: 100%; border-radius: 8px; background: #f0f4ff; display: flex; align-items: center; justify-content: center; font-family: 'Manrope', sans-serif; font-size: 12px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; color: #b0b0b0; margin-bottom: 8px; min-height: 320px; }
+    .cs-img-placeholder.tall { min-height: 480px; }
+    .cs-img-caption { font-family: 'Manrope', sans-serif; font-size: 13px; color: #9d9d9d; line-height: 1.5; display: block !important; margin-bottom: 32px; text-align: center; }
+
+    /* Carousel */
+    .cs-carousel { margin-top: 0; position: relative; }
+    .cs-carousel .carousel-inner { border-radius: 8px; overflow: hidden; }
+    .cs-carousel-item-caption { font-family: 'Manrope', sans-serif; font-size: 13px; font-weight: 500; color: #9d9d9d; display: block !important; text-align: left; padding: 0 0 10px; }
+
+    /* Dots — same style as CEX (static, below image) */
+    .cs-carousel-indicators { position: absolute !important; bottom: -20px !important; left: 0; right: 0; display: flex; justify-content: center; margin: 0 !important; padding: 0; list-style: none; gap: 6px; }
+    .cs-carousel-indicators li { background-color: #d0d0d0 !important; width: 8px !important; height: 8px !important; border-radius: 50% !important; border-top: 0 !important; border-bottom: 0 !important; margin: 0 !important; cursor: pointer; flex-shrink: 0; display: inline-block !important; opacity: 1 !important; }
+    .cs-carousel-indicators li.active { background-color: #1a1a1a !important; opacity: 1 !important; }
+
+    /* Arrows — purple circles, same as archy */
+    .cs-carousel .carousel-control-prev,
+    .cs-carousel .carousel-control-next { position: absolute; top: 50%; transform: translateY(-50%); width: 36px; height: 36px; background: rgba(35,108,255,0.6) !important; border-radius: 50%; display: flex !important; align-items: center; justify-content: center; opacity: 1 !important; z-index: 5; text-decoration: none; transition: background 0.15s; }
+    .cs-carousel .carousel-control-prev { left: 12px; }
+    .cs-carousel .carousel-control-next { right: 12px; }
+    .cs-carousel .carousel-control-prev:hover,
+    .cs-carousel .carousel-control-next:hover { background: rgba(35,108,255,0.85) !important; opacity: 1 !important; }
+    .cs-carousel .carousel-control-prev-icon,
+    .cs-carousel .carousel-control-next-icon { display: none; }
+    .cs-carousel-arrow { font-family: 'Manrope', sans-serif; font-size: 16px; font-weight: 700; color: white; line-height: 1; }
+
+    /* Quote cards */
+    .cs-quote-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin: 24px 0 16px; }
+    .cs-quote-card { background: #f5f5f5; border-radius: 12px; padding: 28px 24px 18px; position: relative; overflow: visible; }
+    .cs-quote-card.full-width { grid-column: 1 / -1; }
+    .cs-quote-mark { font-family: 'EB Garamond', serif; font-weight: 700; font-size: 60px; line-height: 1; color: #236cff; position: absolute; top: -16px; left: -12px; display: block; }
+    .cs-quote-text { font-family: 'Manrope', sans-serif; font-size: 14px; font-style: italic; color: #353535; line-height: 1.65; display: block !important; margin-bottom: 10px; }
+    .cs-quote-attr { font-family: 'Manrope', sans-serif; font-size: 12px; font-weight: 600; color: #9d9d9d; text-transform: uppercase; letter-spacing: 0.5px; display: block !important; }
+
+    /* Research finding cards */
+    .cs-finding-list { display: flex; flex-direction: column; gap: 16px; margin: 24px 0 8px; }
+    .cs-finding-card { background: #fff; border-radius: 10px; border: 1px solid #e8e8e8; padding: 24px 28px; }
+    .cs-finding-number { font-family: 'Manrope', sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: #236cff; display: block !important; margin-bottom: 8px; }
+    .cs-finding-headline { font-family: 'Manrope', sans-serif; font-size: 15px; font-weight: 700; color: #1a1a1a; display: block !important; margin-bottom: 10px; line-height: 1.4; }
+    .cs-finding-body { font-family: 'Manrope', sans-serif; font-size: 15px; color: #353535; line-height: 1.7; display: block !important; margin: 0; }
+
+    /* Nav buttons */
+    .cs-nav-buttons { padding: 40px 10% 80px 220px; }
+    .cs-nav-btn { font-family: 'Manrope', sans-serif; font-size: 14px; font-weight: 600; color: #6a6a6a; text-decoration: none; }
+    .cs-nav-btn:hover { color: #1a1a1a; text-decoration: none; }
+  </style>
+
+  <!-- CSS Stylesheets -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link rel="stylesheet" href="css/styles.css">
+  <script defer src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</head>
+
+<body class="cs-body">
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">Sanjana <em>Danait</em></a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggler">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarToggler">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item"><a class="nav-link" href="work.html">Work</a></li>
+          <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="index.html#contact">Contact</a></li>
+          <li class="nav-item"><a class="nav-link" href="sanjanadanait-resume.pdf" target="_blank" rel="noopener noreferrer">Resume</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Fixed sidebar -->
+  <aside class="cs-sidebar">
+    <nav class="cs-sidenav">
+      <a class="cs-sidenav-link active" href="#overview">Overview</a>
+      <a class="cs-sidenav-link" href="#solution">Final Designs & Impact</a>
+      <a class="cs-sidenav-link" href="#research">Research</a>
+      <a class="cs-sidenav-link" href="#design-process">Design Decisions</a>
+      <a class="cs-sidenav-link" href="#prototype">Prototype & Alignment</a>
+      <a class="cs-sidenav-link" href="#deep-dive">Design Deep Dive</a>
+      <a class="cs-sidenav-link" href="#reflection">Reflection</a>
+      <div class="cs-sidenav-divider"></div>
+      <button class="cs-sidenav-back" onclick="window.scrollTo({top:0,behavior:'smooth'})">Back to Top</button>
+    </nav>
+  </aside>
+
+  <!-- Hero -->
+  <div class="cs-hero">
+    <div class="cs-hero-text">
+      <h1 class="cs-hero-title">Clickstream Event Explorer: Chrome Extension</h1>
+      <span class="cs-hero-subtitle">A Chrome extension that brought real-time event validation inside the browser — no more dev tools archaeology.</span>
+    </div>
+    <img src="images/cex-hero.png" alt="Clickstream Event Explorer" style="width:100%;display:block;">
+  </div>
+
+  <!-- Main content -->
+  <main class="cs-content">
+
+    <!-- Metadata bar -->
+    <div class="cs-meta-bar">
+      <div class="cs-meta-item">
+        <span class="cs-meta-label">Role</span>
+        <span class="cs-meta-value">Lead Product Designer — sole designer, end-to-end</span>
+      </div>
+      <div class="cs-meta-item">
+        <span class="cs-meta-label">Timeline</span>
+        <span class="cs-meta-value">Nov 2025 – April 2026 (Research → Beta → GA)</span>
+      </div>
+      <div class="cs-meta-item">
+        <span class="cs-meta-label">Platform</span>
+        <span class="cs-meta-value">Web — Chrome Extension</span>
+      </div>
+      <div class="cs-meta-item">
+        <span class="cs-meta-label">Tools</span>
+        <span class="cs-meta-value">Figma, FigmaMake, V0, Cursor, Claude</span>
+      </div>
+    </div>
+
+    <!-- Project Brief callout -->
+    <!-- Overview -->
+    <div id="overview" class="cs-section cs-section-grey">
+      <h2 class="cs-section-heading">Overview</h2>
+      <div class="cs-section-body">
+        <p>Every time a PM or analyst at Intuit ships a new feature, they need to <strong>verify that the right tracking events are firing — and that the data attached to those events is correct.</strong> The standard workaround was the browser's developer tools Network tab: filter through hundreds of raw network calls, click into each, and cross-reference nested JSON against a taxonomy document — one event at a time. <strong>On pages with multiple tracking calls, this could take an hour.</strong> Some PMs didn't have the technical fluency to do it at all, which meant <strong>validation either got skipped or depended on an engineer.</strong></p>
+        <p>This friction showed up consistently in the contextual inquiry sessions the PM and I ran as part of a broader instrumentation platform overhaul. We observed <strong>every persona — PM, analyst, developer — hit the same wall at the validation and discovery step</strong> — one of the most time-consuming parts of the workflow, and the most addressable with a focused solution.</p>
+        <p>My role was to lead the full design cycle: framing the problem in research, building the prototype that secured director and VP-level alignment, co-authoring the PRD with the PM, and driving UAT through to the GA release in April 2026.</p>
+      </div>
+    </div>
+
+    <div class="cs-callout">
+      <span class="cs-callout-label">Project Brief</span>
+      <span class="cs-callout-text">How might we give PMs, analysts, and engineers, visibility into product events — so they can discover and validate instrumentation quickly and easily?</span>
+    </div>
+
+    <!-- Final Designs & Impact -->
+    <div id="solution" class="cs-section">
+      <h2 class="cs-section-heading">Final Designs & Impact</h2>
+      <div class="cs-section-body">
+        <p>The Clickstream Event Explorer (CEX) is a Chrome side panel that captures every tracking event firing on any Intuit product page in real time — parsed, labeled, and organized the moment it fires.</p>
+
+        <!-- Carousel -->
+        <div id="carousel-cex" class="carousel slide cs-carousel" data-ride="carousel" data-interval="4000" style="margin-bottom: 8px;">
+          <ol class="carousel-indicators cs-carousel-indicators">
+            <li data-target="#carousel-cex" data-slide-to="0" class="active"></li>
+            <li data-target="#carousel-cex" data-slide-to="1"></li>
+            <li data-target="#carousel-cex" data-slide-to="2"></li>
+            <li data-target="#carousel-cex" data-slide-to="3"></li>
+            <li data-target="#carousel-cex" data-slide-to="4"></li>
+          </ol>
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <span class="cs-carousel-item-caption">The side panel stays docked to the page you're working in — no context switch, no separate window.</span>
+              <img src="images/cex-final-design-1.png" alt="CEX panel open alongside a live Intuit product page" class="cs-img">
+            </div>
+            <div class="carousel-item">
+              <span class="cs-carousel-item-caption">Events auto-parsed into three property groups — validate taxonomy compliance without touching a JSON tree.</span>
+              <img src="images/cex-final-design-2.png" alt="Expanded event card showing property groups" class="cs-img">
+            </div>
+            <div class="carousel-item">
+              <span class="cs-carousel-item-caption">Select up to 10 events and open them directly in Amplitude — pre-loaded, ready for funnel or chart analysis.</span>
+              <img src="images/cex-final-design-3.png" alt="Multi-event selection with Chart in Amplitude CTA" class="cs-img">
+            </div>
+            <div class="carousel-item">
+              <span class="cs-carousel-item-caption">Filter by interaction type or widget to cut through noise on high-volume pages.</span>
+              <img src="images/cex-final-design-4.png" alt="Expanded event card showing data lake table and web plugin indicators" class="cs-img">
+            </div>
+            <div class="carousel-item">
+              <span class="cs-carousel-item-caption">Search by event ID lets users zero in on a specific event without clearing the session.</span>
+              <img src="images/cex-final-design-5.png" alt="Filter panel with UI Action and Widget filters" class="cs-img">
+            </div>
+          </div>
+          <a class="carousel-control-prev cs-carousel-prev" href="#carousel-cex" role="button" data-slide="prev">
+            <span class="cs-carousel-arrow">←</span>
+          </a>
+          <a class="carousel-control-next cs-carousel-next" href="#carousel-cex" role="button" data-slide="next">
+            <span class="cs-carousel-arrow">→</span>
+          </a>
+        </div>
+
+        <h3 style="margin-top: 48px;">Impact</h3>
+        <p>CEX launched in GA in April 2026 and is live in Intuit's Chrome Web Store. The March 2026 beta was used by Consumer Group analytics and Marketing Operations teams during tax season — a high-stakes, time-pressured context — before the full GA release.</p>
+        <p>Within days of launch, users were sharing the extension unprompted across developer and PM channels. The spread was peer-to-peer, not mandated.</p>
+
+        <div class="cs-quote-grid">
+          <div class="cs-quote-card">
+            <span class="cs-quote-mark">“</span>
+            <span class="cs-quote-text">Hey folks, check out this CEX. I'm working on clickstream validation right now and this is going to save me a ton of time.</span>
+            <span class="cs-quote-attr">Senior Software Engineer</span>
+          </div>
+          <div class="cs-quote-card">
+            <span class="cs-quote-mark">“</span>
+            <span class="cs-quote-text">omg the clickstream extension is exactly what I needed — thank you</span>
+            <span class="cs-quote-attr">Senior Staff Data Scientist</span>
+          </div>
+          <div class="cs-quote-card">
+            <span class="cs-quote-mark">“</span>
+            <span class="cs-quote-text">So nice! Love the filters on properties and widgets.</span>
+            <span class="cs-quote-attr">Principal Data Scientist</span>
+          </div>
+          <div class="cs-quote-card">
+            <span class="cs-quote-mark">“</span>
+            <span class="cs-quote-text">It's awesome! I also shared it in the CG PM channel as well.</span>
+            <span class="cs-quote-attr">Staff PM</span>
+          </div>
+          <div class="cs-quote-card full-width">
+            <span class="cs-quote-mark">“</span>
+            <span class="cs-quote-text">Wow — the ability to expand an event and see the full JSON. The link to the corresponding plugin! The filters are super helpful.</span>
+            <span class="cs-quote-attr">Staff Software Engineer</span>
+          </div>
+        </div>
+        <p>The feedback came unprompted from across all three target personas — PMs, data scientists, and engineers — within the first week of the GA launch.</p>
+      </div>
+    </div>
+
+    <!-- Callout: Research -->
+    <div class="cs-callout">
+      <span class="cs-callout-text">We knew the workflow was broken. But before designing anything, I needed to understand: whose workflow exactly, and where was the real wall?</span>
+    </div>
+
+    <!-- Research -->
+    <div id="research" class="cs-section cs-section-grey">
+      <h2 class="cs-section-heading">Research</h2>
+      <div class="cs-section-body">
+        <p>In Nov 2025, the PM and I ran contextual inquiry sessions with PMs, analysts, and developers across TurboTax, QuickBooks, and Mailchimp. We watched people try to validate and discover events as part of their actual workflows, not in a lab setting.</p>
+        <p>Three findings directly shaped the MVP:</p>
+
+        <div class="cs-finding-list">
+          <div class="cs-finding-card">
+            <span class="cs-finding-number">Finding 01</span>
+            <span class="cs-finding-headline">PMs and developers were stuck in the same painful loop, for different reasons.</span>
+            <span class="cs-finding-body">Developers knew dev tools well enough to navigate them, but validating a single event still required expanding multiple layers of raw JSON and repeating the process for every event on the page. Some PMs largely avoided dev tools altogether — their only path was to ask an engineer, which introduced delays and dependencies that shouldn't exist for a routine pre-launch check.</span>
+          </div>
+          <div class="cs-finding-card">
+            <span class="cs-finding-number">Finding 02</span>
+            <span class="cs-finding-headline">Analysts had a compounding problem: discovery came before validation.</span>
+            <span class="cs-finding-body">Before analysts could validate anything, they first needed to figure out what was already instrumented on a page they didn't own. Finding the downstream data lake table for an event meant asking a data engineer. Finding which internal web plugin an event belonged to meant hunting through documentation. Both were multi-hour detours that should have been instant lookups.</span>
+          </div>
+          <div class="cs-finding-card">
+            <span class="cs-finding-number">Finding 03</span>
+            <span class="cs-finding-headline">The structured property view was the core unlock.</span>
+            <span class="cs-finding-body">PMs didn't need raw JSON — they needed events automatically parsed into readable tiers: the required ECS standard properties (action, object, scope_area, etc.), domain-level context properties, and custom business-specific fields. Separating these three groups meant PMs could scan for what they needed without wading through noise that was only relevant to developers.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Design Process -->
+    <div id="design-process" class="cs-section">
+      <h2 class="cs-section-heading">Design Decisions</h2>
+      <div class="cs-section-body">
+        <h3><span style="font-size:1.8rem; margin-right:8px;">01.</span> Side panel, not a separate popup window</h3>
+        <p>The predecessor tool, Data Buddy, opened as a separate floating window. In practice, users were constantly toggling between the tool and the product they were testing — losing their place each time. I chose the side panel layout to keep the event stream and the product page visible simultaneously. It's the only layout that actually supports real-time validation: interact with the page, watch events appear, without ever switching contexts.</p>
+        <p>This decision had significant downstream implications. A docked panel at 350px wide is a fundamentally different design surface than a full browser tab — it forced every component decision toward compactness.</p>
+
+        <img src="images/cex-design-decision-1.png" alt="Previous tool with floating window vs New chrome extension side panel docked layout comparison" class="cs-img" style="width:100%; border-radius:8px;">
+        <span class="cs-img-caption">Separate window vs. side panel in same window — keeping both the event stream and the live page in view simultaneously.</span>
+
+        <h3><span style="font-size:1.8rem; margin-right:8px;">02.</span> Designing for density — borrowing from tooling, not product UI</h3>
+        <p>Intuit's design system is built for consumer-facing surfaces: larger type, generous spacing, comfortable touch targets. None of that scales to an event inspector panel where a single card needs to show a host of information, both, in the collapsed state and in the expanded state.</p>
+        <p>I developed a custom theme within the Intuit design System, taking direct inspiration from Chrome DevTools and other code editor interfaces — both of which have solved the same problem: surfacing dense technical information for expert users in a compact, scannable format. Smaller type, tighter row spacing, monospace labels for property names and values. This wasn't a deviation from the design system — it was an extension of it for a context the system wasn't originally designed for.</p>
+
+        <img src="images/cex-design-decision-2.png" alt="Standard Intuit design system component vs custom compact component comparison" class="cs-img" style="width:100%; border-radius:8px;">
+        <span class="cs-img-caption">Standard IDS spacing vs. the custom compact theme — both standards-compliant, built for different reading contexts.</span>
+
+        <h3><span style="font-size:1.8rem; margin-right:8px;">03.</span> What I scoped out and why</h3>
+        <p><strong>Discovery mode — the visual overlay.</strong> The prototype included a mode where all instrumented UI elements on a page would be visually highlighted, letting users see what was tracked without triggering anything. It was the strongest-rated concept in testing. But it required an inference pipeline and data engineering resources that didn't exist for the MVP. Shipping a working validation experience first — rather than waiting for the full vision — was the right call. Discovery mode is on the roadmap.</p>
+
+        <video src="images/cex-design-decision-3.mp4" class="cs-img" style="width:100%; border-radius:8px;" autoplay muted loop playsinline></video>
+        <span class="cs-img-caption">The strongest concept in testing — deferred to a future release in favour of shipping the validation experience first.</span>
+
+        <p><strong>Inline edit link — platform integration.</strong> Users wanted a button to jump from a captured event directly into the platform to edit event specs. I deprioritized this because we were actively replacing the existing tool with a new platform (Clickstream Studio), and building the integration into the old tool would have created throwaway work.</p>
+
+        <h3><span style="font-size:1.8rem; margin-right:8px;">04.</span> The Amplitude deep-link — reprioritized after beta</h3>
+        <p>The direct jump to Amplitude was in my initial prototype but scoped for a later release. After the beta, it surfaced as the single most-requested fast-follow from users: validate that an event fires, then immediately chart it in Amplitude — without copying event names, switching tabs, and rebuilding the query from scratch. I worked with the PM to move it into the GA scope. It shipped in April 2026 and was widely appreciated by the PM community.</p>
+
+        <video src="images/cex-design-decision-4-edited.mp4" class="cs-img" style="width:100%; border-radius:8px;" autoplay muted loop playsinline></video>
+        <span class="cs-img-caption">The Amplitude deep-link — validate an event fires, then immediately chart it without switching tabs or rebuilding the query.</span>
+      </div>
+    </div>
+
+    <!-- Callout: Prototype & Alignment -->
+    <div class="cs-callout">
+      <span class="cs-callout-text">Static screens show layout. They can't show the moment an event appears the instant you click something. How do you get leadership aligned on a felt experience, not a feature list?</span>
+    </div>
+
+    <!-- Prototype & Alignment -->
+    <div id="prototype" class="cs-section cs-section-grey">
+      <h2 class="cs-section-heading">Prototype & Alignment</h2>
+      <div class="cs-section-body">
+        <p>I used FigmaMake and V0 to vibe-code the extension running against a reconstructed Mailchimp homepage — giving stakeholders a real interaction, not a walkthrough.</p>
+        <p>The question shifted from "will this be useful?" to "when can we ship this?" The prototype was shown to VPs and Directors of Product Management and Engineering for Data & Analytics. It removed the need to explain why structured property parsing mattered or why the side panel was the right call — both were self-evident. It also surfaced the consistent multi-event selection ask, which is what put the Amplitude deep-link back on the MVP roadmap.</p>
+
+        <video src="images/cex-prototype-1.mp4" class="cs-img" style="width:100%; border-radius:8px;" autoplay muted loop playsinline></video>
+        <span class="cs-img-caption">Interactive FigmaMake prototype that ran in a browser against a reconstructed Mailchimp product page — giving stakeholders a real interaction, not a walkthrough.</span>
+      </div>
+    </div>
+
+    <!-- Design Deep Dive -->
+    <div id="deep-dive" class="cs-section">
+      <h2 class="cs-section-heading">Design Deep Dive</h2>
+      <div class="cs-section-body">
+        <h3>The event card: from raw beacon to readable validation</h3>
+
+        <img src="images/cex-design-deep-dive-1.png" alt="Chrome DevTools Network tab vs. CEX event card" class="cs-img">
+        <span class="cs-img-caption">The same event, two views. DevTools requires 4+ clicks and JSON literacy. CEX is readable on first glance.</span>
+
+        <img src="images/cex-design-deep-dive-2.png" alt="Structured properties view vs raw event payload view - each serves a separate user" class="cs-img">
+        <span class="cs-img-caption">Three property tiers, always separated — PMs validate taxonomy; developers inspect raw payloads; analysts find their table and plugin in one place.</span>
+
+        <h3>Search and filter</h3>
+        <p>On a page with 30+ events in a session, the list itself becomes noise. Search by event ID lets users zero in on a specific event without clearing the session. Filters let them narrow by interaction type or widget name.</p>
+
+        <img src="images/cex-design-deep-dive-3.png" alt="Search, filtering and settings - controls that let users narrow down on events and customize their view" class="cs-img">
+        <span class="cs-img-caption">Search, filtering and settings - controls that let users narrow down on events and customize their view</span>
+
+        <h3>Shipping with an interactive product tour</h3>
+        <p>No matter how focused or simple a tool is, first-time users shouldn't have to go find documentation to understand it. I pushed for us to hold the GA release until we had an interactive product tour in place — one that surfaces the main features in context, the first time a user opens the extension. The goal was to make the value immediately legible without any external onboarding material.</p>
+        <video src="images/cex-design-deep-dive-4.mp4" style="width:25%; border-radius:8px; display:block; margin-bottom:8px;" autoplay muted loop playsinline></video>
+        <span class="cs-img-caption">The interactive product tour walks users through CEX's core features on first launch — no docs, no handholding from the team.</span>
+      </div>
+    </div>
+
+    <!-- Reflection -->
+    <div id="reflection" class="cs-section cs-section-grey">
+      <h2 class="cs-section-heading">Reflection</h2>
+      <div class="cs-section-body">
+        <div class="cs-finding-list">
+          <div class="cs-finding-card">
+            <span class="cs-finding-number">01</span>
+            <span class="cs-finding-headline">Scope the MVP by resource cost, not user excitement.</span>
+            <span class="cs-finding-body">Discovery mode got the strongest reaction in testing — but the validation-first approach got us to a shipped, used product faster. The adoption data will inform how discovery mode should be built.</span>
+          </div>
+          <div class="cs-finding-card">
+            <span class="cs-finding-number">02</span>
+            <span class="cs-finding-headline">Compact information density is a legitimate design problem.</span>
+            <span class="cs-finding-body">A 350px panel forced patterns I hadn't used before at Intuit — borrowing from developer tooling rather than product UI. I'd apply this lens earlier on the next technically complex tool.</span>
+          </div>
+          <div class="cs-finding-card">
+            <span class="cs-finding-number">03</span>
+            <span class="cs-finding-headline">An interactive prototype is worth building when the value is a felt moment.</span>
+            <span class="cs-finding-body">The FigmaMake prototype closed the alignment gap that two meetings and a written PRD hadn't. When core value is experiential, a prototype does work documentation can't.</span>
+          </div>
+          <div class="cs-finding-card">
+            <span class="cs-finding-number">04</span>
+            <span class="cs-finding-headline">CEX is one layer of a larger platform.</span>
+            <span class="cs-finding-body">The MVP tradeoffs — which integrations to build, what to defer to Clickstream Studio — were only defensible because I was also designing the broader instrumentation platform strategy.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <div class="cs-nav-buttons">
+    <a class="cs-nav-btn" href="work.html">← Work</a>
+  </div>
+
+  <!-- Footer -->
+  <footer id="contact">
+    <div class="container-fluid">
+      <h3>Open to new opportunities, coffee chats, or collaborating on fun side-projects — <span class="footer-cta-italic">let's talk!</span></h3>
+      <div class="footer-links">
+        <a class="footer-link" href="mailto:sanjana2397@gmail.com"><i class="fas fa-envelope"></i> sanjana2397@gmail.com</a>
+        <a class="footer-link" href="https://www.linkedin.com/in/sanjana-danait/" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i> LinkedIn</a>
+      </div>
+      <hr>
+      <p>Designed and developed by Sanjana Danait with <img src="icons/claudecode-color.svg" alt="Claude Code" style="width:18px;height:18px;vertical-align:middle;display:inline-block;margin:0 3px 2px 3px"> &copy; 2026. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Scroll-spy
+    const sections = document.querySelectorAll('.cs-section[id]');
+    const navLinks = document.querySelectorAll('.cs-sidenav-link');
+    window.addEventListener('scroll', () => {
+      const threshold = window.innerHeight * 0.5;
+      let current = '';
+      sections.forEach(section => {
+        const rect = section.getBoundingClientRect();
+        if (rect.top <= threshold) current = section.getAttribute('id');
+      });
+      navLinks.forEach(link => {
+        link.classList.toggle('active', link.getAttribute('href') === '#' + current);
+      });
+    });
+  </script>
+
+</body>
+</html>

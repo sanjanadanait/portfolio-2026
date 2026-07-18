@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  
+  <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-S3QXSR4H4Q"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-S3QXSR4H4Q');
+</script>
+  
+  <meta charset="utf-8">
+  <title>SanjanaDanait/Portfolio/Work</title>
+  <link rel="icon" href="favicon.ico">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- CSS Stylesheets -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link rel="stylesheet" href="css/styles.css">
+
+  <style>
+    /* ── Work page styles (wk- prefix, no overlap with homepage) ── */
+
+    body { font-family: 'Manrope', sans-serif; }
+
+    #work-page {
+      padding: 57px 7% 80px;
+    }
+
+    /* Section headers — match homepage .projects-label */
+    .wk-section-label {
+      font-family: 'Instrument Serif', serif;
+      font-size: 44px;
+      font-weight: 400;
+      color: #b0b0b0;
+      padding: 72px 0 36px;
+      text-align: left;
+      display: block;
+      font-style: normal;
+    }
+
+    .wk-section-label em {
+      font-style: italic;
+    }
+
+    /* 2×2 featured grid */
+    .wk-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+    }
+
+    .wk-card {
+      display: block;
+      text-decoration: none;
+      color: inherit;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid #ebebeb;
+      transition: box-shadow 0.15s, border-color 0.15s;
+    }
+
+    .wk-card:hover {
+      text-decoration: none;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.07);
+      border-color: #d8d8d8;
+    }
+
+    .wk-card-img {
+      width: 100%;
+      aspect-ratio: 16/9;
+      object-fit: cover;
+      display: block;
+    }
+
+    .wk-card-img-placeholder {
+      width: 100%;
+      aspect-ratio: 16/9;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Manrope', sans-serif;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: #c0c0c0;
+    }
+
+    .wk-card-body {
+      padding: 20px 24px 24px;
+    }
+
+    .wk-card-meta-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 8px;
+    }
+
+    .wk-card-company {
+      font-family: 'Manrope', sans-serif;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: #b0b0b0;
+    }
+
+    .wk-card-lock {
+      font-family: 'Manrope', sans-serif;
+      font-size: 11px;
+      font-weight: 600;
+      color: #9d9d9d;
+      background: #f4f4f4;
+      padding: 2px 10px;
+      border-radius: 20px;
+    }
+
+    .wk-card-title {
+      font-family: 'Instrument Serif', serif;
+      font-size: 22px;
+      font-weight: 400;
+      color: #1a1a1a;
+      line-height: 1.25;
+      margin-bottom: 14px;
+      text-align: left;
+      display: block;
+    }
+
+    .wk-card-desc {
+      font-family: 'Manrope', sans-serif;
+      font-size: 14px;
+      font-weight: 400;
+      color: #6a6a6a;
+      line-height: 1.6;
+      margin-bottom: 14px;
+      display: block !important;
+      text-align: left;
+    }
+
+    .wk-card-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .wk-tag {
+      font-family: 'Manrope', sans-serif;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.3px;
+      color: #6a6a6a;
+      background: #f4f4f4;
+      padding: 3px 9px;
+      border-radius: 4px;
+    }
+
+    /* Archive grid — 3 columns, same wk-card style */
+    .archive-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      padding-bottom: 32px;
+    }
+  </style>
+
+  <!-- Favicon -->
+  <link rel="icon" href="favicon.ico">
+
+  <!-- Font Awesome -->
+  <script defer src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
+
+  <!-- Bootstrap Scripts -->
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+</head>
+
+
+<body>
+
+  <!-- Section-1 Nav Bar -->
+
+  <section class="section-1" id="navbar">
+
+    <div class="container-fluid">
+
+      <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+        <div class="container">
+
+          <a class="navbar-brand" href="index.html">
+            Sanjana <em>Danait</em>
+          </a>
+
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+
+            <ul class="navbar-nav ml-auto">
+              <li class="nav-item">
+                <a class="nav-link" href="work.html">Work</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="about.html">About</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#contact">Contact</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="sanjanadanait-resume.pdf" target="_blank" rel="noopener noreferrer">Resume</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+      </nav>
+    </div>
+  </section>
+
+  <!-- Work Page Content -->
+
+  <section id="work-page">
+
+    <!-- Featured Projects -->
+    <span class="wk-section-label" style="padding-top: 36px;"><em>Featured</em> Projects</span>
+
+    <div class="wk-grid">
+
+      <!-- Card 1: Archy — public -->
+      <a class="wk-card" href="archy.html">
+        <img class="wk-card-img" src="images/archy-project-image-new.png" alt="Archy">
+        <div class="wk-card-body">
+          <div class="wk-card-meta-row">
+            <span class="wk-card-company">Mindstix / Archy</span>
+          </div>
+          <span class="wk-card-title"><em>Archy</em>: Dental Practice Management Platform</span>
+          <span class="wk-card-desc">Led end-to-end design of a healthcare SaaS platform — from zero to shipped — helping the client raise $10M+ in seed funding.</span>
+          <div class="wk-card-tags">
+            <span class="wk-tag">Healthcare SaaS</span>
+            <span class="wk-tag">Zero-to-One</span>
+            <span class="wk-tag">End-to-End Design</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- Card 2: Chrome Extension — locked -->
+      <a class="wk-card" href="clickstream-chrome-extension.html">
+        <img class="wk-card-img" src="images/cex-project-image.png" alt="Clickstream Event Explorer">
+        <div class="wk-card-body">
+          <div class="wk-card-meta-row">
+            <span class="wk-card-company">Intuit</span>
+            <span class="wk-card-lock">🔒 Password protected</span>
+          </div>
+          <span class="wk-card-title"><em>Clickstream Event Explorer</em>: Chrome Extension</span>
+          <span class="wk-card-desc">Designed and shipped a browser extension for real-time event validation — from FMHs to prototype to live in the Chrome Web Store.</span>
+          <div class="wk-card-tags">
+            <span class="wk-tag">Product Analytics</span>
+            <span class="wk-tag">Browser Extension</span>
+            <span class="wk-tag">Zero-to-One</span>
+            <span class="wk-tag">End-to-End Design</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- Card 3: Data Access — locked -->
+      <a class="wk-card" href="data-access.html">
+        <div class="wk-card-img-placeholder" style="background: #f0f6f4;">Coming Soon</div>
+        <div class="wk-card-body">
+          <div class="wk-card-meta-row">
+            <span class="wk-card-company">Intuit</span>
+            <span class="wk-card-lock">🔒 Password protected</span>
+          </div>
+          <span class="wk-card-title"><em>Access Unblocked</em>: Data Access and Governance</span>
+          <span class="wk-card-desc">Redesigned how 8,000+ data workers request and govern access to sensitive data — saving 4,000+ hours/year and cutting access time by 66%.</span>
+          <div class="wk-card-tags">
+            <span class="wk-tag">Enterprise UX</span>
+            <span class="wk-tag">Data Governance</span>
+            <span class="wk-tag">Feature Redesigns</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- Card 4: Clickstream Studio — locked -->
+      <a class="wk-card" href="clickstream-studio.html">
+        <div class="wk-card-img-placeholder" style="background: #f5f0f6;">Coming Soon</div>
+        <div class="wk-card-body">
+          <div class="wk-card-meta-row">
+            <span class="wk-card-company">Intuit</span>
+            <span class="wk-card-lock">🔒 Password protected</span>
+          </div>
+          <span class="wk-card-title"><em>Clickstream Studio</em>: AI-Powered Instrumentation Platform</span>
+          <span class="wk-card-desc">Transformed behavior tracking from manual to AI-governed — reducing tracking plan review from 2 weeks to under 1 day.</span>
+          <div class="wk-card-tags">
+            <span class="wk-tag">Enterprise UX</span>
+            <span class="wk-tag">Product Analytics</span>
+            <span class="wk-tag">Zero-to-One</span>
+            <span class="wk-tag">End-to-End Design</span>
+          </div>
+        </div>
+      </a>
+
+    </div>
+
+    <!-- Archives -->
+    <span class="wk-section-label" style="padding-top: 96px;"><em>Archives</em></span>
+
+    <div class="archive-grid">
+
+      <a class="wk-card" href="hometown-heroes.html">
+        <div class="wk-card-img-placeholder" style="background: #f5f5f0;">Coming Soon</div>
+        <div class="wk-card-body">
+          <div class="wk-card-meta-row">
+            <span class="wk-card-company">Academic Project · UMD 2024</span>
+          </div>
+          <span class="wk-card-title">Hometown Heroes: Musician Growth Platform</span>
+        </div>
+      </a>
+
+      <a class="wk-card" href="thesis.html">
+        <img class="wk-card-img" src="images/thesis-project-image-3.jpg" alt="Architecture Thesis">
+        <div class="wk-card-body">
+          <div class="wk-card-meta-row">
+            <span class="wk-card-company">Architecture Thesis Research & Design Project</span>
+          </div>
+          <span class="wk-card-title">Branding 'Tambat Ali' & 'Kumbharwada'</span>
+        </div>
+      </a>
+
+      <a class="wk-card" href="ekaant.html">
+        <img class="wk-card-img" src="images/ekaant-project-image-1.jpg" alt="Ekaant Set Design">
+        <div class="wk-card-body">
+          <div class="wk-card-meta-row">
+            <span class="wk-card-company">Freelance Project</span>
+          </div>
+          <span class="wk-card-title">Ekaant: Set Design</span>
+        </div>
+      </a>
+
+    </div>
+
+  </section>
+
+
+  <!-- Footer/ Contact -->
+
+  <footer id="contact">
+    <div class="container-fluid">
+      <h3>Open to new opportunities, coffee chats, or collaborating on fun side-projects — <span class="footer-cta-italic">let's talk!</span></h3>
+      <div class="footer-links">
+        <a class="footer-link" href="mailto:sanjana2397@gmail.com"><i class="fas fa-envelope"></i> sanjana2397@gmail.com</a>
+        <a class="footer-link" href="https://www.linkedin.com/in/sanjana-danait/" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i> LinkedIn</a>
+      </div>
+      <hr>
+      <p>Designed and developed by Sanjana Danait with <img src="icons/claudecode-color.svg" alt="Claude Code" style="width:18px;height:18px;vertical-align:middle;display:inline-block;margin:0 3px 2px 3px"> &copy; 2026. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- Cursor style
+
+  <div id="cursor" class="cursor"> </div>
+
+  <script>
+    var cursor = document.getElementById("cursor");
+
+    document.onmousemove = function(e) {
+      cursor.style.left = (e.pageX) + "px";
+      cursor.style.top = (e.pageY) + "px";
+      cursor.style.display = "block"
+    }
+  </script> -->
+
+</body>
+
+</html>
