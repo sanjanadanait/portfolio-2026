@@ -3,6 +3,7 @@
 
 <head>
   
+<!-- ANALYTICS DISABLED
   <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-S3QXSR4H4Q"></script>
 <script>
@@ -12,6 +13,7 @@
 
   gtag('config', 'G-S3QXSR4H4Q');
 </script>
+-->
   
   <meta charset="utf-8">
   <meta property="og:title" content="Sanjana Danait Portfolio" />
@@ -51,6 +53,7 @@
     .hero-text-col {
       flex: 0 0 auto;
       max-width: 540px;
+      margin-top: -100px;
     }
 
     .hero-cube-col {
@@ -61,6 +64,9 @@
       justify-content: flex-start;
       gap: 12px;
       padding-top: 6px;
+    }
+    .cube-eyebrow {
+      margin-bottom: -10px !important;
     }
 
     #cube-mount canvas {
@@ -202,6 +208,8 @@
           <span>Data &amp; AI</span>
           <span class="hero-dot">•</span>
           <span>B2B SaaS</span>
+          <span class="hero-dot">•</span>
+          <span>Health Tech</span>
         </div>
       </div>
       <div class="hero-cube-col">
@@ -254,7 +262,7 @@
       <div class="card-content">
         <div class="card-meta-row">
           <p class="card-meta-top">Intuit</p>
-          <span class="card-lock">🔒 Password protected</span>
+          <!-- <span class="card-lock">🔒 Password protected</span> -->
         </div>
         <h2 class="card-title"><em>Clickstream Event Explorer</em>: Chrome Extension</h2>
         <p class="card-description">Designed and shipped a browser extension for real-time event validation — from FMHs to prototype to live in the Chrome Web Store.</p>
@@ -272,14 +280,14 @@
     </a>
 
     <!-- Card 3: Data Access — locked -->
-    <a class="project-card" href="data-access.html">
+    <div class="project-card" style="cursor:default;">
       <div class="card-image">
         <div class="card-image-placeholder" style="background: #f0f6f4;">Coming Soon</div>
       </div>
       <div class="card-content">
         <div class="card-meta-row">
           <p class="card-meta-top">Intuit</p>
-          <span class="card-lock">🔒 Password protected</span>
+          <!-- <span class="card-lock">🔒 Password protected</span> -->
         </div>
         <h2 class="card-title"><em>Access Unblocked</em>: Data Access and Governance</h2>
         <p class="card-description">Redesigned how 8,000+ data workers request and govern access to sensitive data — saving 4,000+ hours/year and cutting access time by 66%.</p>
@@ -292,17 +300,17 @@
           <span class="card-view-link">View project <span class="card-arrow">→</span></span>
         </div>
       </div>
-    </a>
+    </div>
 
     <!-- Card 4: Clickstream Studio — locked -->
-    <a class="project-card" href="clickstream-studio.html">
+    <div class="project-card" style="cursor:default;" id="card-4">
       <div class="card-image">
         <div class="card-image-placeholder" style="background: #f5f0f6;">Coming Soon</div>
       </div>
       <div class="card-content">
         <div class="card-meta-row">
           <p class="card-meta-top">Intuit</p>
-          <span class="card-lock">🔒 Password protected</span>
+          <!-- <span class="card-lock">🔒 Password protected</span> -->
         </div>
         <h2 class="card-title"><em>Clickstream Studio</em>: AI-Powered Instrumentation Platform</h2>
         <p class="card-description">Transformed behavior tracking from manual to AI-governed — reducing tracking plan review from 2 weeks to under 1 day.</p>
@@ -318,7 +326,7 @@
           <span class="card-view-link">View project <span class="card-arrow">→</span></span>
         </div>
       </div>
-    </a>
+    </div>
 
   </section>
   
