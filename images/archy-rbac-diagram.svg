@@ -1,0 +1,90 @@
+<svg viewBox="0 0 760 320" xmlns="http://www.w3.org/2000/svg" font-family="Manrope, sans-serif" role="img">
+  <title>Role-based access model for Archy</title>
+
+  <!-- ── COLUMN HEADERS ── -->
+  <text x="90" y="22" text-anchor="middle" font-size="11" font-weight="700" letter-spacing="1.2" fill="#1B3A8C">USERS</text>
+  <text x="380" y="22" text-anchor="middle" font-size="11" font-weight="700" letter-spacing="1.2" fill="#1B3A8C">ROLES</text>
+  <text x="660" y="22" text-anchor="middle" font-size="11" font-weight="700" letter-spacing="1.2" fill="#1B3A8C">PERMISSIONS</text>
+
+  <!-- ── USERS ── -->
+  <rect x="10" y="34" width="160" height="34" fill="#EDF3FF"/>
+  <text x="90" y="56" text-anchor="middle" font-size="11" font-weight="600" fill="#1B3A8C">Practice Owner</text>
+
+  <rect x="10" y="80" width="160" height="34" fill="#EDF3FF"/>
+  <text x="90" y="102" text-anchor="middle" font-size="11" font-weight="600" fill="#1B3A8C">Billing Specialist</text>
+
+  <rect x="10" y="126" width="160" height="34" fill="#EDF3FF"/>
+  <text x="90" y="148" text-anchor="middle" font-size="11" font-weight="600" fill="#1B3A8C">Finance Manager</text>
+
+  <rect x="10" y="172" width="160" height="34" fill="#f0f4ff"/>
+  <text x="90" y="194" text-anchor="middle" font-size="11" font-weight="600" fill="#4a6ab0">Dentist</text>
+
+  <rect x="10" y="218" width="160" height="34" fill="#f0f4ff"/>
+  <text x="90" y="240" text-anchor="middle" font-size="11" font-weight="600" fill="#4a6ab0">Dental Assistant</text>
+
+  <rect x="10" y="264" width="160" height="34" fill="#f0f4ff"/>
+  <text x="90" y="286" text-anchor="middle" font-size="11" font-weight="600" fill="#4a6ab0">Front Desk / Receptionist</text>
+
+  <!-- ── ROLES ── -->
+  <rect x="300" y="48" width="160" height="46" fill="#1B3A8C"/>
+  <text x="380" y="68" text-anchor="middle" font-size="11" font-weight="700" fill="#fff">Admin</text>
+  <text x="380" y="84" text-anchor="middle" font-size="9.5" fill="#a8c0ff">Full platform access</text>
+
+  <rect x="300" y="148" width="160" height="46" fill="#3a5fa8"/>
+  <text x="380" y="168" text-anchor="middle" font-size="11" font-weight="700" fill="#fff">Finance</text>
+  <text x="380" y="184" text-anchor="middle" font-size="9.5" fill="#a8c0ff">Clinical + all financial</text>
+
+  <rect x="300" y="248" width="160" height="46" fill="#6b8ecf"/>
+  <text x="380" y="268" text-anchor="middle" font-size="11" font-weight="700" fill="#fff">Clinical Staff</text>
+  <text x="380" y="284" text-anchor="middle" font-size="9.5" fill="#d4e0ff">Scheduling + clinical only</text>
+
+  <!-- ── PERMISSIONS ── -->
+  <rect x="580" y="34" width="160" height="28" fill="#f7f7f7"/>
+  <text x="660" y="53" text-anchor="middle" font-size="10.5" fill="#353535">Scheduling &amp; Calendar</text>
+
+  <rect x="580" y="74" width="160" height="28" fill="#f7f7f7"/>
+  <text x="660" y="93" text-anchor="middle" font-size="10.5" fill="#353535">Charting &amp; Odontogram</text>
+
+  <rect x="580" y="114" width="160" height="28" fill="#f7f7f7"/>
+  <text x="660" y="133" text-anchor="middle" font-size="10.5" fill="#353535">Treatment Planning</text>
+
+  <rect x="580" y="154" width="160" height="28" fill="#f7f7f7"/>
+  <text x="660" y="173" text-anchor="middle" font-size="10.5" fill="#353535">Claims &amp; Insurance</text>
+
+  <rect x="580" y="194" width="160" height="28" fill="#f7f7f7"/>
+  <text x="660" y="213" text-anchor="middle" font-size="10.5" fill="#353535">Billing &amp; Payments</text>
+
+  <rect x="580" y="234" width="160" height="28" fill="#f7f7f7"/>
+  <text x="660" y="253" text-anchor="middle" font-size="10.5" fill="#353535">Revenue Reports</text>
+
+  <rect x="580" y="274" width="160" height="28" fill="#f7f7f7"/>
+  <text x="660" y="293" text-anchor="middle" font-size="10.5" fill="#353535">Settings &amp; Admin</text>
+
+  <!-- ── LINES: Users → Roles ── -->
+  <line x1="170" y1="51" x2="300" y2="68" stroke="#1B3A8C" stroke-width="1.2" opacity="0.35"/>
+  <line x1="170" y1="97" x2="300" y2="168" stroke="#3a5fa8" stroke-width="1.2" opacity="0.35"/>
+  <line x1="170" y1="143" x2="300" y2="175" stroke="#3a5fa8" stroke-width="1.2" opacity="0.35"/>
+  <line x1="170" y1="189" x2="300" y2="265" stroke="#6b8ecf" stroke-width="1.2" opacity="0.35"/>
+  <line x1="170" y1="235" x2="300" y2="268" stroke="#6b8ecf" stroke-width="1.2" opacity="0.35"/>
+  <line x1="170" y1="281" x2="300" y2="272" stroke="#6b8ecf" stroke-width="1.2" opacity="0.35"/>
+
+  <!-- ── LINES: Roles → Permissions ── -->
+  <line x1="460" y1="62" x2="580" y2="48" stroke="#1B3A8C" stroke-width="1.2" opacity="0.3"/>
+  <line x1="460" y1="66" x2="580" y2="88" stroke="#1B3A8C" stroke-width="1.2" opacity="0.3"/>
+  <line x1="460" y1="70" x2="580" y2="128" stroke="#1B3A8C" stroke-width="1.2" opacity="0.3"/>
+  <line x1="460" y1="72" x2="580" y2="168" stroke="#1B3A8C" stroke-width="1.2" opacity="0.3"/>
+  <line x1="460" y1="74" x2="580" y2="208" stroke="#1B3A8C" stroke-width="1.2" opacity="0.3"/>
+  <line x1="460" y1="76" x2="580" y2="248" stroke="#1B3A8C" stroke-width="1.2" opacity="0.3"/>
+  <line x1="460" y1="78" x2="580" y2="288" stroke="#1B3A8C" stroke-width="1.2" opacity="0.3"/>
+
+  <line x1="460" y1="162" x2="580" y2="48" stroke="#3a5fa8" stroke-width="1.2" opacity="0.3"/>
+  <line x1="460" y1="166" x2="580" y2="88" stroke="#3a5fa8" stroke-width="1.2" opacity="0.3"/>
+  <line x1="460" y1="170" x2="580" y2="128" stroke="#3a5fa8" stroke-width="1.2" opacity="0.3"/>
+  <line x1="460" y1="174" x2="580" y2="168" stroke="#3a5fa8" stroke-width="1.2" opacity="0.3"/>
+  <line x1="460" y1="178" x2="580" y2="208" stroke="#3a5fa8" stroke-width="1.2" opacity="0.3"/>
+  <line x1="460" y1="182" x2="580" y2="248" stroke="#3a5fa8" stroke-width="1.2" opacity="0.3"/>
+
+  <line x1="460" y1="262" x2="580" y2="48" stroke="#6b8ecf" stroke-width="1.2" opacity="0.3"/>
+  <line x1="460" y1="267" x2="580" y2="88" stroke="#6b8ecf" stroke-width="1.2" opacity="0.3"/>
+  <line x1="460" y1="272" x2="580" y2="128" stroke="#6b8ecf" stroke-width="1.2" opacity="0.3"/>
+</svg>
