@@ -625,8 +625,8 @@ canvas.dots {
 /* Section-4 Footer-Contact */
 
 #contact {
-  background-color: #000;
-  color: #fff;
+  background-color: #f3f3f3;
+  color: #353535;
   padding: 48px 7%;
   text-align: center;
 }
@@ -635,7 +635,7 @@ canvas.dots {
   font-family: 'Manrope', sans-serif;
   font-size: 18px !important;
   font-weight: 500;
-  color: #fff;
+  color: #353535;
   line-height: 1.6;
   display: block;
   margin: 0 0 24px 0;
@@ -650,7 +650,7 @@ canvas.dots {
 }
 
 #contact hr {
-  border-color: #333;
+  border-color: #e4e4e4;
   margin: 24px 0;
 }
 
@@ -674,7 +674,7 @@ canvas.dots {
   font-family: 'Manrope', sans-serif;
   font-size: 14px;
   font-weight: 500;
-  color: #fff;
+  color: #353535;
   text-decoration: none;
   display: flex;
   align-items: center;
@@ -691,7 +691,7 @@ canvas.dots {
 }
 
 .footer-link:hover {
-  color: #ccc;
+  color: #1a1a1a;
   text-decoration: none;
 }
 
