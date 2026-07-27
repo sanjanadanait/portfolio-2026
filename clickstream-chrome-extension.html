@@ -168,11 +168,11 @@
   <aside class="cs-sidebar">
     <nav class="cs-sidenav">
       <a class="cs-sidenav-link active" href="#overview">Overview</a>
-      <a class="cs-sidenav-link" href="#solution">Final Designs & Impact</a>
       <a class="cs-sidenav-link" href="#research">Research</a>
       <a class="cs-sidenav-link" href="#design-process">Design Decisions</a>
       <a class="cs-sidenav-link" href="#prototype">Prototype & Alignment</a>
       <a class="cs-sidenav-link" href="#deep-dive">Design Deep Dive</a>
+      <a class="cs-sidenav-link" href="#solution">Final Experience</a>
       <a class="cs-sidenav-link" href="#reflection">Reflection</a>
       <div class="cs-sidenav-divider"></div>
       <button class="cs-sidenav-back" onclick="window.scrollTo({top:0,behavior:'smooth'})">Back to Top</button>
@@ -225,91 +225,6 @@
     <div class="cs-callout">
       <span class="cs-callout-label">Project Brief</span>
       <span class="cs-callout-text">How might we give PMs, analysts, and engineers, visibility into product events, so they can discover and validate instrumentation quickly and easily?</span>
-    </div>
-
-    <!-- Final Designs & Impact -->
-    <div id="solution" class="cs-section">
-      <h2 class="cs-section-heading">Final Designs & Impact</h2>
-      <div class="cs-section-body">
-        <p>The Clickstream Event Explorer (CEX) is a Chrome side panel that captures every tracking event firing on any Intuit product page in real time, parsed, labeled, and organized the moment it fires.</p>
-
-        <!-- Carousel -->
-        <div id="carousel-cex" class="carousel slide cs-carousel" data-ride="carousel" data-interval="4000" style="margin-bottom: 8px;">
-          <ol class="carousel-indicators cs-carousel-indicators">
-            <li data-target="#carousel-cex" data-slide-to="0" class="active"></li>
-            <li data-target="#carousel-cex" data-slide-to="1"></li>
-            <li data-target="#carousel-cex" data-slide-to="2"></li>
-            <li data-target="#carousel-cex" data-slide-to="3"></li>
-            <li data-target="#carousel-cex" data-slide-to="4"></li>
-          </ol>
-          <div class="carousel-inner">
-            <div class="carousel-item active">
-              <span class="cs-carousel-item-caption">The side panel stays docked to the page you're working in: no context switch, no separate window.</span>
-              <img src="images/cex-final-design-1.png" alt="CEX panel open alongside a live Intuit product page" class="cs-img">
-            </div>
-            <div class="carousel-item">
-              <span class="cs-carousel-item-caption">Events auto-parsed into three property groups: validate taxonomy compliance without touching a JSON tree.</span>
-              <img src="images/cex-final-design-2.png" alt="Expanded event card showing property groups" class="cs-img">
-            </div>
-            <div class="carousel-item">
-              <span class="cs-carousel-item-caption">Select up to 10 events and open them directly in Amplitude: pre-loaded, ready for funnel or chart analysis.</span>
-              <img src="images/cex-final-design-3.png" alt="Multi-event selection with Chart in Amplitude CTA" class="cs-img">
-            </div>
-            <div class="carousel-item">
-              <span class="cs-carousel-item-caption">Filter by interaction type or widget to cut through noise on high-volume pages.</span>
-              <img src="images/cex-final-design-4.png" alt="Expanded event card showing data lake table and web plugin indicators" class="cs-img">
-            </div>
-            <div class="carousel-item">
-              <span class="cs-carousel-item-caption">Search by event ID lets users zero in on a specific event without clearing the session.</span>
-              <img src="images/cex-final-design-5.png" alt="Filter panel with UI Action and Widget filters" class="cs-img">
-            </div>
-          </div>
-          <a class="carousel-control-prev cs-carousel-prev" href="#carousel-cex" role="button" data-slide="prev">
-            <span class="cs-carousel-arrow">←</span>
-          </a>
-          <a class="carousel-control-next cs-carousel-next" href="#carousel-cex" role="button" data-slide="next">
-            <span class="cs-carousel-arrow">→</span>
-          </a>
-        </div>
-
-        <h3 style="margin-top: 48px;">Impact</h3>
-        <p>CEX launched in GA in April 2026 and is live in Intuit's Chrome Web Store. The March 2026 beta was used by Consumer Group analytics and Marketing Operations teams during tax season (a high-stakes, time-pressured context) before the full GA release.</p>
-        <p>Within days of launch, users were sharing the extension unprompted across developer and PM channels. The spread was peer-to-peer, not mandated.</p>
-
-        <div class="cs-quote-grid">
-          <div class="cs-quote-card">
-            <span class="cs-quote-mark">“</span>
-            <span class="cs-quote-text">Hey folks, check out this CEX. I'm working on clickstream validation right now and this is going to save me a ton of time.</span>
-            <span class="cs-quote-attr">Senior Software Engineer</span>
-          </div>
-          <div class="cs-quote-card">
-            <span class="cs-quote-mark">“</span>
-            <span class="cs-quote-text">omg the clickstream extension is exactly what I needed, thank you</span>
-            <span class="cs-quote-attr">Senior Staff Data Scientist</span>
-          </div>
-          <div class="cs-quote-card">
-            <span class="cs-quote-mark">“</span>
-            <span class="cs-quote-text">So nice! Love the filters on properties and widgets.</span>
-            <span class="cs-quote-attr">Principal Data Scientist</span>
-          </div>
-          <div class="cs-quote-card">
-            <span class="cs-quote-mark">“</span>
-            <span class="cs-quote-text">It's awesome! I also shared it in the CG PM channel as well.</span>
-            <span class="cs-quote-attr">Staff PM</span>
-          </div>
-          <div class="cs-quote-card full-width">
-            <span class="cs-quote-mark">“</span>
-            <span class="cs-quote-text">Wow, the ability to expand an event and see the full JSON. The link to the corresponding plugin! The filters are super helpful.</span>
-            <span class="cs-quote-attr">Staff Software Engineer</span>
-          </div>
-        </div>
-        <p>The feedback came unprompted from across all three target personas (PMs, data scientists, and engineers) within the first week of the GA launch.</p>
-      </div>
-    </div>
-
-    <!-- Callout: Research -->
-    <div class="cs-callout">
-      <span class="cs-callout-text">We knew the workflow was broken. But before designing anything, I needed to understand: whose workflow exactly, and where was the real wall?</span>
     </div>
 
     <!-- Research -->
@@ -382,7 +297,7 @@
     <div id="prototype" class="cs-section cs-section-grey">
       <h2 class="cs-section-heading">Prototype & Alignment</h2>
       <div class="cs-section-body">
-        <p>I used FigmaMake and V0 to vibe-code the extension running against a reconstructed Mailchimp homepage, giving stakeholders a real interaction, not a walkthrough.</p>
+        <p>I explored FigmaMake, V0, and Cursor to vibe-code the extension running against a reconstructed Mailchimp homepage, giving stakeholders a real interaction, not a walkthrough.</p>
         <p>The question shifted from "will this be useful?" to "when can we ship this?" The prototype was shown to VPs and Directors of Product Management and Engineering for Data & Analytics. It removed the need to explain why structured property parsing mattered or why the side panel was the right call; both were self-evident. It also surfaced the consistent multi-event selection ask, which is what put the Amplitude deep-link back on the MVP roadmap.</p>
 
         <video src="images/cex-prototype-1.mp4" class="cs-img" style="width:100%; border-radius:8px;" autoplay muted loop playsinline></video>
@@ -413,6 +328,30 @@
         <p>No matter how focused or simple a tool is, first-time users shouldn't have to go find documentation to understand it. I pushed for us to hold the GA release until we had an interactive product tour in place: one that surfaces the main features in context, the first time a user opens the extension. The goal was to make the value immediately legible without any external onboarding material.</p>
         <video src="images/cex-design-deep-dive-4.mp4" style="width:25%; border-radius:8px; display:block; margin-bottom:8px;" autoplay muted loop playsinline></video>
         <span class="cs-img-caption">The interactive product tour walks users through CEX's core features on first launch: no docs, no handholding from the team.</span>
+      </div>
+    </div>
+
+    <!-- Callout: Final Experience -->
+    <div class="cs-callout">
+      <span class="cs-callout-text">So what does this actually feel like in the hands of a PM, an analyst, an engineer?</span>
+    </div>
+
+    <!-- Final Experience -->
+    <div id="solution" class="cs-section">
+      <h2 class="cs-section-heading">Final Experience</h2>
+      <div class="cs-section-body">
+        <p>Here's what the final experience looks like: the extension running live inside the Mailchimp product, capturing events as they fire, surfacing structured properties, and letting users jump straight into analysis without ever leaving the page.</p>
+
+        <!-- Final design demo video -->
+        <video src="images/cex-mailchimp-demo.mp4" class="cs-img" style="width:100%; border-radius:8px; margin-bottom: 8px;" controls muted loop playsinline></video>
+        <span class="cs-img-caption">CEX in action inside the Mailchimp product: events captured in real time, parsed into readable property groups, and ready to chart in Amplitude with one click.</span>
+
+        <h3 style="margin-top: 48px;">Reception</h3>
+        <p>CEX launched in GA in April 2026 and is live in Intuit's Chrome Web Store. The March 2026 beta was used by Consumer Group analytics and Marketing Operations teams during tax season (a high-stakes, time-pressured context) before the full GA release.</p>
+        <p>Within days of launch, users were sharing the extension unprompted across developer and PM channels. The spread was peer-to-peer, not mandated.</p>
+
+        <img src="images/cex-impact.png" alt="Slack messages from PMs, data scientists, and engineers praising CEX" class="cs-img" style="width:100%; border-radius:8px; margin-top: 8px;">
+        <span class="cs-img-caption">Unprompted feedback from across all three target personas (PMs, data scientists, and engineers) within the first week of the GA launch.</span>
       </div>
     </div>
 
