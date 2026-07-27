@@ -264,7 +264,6 @@ canvas.dots {
   font-weight: 600;
   color: #b0b0b0;
   letter-spacing: 2px;
-  text-transform: uppercase;
   margin-bottom: 14px;
 }
 
@@ -293,7 +292,6 @@ canvas.dots {
   color: #353535;
   line-height: 1.65;
   margin-bottom: 28px;
-  max-width: 580px;
 }
 
 .hero-statement strong {
