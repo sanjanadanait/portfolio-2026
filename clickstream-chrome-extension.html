@@ -19,31 +19,31 @@
 
   <style>
     /* ── Case study base styles ── */
-    .cs-body { font-family: 'Manrope', sans-serif; color: #1a1a1a; }
+    .cs-body { font-family: 'Manrope', sans-serif; color: #353535; }
     .cs-body p, .cs-body li, .cs-body td, .cs-body th { font-family: 'Manrope', sans-serif; font-size: 16px; line-height: 1.75; color: #353535; }
-    .cs-body h1, .cs-body h2, .cs-body h3, .cs-body h4 { font-family: 'Instrument Serif', serif; font-weight: 400; font-style: italic; color: #1a1a1a; }
+    .cs-body h1, .cs-body h2, .cs-body h3, .cs-body h4 { font-family: 'Instrument Serif', serif; font-weight: 400; font-style: italic; color: #353535; }
     .cs-body h2 { font-size: 2rem; margin-bottom: 16px; }
     .cs-body h3 { font-size: 1.4rem; margin-bottom: 12px; }
     .cs-body footer h3 { font-family: 'Manrope', sans-serif; font-style: normal; font-weight: 500; font-size: 18px !important; color: #353535; }
-    .cs-body strong { font-family: 'Manrope', sans-serif; font-weight: 700; color: #1a1a1a; }
+    .cs-body strong { font-family: 'Manrope', sans-serif; font-weight: 700; color: #353535; }
 
     /* Sidebar */
     .cs-sidebar { position: fixed; top: 50%; transform: translateY(-50%); left: 0; width: 148px; padding: 16px 16px 16px 20px; z-index: 10; background: rgba(255,255,255,0.75); backdrop-filter: blur(4px); border-radius: 0 8px 8px 0; }
     .cs-sidenav { display: flex; flex-direction: column; gap: 2px; }
     .cs-sidenav-divider { height: 1px; background: #e0e0e0; margin: 10px 0; }
     .cs-sidenav-back { font-family: 'Manrope', sans-serif; font-size: 12px; font-weight: 500; color: #9d9d9d; text-decoration: none; padding: 5px 0; line-height: 1.4; text-align: left; transition: color 0.15s; cursor: pointer; background: none; border: none; }
-    .cs-sidenav-back:hover { color: #1a1a1a; }
+    .cs-sidenav-back:hover { color: #353535; }
     .cs-sidenav-link { font-family: 'Manrope', sans-serif; font-size: 12px; font-weight: 500; color: #6a6a6a; text-decoration: none; padding: 5px 0; line-height: 1.4; text-align: left; transition: color 0.15s; }
-    .cs-sidenav-link:hover { color: #1a1a1a; text-decoration: none; }
-    .cs-sidenav-link.active { color: #1a1a1a; font-weight: 700; }
+    .cs-sidenav-link:hover { color: #353535; text-decoration: none; }
+    .cs-sidenav-link.active { color: #353535; font-weight: 700; }
 
     /* Content */
     .cs-content { padding: 48px 10% 80px 180px; }
     .cs-section { display: grid; grid-template-columns: 250px 1fr; gap: 28px; align-items: start; padding-top: 40px; padding-bottom: 40px; }
-    .cs-section-heading { font-family: 'Instrument Serif', serif; font-size: 2rem; font-weight: 400; font-style: italic; color: #1a1a1a; line-height: 1.15; margin: 0; padding-top: 4px; text-align: left; }
+    .cs-section-heading { font-family: 'Instrument Serif', serif; font-size: 2rem; font-weight: 400; font-style: italic; color: #353535; line-height: 1.15; margin: 0; padding-top: 4px; text-align: left; }
     .cs-section-body { text-align: left; }
     .cs-section-body p { font-family: 'Manrope', sans-serif; font-size: 16px; color: #353535; line-height: 1.75; text-align: left; display: block !important; width: 100%; margin-bottom: 16px; }
-    .cs-section-body h3 { font-family: 'Instrument Serif', serif; font-size: 1.3rem; font-style: italic; font-weight: 400; color: #1a1a1a; margin: 56px 0 12px; text-align: left; display: block !important; width: 100%; }
+    .cs-section-body h3 { font-family: 'Instrument Serif', serif; font-size: 1.3rem; font-style: italic; font-weight: 400; color: #353535; margin: 56px 0 12px; text-align: left; display: block !important; width: 100%; }
     .cs-section-body h3:first-child { margin-top: 0; }
     .cs-section-body ul { padding-left: 20px; margin-bottom: 16px; }
     .cs-section-body li { font-family: 'Manrope', sans-serif; font-size: 16px; color: #353535; line-height: 1.75; display: block !important; margin-bottom: 8px; }
@@ -63,7 +63,7 @@
     /* Hero */
     .cs-hero { margin-top: 57px; display: flex; flex-direction: column; }
     .cs-hero-text { padding: 24px 7% 24px; }
-    .cs-hero-title { font-family: 'Instrument Serif', serif; font-size: 32px; font-weight: 400; font-style: italic; color: #1a1a1a; letter-spacing: -0.5px; line-height: 1.2; margin: 0 0 8px; }
+    .cs-hero-title { font-family: 'Instrument Serif', serif; font-size: 32px; font-weight: 400; font-style: italic; color: #353535; letter-spacing: -0.5px; line-height: 1.2; margin: 0 0 8px; }
     .cs-hero-subtitle { font-family: 'Manrope', sans-serif; font-size: 16px; color: #6a6a6a; line-height: 1.5; margin: 0; display: block !important; }
     .cs-hero-image-placeholder { width: 100%; height: 80vh; background: #e6eeff; display: flex; align-items: center; justify-content: center; font-family: 'Manrope', sans-serif; font-size: 13px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: #b0b0b0; }
 
@@ -101,7 +101,7 @@
     /* Dots - same style as CEX (static, below image) */
     .cs-carousel-indicators { position: absolute !important; bottom: -20px !important; left: 0; right: 0; display: flex; justify-content: center; margin: 0 !important; padding: 0; list-style: none; gap: 6px; }
     .cs-carousel-indicators li { background-color: #d0d0d0 !important; width: 8px !important; height: 8px !important; border-radius: 50% !important; border-top: 0 !important; border-bottom: 0 !important; margin: 0 !important; cursor: pointer; flex-shrink: 0; display: inline-block !important; opacity: 1 !important; }
-    .cs-carousel-indicators li.active { background-color: #1a1a1a !important; opacity: 1 !important; }
+    .cs-carousel-indicators li.active { background-color: #353535 !important; opacity: 1 !important; }
 
     /* Arrows - purple circles, same as archy */
     .cs-carousel .carousel-control-prev,
@@ -126,13 +126,13 @@
     .cs-finding-list { display: flex; flex-direction: column; gap: 16px; margin: 24px 0 8px; }
     .cs-finding-card { background: #fff; border-radius: 10px; border: 1px solid #e8e8e8; padding: 24px 28px; }
     .cs-finding-number { font-family: 'Manrope', sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: #236cff; display: block !important; margin-bottom: 8px; }
-    .cs-finding-headline { font-family: 'Manrope', sans-serif; font-size: 15px; font-weight: 700; color: #1a1a1a; display: block !important; margin-bottom: 10px; line-height: 1.4; }
+    .cs-finding-headline { font-family: 'Manrope', sans-serif; font-size: 15px; font-weight: 700; color: #353535; display: block !important; margin-bottom: 10px; line-height: 1.4; }
     .cs-finding-body { font-family: 'Manrope', sans-serif; font-size: 15px; color: #353535; line-height: 1.7; display: block !important; margin: 0; }
 
     /* Nav buttons */
     .cs-nav-buttons { padding: 40px 10% 80px 220px; }
     .cs-nav-btn { font-family: 'Manrope', sans-serif; font-size: 14px; font-weight: 600; color: #6a6a6a; text-decoration: none; }
-    .cs-nav-btn:hover { color: #1a1a1a; text-decoration: none; }
+    .cs-nav-btn:hover { color: #353535; text-decoration: none; }
   </style>
 
   <!-- CSS Stylesheets -->
@@ -142,6 +142,10 @@
   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+  <!-- Password gate (soft, client-side). Shared password across gated case studies. -->
+  <script>window.CS_GATE = { hash: "a70614c6882047800f3905a32d0b9cd8216be64db496e1836a0dffe839cea7d0", key: "cs-unlock-shared" };</script>
+  <script src="js/case-study-gate.js"></script>
 </head>
 
 <body class="cs-body">
@@ -393,7 +397,7 @@
   <!-- Footer -->
   <footer id="contact">
     <div class="container-fluid">
-      <h3>Open to new opportunities, coffee chats, or collaborating on fun side-projects. <span class="footer-cta-italic">Let's talk!</span></h3>
+      <h3>Open to new opportunities, coffee chats, or collaborating on fun side-projects.<br><span class="footer-cta-italic">Let's talk!</span></h3>
       <div class="footer-links">
         <a class="footer-link" href="mailto:sanjana2397@gmail.com"><i class="fas fa-envelope"></i> sanjana2397@gmail.com</a>
         <a class="footer-link" href="https://www.linkedin.com/in/sanjana-danait/" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i> LinkedIn</a>

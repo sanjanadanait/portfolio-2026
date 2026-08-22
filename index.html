@@ -32,15 +32,61 @@
   <link rel="stylesheet" href="css/styles.css">
 
   <style>
+    /* ── Homepage navbar: transparent + borderless over the hero, white once scrolled ── */
+    #navbar { background-color: transparent !important; }
+    .navbar {
+      background-color: transparent !important;
+      border-bottom: none !important;
+      transition: background-color 0.25s ease, box-shadow 0.25s ease;
+    }
+    .navbar.nav-scrolled {
+      background-color: #ffffff !important;
+      box-shadow: 0 1px 8px rgba(0, 0, 0, 0.05);
+    }
+
     /* ── Hero two-column layout (after styles.css so overrides win) ── */
+    /* ── Full-page cloud background (fixed behind everything) ── */
+    body { background-color: #ffffff; }
+
+    /* Flipped cloud image, fixed to the viewport so it stays put on scroll */
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background-image: url('images/footer-clouds.jpg');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      transform: scaleX(-1);
+      z-index: -2;
+      pointer-events: none;
+    }
+
+    /* Translucent white wash over the clouds, same effect as the password gate */
+    body::after {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background: rgba(255, 255, 255, 0.60);
+      z-index: -1;
+      pointer-events: none;
+    }
+
+    /* Let content sections show the background through (were solid white) */
+    .section-3 { background-color: transparent !important; }
+
     .section-2 {
+      position: relative;
       padding: 57px 7% 0 !important;
       height: 85vh !important;
       display: flex !important;
       align-items: center !important;
+      background-color: transparent !important;
     }
 
     .hero-inner {
+      position: relative;
+      z-index: 1;
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -198,7 +244,7 @@
     <div class="hero-inner">
       <div class="hero-text-col">
         <p class="hero-greeting">Hey, I'm</p>
-        <h1 class="hero-name">Sanjana <em>Danait</em></h1>
+        <h1 class="hero-name"><em>Sanjana</em> <span class="hero-name-last">Danait</span></h1>
         <p class="hero-statement">Product Designer currently building <strong>enterprise data and AI platforms</strong> at <a href="https://www.intuit.com/" target="_blank" rel="noopener noreferrer" class="intuit-link">Intuit</a>, improving technical and complex systems and workflows, to help product, data and AI teams ship faster. Trained as an architect before HCI, I think in systems, structure, and how people move through them.</p>
         <div class="hero-expertise">
           <span>Enterprise Platforms</span>
@@ -230,7 +276,7 @@
 
   <section class="section-3" id="projects">
     <div class="projects-header">
-      <span class="projects-label"><em>Featured</em> Projects</span>
+      <span class="projects-label"><em>Featured</em> <span class="projects-label-word">Projects</span></span>
       <a class="projects-link" href="work.html">View all work →</a>
     </div>
 
@@ -240,7 +286,10 @@
         <img src="images/archy-project-image-new.png" alt="Archy">
       </div>
       <div class="card-content">
-        <p class="card-meta-top">Mindstix / Archy</p>
+        <div class="card-meta-row">
+          <p class="card-meta-top">Mindstix / Archy</p>
+          <span class="card-lock">🔒 Password protected</span>
+        </div>
         <h2 class="card-title"><em>Archy</em>: Dental Practice Management Platform</h2>
         <p class="card-description">Led end-to-end design of a healthcare SaaS platform, from zero to shipped, helping the client raise $10M+ in seed funding.</p>
         <div class="card-tags">
@@ -262,7 +311,7 @@
       <div class="card-content">
         <div class="card-meta-row">
           <p class="card-meta-top">Intuit</p>
-          <!-- <span class="card-lock">🔒 Password protected</span> -->
+          <span class="card-lock">🔒 Password protected</span>
         </div>
         <h2 class="card-title"><em>Clickstream Event Explorer</em>: Chrome Extension</h2>
         <p class="card-description">Designed and shipped a browser extension for real-time event validation: from FMHs to prototype to live in the Chrome Web Store.</p>
@@ -279,38 +328,40 @@
       </div>
     </a>
 
-    <!-- Card 3: Data Access - locked -->
-    <div class="project-card" style="cursor:default;">
+    <!-- Card 3: Data Access - coming soon (not clickable) -->
+    <div class="project-card coming-soon-card" style="cursor:none;" data-coming-soon>
       <div class="card-image">
-        <div class="card-image-placeholder" style="background: #f0f6f4;">Coming Soon</div>
+        <img src="images/data-access-project-image.png" alt="The Balance Point: Designing for Data Access">
       </div>
       <div class="card-content">
         <div class="card-meta-row">
           <p class="card-meta-top">Intuit</p>
-          <!-- <span class="card-lock">🔒 Password protected</span> -->
+          <span class="card-lock">🔒 Password protected</span>
         </div>
-        <h2 class="card-title"><em>Access Unblocked</em>: Data Access and Governance</h2>
-        <p class="card-description">Redesigned how 8,000+ data workers request and govern access to sensitive data, saving 4,000+ hours/year and cutting access time by 66%.</p>
+        <h2 class="card-title"><em>The Balance Point</em>: Designing for Data Access</h2>
+        <p class="card-description">Two years leading design across the full data-access lifecycle: saving 4,000+ hours/year and cutting access time from weeks to days, without loosening a single compliance control.</p>
         <div class="card-tags">
+          <span class="tag">Design Leadership</span>
           <span class="tag">Enterprise UX</span>
           <span class="tag">Data Governance</span>
-          <span class="tag">Feature Redesigns</span>
         </div>
         <div class="card-footer">
-          <span class="card-view-link">View project <span class="card-arrow">→</span></span>
+          <span class="card-view-link">Coming Soon</span>
         </div>
       </div>
     </div>
 
     <!-- Card 4: Clickstream Studio - locked -->
-    <div class="project-card" style="cursor:default;" id="card-4">
+    <div class="project-card coming-soon-card" style="cursor:none;" id="card-4" data-coming-soon>
       <div class="card-image">
-        <div class="card-image-placeholder" style="background: #f5f0f6;">Coming Soon</div>
+        <div class="card-video-frame">
+          <video src="images/clickstream-studio.mp4" autoplay muted loop playsinline></video>
+        </div>
       </div>
       <div class="card-content">
         <div class="card-meta-row">
           <p class="card-meta-top">Intuit</p>
-          <!-- <span class="card-lock">🔒 Password protected</span> -->
+          <span class="card-lock">🔒 Password protected</span>
         </div>
         <h2 class="card-title"><em>Clickstream Studio</em>: AI-Powered Instrumentation Platform</h2>
         <p class="card-description">Transformed behavior tracking from manual to AI-governed, reducing tracking plan review from 2 weeks to under 1 day.</p>
@@ -323,7 +374,7 @@
           <span class="tag">Product Strategy</span>
         </div>
         <div class="card-footer">
-          <span class="card-view-link">View project <span class="card-arrow">→</span></span>
+          <span class="card-view-link">Coming Soon</span>
         </div>
       </div>
     </div>
@@ -335,7 +386,7 @@
 
   <footer id="contact">
     <div class="container-fluid">
-      <h3>Open to new opportunities, coffee chats, or collaborating on fun side-projects. <span class="footer-cta-italic">Let's talk!</span></h3>
+      <h3>Open to new opportunities, coffee chats, or collaborating on fun side-projects.<br><span class="footer-cta-italic">Let's talk!</span></h3>
       <div class="footer-links">
         <a class="footer-link" href="mailto:sanjana2397@gmail.com"><i class="fas fa-envelope"></i> sanjana2397@gmail.com</a>
         <a class="footer-link" href="https://www.linkedin.com/in/sanjana-danait/" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i> LinkedIn</a>
@@ -540,10 +591,10 @@
       canvas.style.cssText = `display:block; cursor:grab; border-radius:4px;`;
       mount.appendChild(canvas);
 
-      renderer = new THREE.WebGLRenderer({canvas, antialias:true});
+      renderer = new THREE.WebGLRenderer({canvas, antialias:true, alpha:true});
       renderer.setSize(sz, sz);
       renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-      renderer.setClearColor(0xffffff, 1);
+      renderer.setClearColor(0x000000, 0);
 
       threeScene = new THREE.Scene();
       camera = new THREE.PerspectiveCamera(40, 1, 0.1, 100);
@@ -649,6 +700,24 @@
     }
   </script> -->
 
+  <script src="js/coming-soon-pill.js"></script>
+
+  <!-- Navbar: transparent over the hero, white once the user scrolls past it -->
+  <script>
+    (function () {
+      var navbar = document.querySelector('.navbar');
+      var hero = document.querySelector('.section-2');
+      if (!navbar || !hero) return;
+      function onScroll() {
+        // Switch to white as the hero scrolls mostly out of view (near Featured Projects)
+        var trigger = hero.offsetTop + hero.offsetHeight - navbar.offsetHeight - 40;
+        navbar.classList.toggle('nav-scrolled', window.scrollY >= trigger);
+      }
+      window.addEventListener('scroll', onScroll, { passive: true });
+      window.addEventListener('resize', onScroll);
+      onScroll();
+    })();
+  </script>
 
 </body>
 

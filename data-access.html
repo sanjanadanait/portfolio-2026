@@ -12,69 +12,128 @@
   </script>
 
   <meta charset="utf-8">
-  <title>SanjanaDanait / Access Unblocked: Data Access & Governance</title>
+  <title>SanjanaDanait / The Balance Point: Designing for Data Access</title>
   <link rel="icon" href="favicon.ico">
 
-  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
   <style>
-    /* ── Case study base styles (shared with archy.html) ── */
-    .cs-body { font-family: 'Manrope', sans-serif; color: #1a1a1a; }
+    /* ── Case study base styles ── */
+    .cs-body { font-family: 'Manrope', sans-serif; color: #353535; }
     .cs-body p, .cs-body li, .cs-body td, .cs-body th { font-family: 'Manrope', sans-serif; font-size: 16px; line-height: 1.75; color: #353535; }
-    .cs-body h1, .cs-body h2, .cs-body h3, .cs-body h4 { font-family: 'Instrument Serif', serif; font-weight: 400; font-style: italic; color: #1a1a1a; }
+    .cs-body h1, .cs-body h2, .cs-body h3, .cs-body h4 { font-family: 'Instrument Serif', serif; font-weight: 400; font-style: italic; color: #353535; }
     .cs-body h2 { font-size: 2rem; margin-bottom: 16px; }
     .cs-body h3 { font-size: 1.4rem; margin-bottom: 12px; }
     .cs-body footer h3 { font-family: 'Manrope', sans-serif; font-style: normal; font-weight: 500; font-size: 18px !important; color: #353535; }
-    .cs-body strong { font-family: 'Manrope', sans-serif; font-weight: 700; color: #1a1a1a; }
+    .cs-body strong { font-family: 'Manrope', sans-serif; font-weight: 700; color: #353535; }
 
     /* Sidebar */
     .cs-sidebar { position: fixed; top: 50%; transform: translateY(-50%); left: 0; width: 148px; padding: 16px 16px 16px 20px; z-index: 10; background: rgba(255,255,255,0.75); backdrop-filter: blur(4px); border-radius: 0 8px 8px 0; }
     .cs-sidenav { display: flex; flex-direction: column; gap: 2px; }
     .cs-sidenav-divider { height: 1px; background: #e0e0e0; margin: 10px 0; }
     .cs-sidenav-back { font-family: 'Manrope', sans-serif; font-size: 12px; font-weight: 500; color: #9d9d9d; text-decoration: none; padding: 5px 0; line-height: 1.4; text-align: left; transition: color 0.15s; cursor: pointer; background: none; border: none; }
-    .cs-sidenav-back:hover { color: #1a1a1a; }
+    .cs-sidenav-back:hover { color: #353535; }
     .cs-sidenav-link { font-family: 'Manrope', sans-serif; font-size: 12px; font-weight: 500; color: #6a6a6a; text-decoration: none; padding: 5px 0; line-height: 1.4; text-align: left; transition: color 0.15s; }
-    .cs-sidenav-link:hover { color: #1a1a1a; text-decoration: none; }
-    .cs-sidenav-link.active { color: #1a1a1a; font-weight: 700; }
+    .cs-sidenav-link:hover { color: #353535; text-decoration: none; }
+    .cs-sidenav-link.active { color: #353535; font-weight: 700; }
 
     /* Content */
-    .cs-content { padding: 48px 7% 80px 168px; }
-    .cs-section { display: grid; grid-template-columns: 220px 1fr; gap: 40px; align-items: start; padding-top: 32px; padding-bottom: 32px; }
-    .cs-section:last-of-type { border-bottom: none; }
-    .cs-section-heading { font-family: 'Instrument Serif', serif; font-size: 2rem; font-weight: 400; font-style: italic; color: #1a1a1a; line-height: 1.15; margin: 0; padding-top: 4px; text-align: left; }
+    .cs-content { padding: 48px 10% 80px 180px; }
+    .cs-section { display: grid; grid-template-columns: 250px 1fr; gap: 28px; align-items: start; padding-top: 40px; padding-bottom: 40px; }
+    .cs-section-heading { font-family: 'Instrument Serif', serif; font-size: 2rem; font-weight: 400; font-style: italic; color: #353535; line-height: 1.15; margin: 0; padding-top: 4px; text-align: left; }
     .cs-section-body { text-align: left; }
-    .cs-section-body p, .cs-section-body li { font-family: 'Manrope', sans-serif; font-size: 16px; color: #353535; line-height: 1.75; text-align: left; display: block !important; width: 100%; margin-bottom: 16px; }
-    .cs-section-body h3 { font-family: 'Instrument Serif', serif; font-size: 1.3rem; font-style: italic; font-weight: 400; color: #1a1a1a; margin: 28px 0 12px; text-align: left; display: block !important; width: 100%; }
-    .cs-section-body ul { padding-left: 20px; }
-    .cs-section-body li { margin-bottom: 8px; }
-    .cs-img { width: 100%; border-radius: 8px; display: block; }
+    .cs-section-body p { font-family: 'Manrope', sans-serif; font-size: 16px; color: #353535; line-height: 1.75; text-align: left; display: block !important; width: 100%; margin-bottom: 16px; }
+    .cs-section-body h3 { font-family: 'Instrument Serif', serif; font-size: 1.3rem; font-style: italic; font-weight: 400; color: #353535; margin: 56px 0 12px; text-align: left; display: block !important; width: 100%; }
+    .cs-section-body h3:first-child { margin-top: 0; }
+    .cs-section-body ul { padding-left: 20px; margin-bottom: 16px; }
+    .cs-section-body li { font-family: 'Manrope', sans-serif; font-size: 16px; color: #353535; line-height: 1.75; display: block !important; margin-bottom: 8px; }
+    .cs-section-body a { color: #0077C5; text-decoration: none; font-weight: 500; }
+    .cs-section-body a:hover { text-decoration: underline; }
+    .cs-img { width: 100%; border-radius: 8px; display: block; margin-bottom: 8px; }
 
-    /* Nav buttons */
-    .cs-nav-buttons { padding: 40px 7% 80px 168px; }
-    .cs-nav-btn { font-family: 'Manrope', sans-serif; font-size: 14px; font-weight: 600; color: #6a6a6a; text-decoration: none; }
-    .cs-nav-btn:hover { color: #1a1a1a; text-decoration: none; }
+    /* Grey section full-bleed */
+    .cs-section-grey {
+      margin-left: -220px;
+      margin-right: calc(-10vw);
+      padding-left: 220px;
+      padding-right: 10vw;
+      width: calc(100% + 220px + 10vw);
+      box-sizing: border-box;
+      background: #f7f7f7;
+    }
 
     /* Hero */
     .cs-hero { margin-top: 57px; display: flex; flex-direction: column; }
-    .cs-hero-text { padding: 32px 7% 24px; }
-    .cs-hero-title { font-family: 'Instrument Serif', serif; font-size: 32px; font-weight: 400; font-style: italic; color: #1a1a1a; letter-spacing: -0.5px; line-height: 1.2; margin: 0; }
-    .cs-hero-image { width: 100%; }
-    .cs-hero-image-placeholder { width: 100%; height: 80vh; background: #f0f6f4; display: flex; align-items: center; justify-content: center; font-family: 'Manrope', sans-serif; font-size: 13px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: #b0b0b0; }
+    .cs-hero-text { padding: 24px 7% 24px; }
+    .cs-hero-title { font-family: 'Instrument Serif', serif; font-size: 32px; font-weight: 400; font-style: italic; color: #353535; letter-spacing: -0.5px; line-height: 1.2; margin: 0 0 8px; }
+    .cs-hero-subtitle { font-family: 'Manrope', sans-serif; font-size: 16px; color: #6a6a6a; line-height: 1.5; margin: 0; display: block !important; }
+    .cs-hero-image-placeholder { width: 100%; height: 80vh; background: #eef5f2; display: flex; align-items: center; justify-content: center; font-family: 'Manrope', sans-serif; font-size: 13px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: #b0b0b0; }
 
     /* Metadata bar */
     .cs-meta-bar { display: flex; flex-wrap: wrap; gap: 0; padding: 0; margin-bottom: 48px; }
     .cs-meta-item { flex: 1 1 15%; padding: 24px 24px 24px 0; min-width: 120px; text-align: left; }
-    .cs-meta-item:last-child { flex: 1.5 1 20%; }
     .cs-meta-label { display: block; font-family: 'Manrope', sans-serif; font-size: 12px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: #b0b0b0; margin-bottom: 8px; }
-    .cs-meta-value { display: block; font-family: 'Manrope', sans-serif; font-size: 14px; font-weight: 500; color: #353535; line-height: 1.5; }
+    .cs-meta-value { display: block; font-family: 'Manrope', sans-serif; font-size: 16px; font-weight: 500; color: #353535; line-height: 1.5; }
 
-    /* Callout */
-    .cs-callout { background: #f0f4ff; margin: 0 -7% 0 -168px; padding: 48px 7% 48px 168px; }
+    /* Callout - full bleed */
+    .cs-callout {
+      background: linear-gradient(135deg, #FFF8F1 0%, #EAF1FF 100%);
+      margin-left: -220px;
+      margin-right: calc(-10vw);
+      padding: 48px 10vw 48px 220px;
+      width: calc(100% + 220px + 10vw);
+      box-sizing: border-box;
+      margin-top: 4px;
+      margin-bottom: 0;
+    }
     .cs-callout-label { font-family: 'Manrope', sans-serif; font-size: 12px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: #9d9d9d; display: block; margin-bottom: 16px; text-align: left; }
-    .cs-callout-text { font-family: 'Manrope', sans-serif; font-size: 22px; font-weight: 700; color: #236cff; line-height: 1.45; display: block; text-align: left; }
+    .cs-callout-text { font-family: 'Manrope', sans-serif; font-size: 22px; font-weight: 700; color: #0077C5; line-height: 1.45; display: block; text-align: left; }
 
-    /* Placeholder section */
-    .cs-placeholder { background: #fafafa; border-radius: 8px; height: 200px; display: flex; align-items: center; justify-content: center; font-family: 'Manrope', sans-serif; font-size: 13px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: #c0c0c0; margin-bottom: 16px; }
+    /* Balance-point graphic */
+    .balance-graphic {
+      width: 100%;
+      background: #ffffff;
+      border-radius: 8px;
+      padding: 40px 32px 32px;
+      margin-bottom: 8px;
+      box-sizing: border-box;
+    }
+    .balance-graphic svg { width: 100%; height: auto; display: block; }
+
+    /* Image placeholder */
+    .cs-img-placeholder { width: 100%; border-radius: 8px; background: #eef5f2; display: flex; align-items: center; justify-content: center; font-family: 'Manrope', sans-serif; font-size: 12px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; color: #b0b0b0; margin-bottom: 8px; min-height: 320px; text-align: center; padding: 24px; }
+    .cs-img-caption { font-family: 'Manrope', sans-serif; font-size: 13px; color: #9d9d9d; line-height: 1.5; display: block !important; margin-bottom: 32px; text-align: center; }
+
+    /* Finding / metric cards */
+    .cs-finding-list { display: flex; flex-direction: column; gap: 16px; margin: 24px 0 8px; }
+    .cs-finding-card { background: #fff; border-radius: 10px; border: 1px solid #e8e8e8; padding: 24px 28px; }
+    .cs-finding-number { font-family: 'Manrope', sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: #0077C5; display: block !important; margin-bottom: 8px; }
+    .cs-finding-headline { font-family: 'Manrope', sans-serif; font-size: 15px; font-weight: 700; color: #353535; display: block !important; margin-bottom: 10px; line-height: 1.4; }
+    .cs-finding-body { font-family: 'Manrope', sans-serif; font-size: 15px; color: #353535; line-height: 1.7; display: block !important; margin: 0; }
+
+    /* Impact metric cards (3-up grid inside the section body) */
+    .cs-metric-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin: 24px 0 8px; }
+    .cs-metric-card { background: #f5f5f5; border-radius: 10px; padding: 24px 24px 22px; }
+    .cs-metric-number { font-family: 'Instrument Serif', serif; font-style: italic; font-weight: 400; font-size: 2.4rem; color: #0077C5; line-height: 1; display: block !important; margin-bottom: 12px; }
+    .cs-metric-desc { font-family: 'Manrope', sans-serif; font-size: 14px; color: #353535; line-height: 1.6; display: block !important; margin: 0; }
+    @media (max-width: 900px) {
+      .cs-metric-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 600px) {
+      .cs-metric-grid { grid-template-columns: 1fr; }
+    }
+
+    /* Cross-link card */
+    .cs-crosslink { display: block; background: #f5f5f5; border-radius: 12px; padding: 22px 26px; margin: 20px 0 8px; text-decoration: none; transition: background 0.15s; border: 1px solid #ececec; }
+    .cs-crosslink:hover { background: #eef2ff; text-decoration: none; }
+    .cs-crosslink-label { font-family: 'Manrope', sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: #9d9d9d; display: block; margin-bottom: 6px; }
+    .cs-crosslink-title { font-family: 'Manrope', sans-serif; font-size: 16px; font-weight: 700; color: #0077C5; display: block; }
+    .cs-crosslink-arrow { font-weight: 700; }
+
+    /* Nav buttons */
+    .cs-nav-buttons { padding: 40px 10% 80px 180px; }
+    .cs-nav-btn { font-family: 'Manrope', sans-serif; font-size: 14px; font-weight: 600; color: #6a6a6a; text-decoration: none; }
+    .cs-nav-btn:hover { color: #353535; text-decoration: none; }
   </style>
 
   <!-- CSS Stylesheets -->
@@ -84,6 +143,10 @@
   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+  <!-- Password gate (soft, client-side). Shared password across gated case studies. -->
+  <script>window.CS_GATE = { hash: "a70614c6882047800f3905a32d0b9cd8216be64db496e1836a0dffe839cea7d0", key: "cs-unlock-shared" };</script>
+  <script src="js/case-study-gate.js"></script>
 </head>
 
 <body class="cs-body">
@@ -110,11 +173,11 @@
   <aside class="cs-sidebar">
     <nav class="cs-sidenav">
       <a class="cs-sidenav-link active" href="#overview">Overview</a>
-      <a class="cs-sidenav-link" href="#problem">Problem</a>
-      <a class="cs-sidenav-link" href="#solution">Solution</a>
-      <a class="cs-sidenav-link" href="#process">Process</a>
-      <a class="cs-sidenav-link" href="#outcomes">Outcomes</a>
-      <a class="cs-sidenav-link" href="#takeaways">Takeaways</a>
+      <a class="cs-sidenav-link" href="#principle-1">Principle 1</a>
+      <a class="cs-sidenav-link" href="#principle-2">Principle 2</a>
+      <a class="cs-sidenav-link" href="#principle-3">Principle 3</a>
+      <a class="cs-sidenav-link" href="#impact">Impact</a>
+      <a class="cs-sidenav-link" href="#reflection">Reflection</a>
       <div class="cs-sidenav-divider"></div>
       <button class="cs-sidenav-back" onclick="window.scrollTo({top:0,behavior:'smooth'})">Back to Top</button>
     </nav>
@@ -123,10 +186,11 @@
   <!-- Hero -->
   <div class="cs-hero">
     <div class="cs-hero-text">
-      <h1 class="cs-hero-title">Access Unblocked: Data Access &amp; Governance</h1>
+      <h1 class="cs-hero-title">The Balance Point: Designing for Data Access at Intuit</h1>
+      <span class="cs-hero-subtitle">Two years leading design across the full lifecycle of how Intuit's data workforce requests, receives, and governs access to its most sensitive data.</span>
     </div>
     <div class="cs-hero-image">
-      <div class="cs-hero-image-placeholder">Hero image coming soon</div>
+      <img src="images/data-access-hero.png" alt="The Balance Point: Designing for Data Access" style="width:100%;display:block;">
     </div>
   </div>
 
@@ -137,90 +201,222 @@
     <div class="cs-meta-bar">
       <div class="cs-meta-item">
         <span class="cs-meta-label">Role</span>
-        <span class="cs-meta-value">Product Design Lead</span>
+        <span class="cs-meta-value">Lead Product Designer, Data Access</span>
       </div>
       <div class="cs-meta-item">
         <span class="cs-meta-label">Timeline</span>
-        <span class="cs-meta-value">Jan 2025 – Present</span>
+        <span class="cs-meta-value">2024 to 2026 (ongoing)</span>
       </div>
       <div class="cs-meta-item">
-        <span class="cs-meta-label">Company</span>
-        <span class="cs-meta-value">Intuit</span>
+        <span class="cs-meta-label">Scope</span>
+        <span class="cs-meta-value">Design owner across the full access lifecycle, spanning 10 shipped features</span>
       </div>
       <div class="cs-meta-item">
-        <span class="cs-meta-label">Team</span>
-        <span class="cs-meta-value">Analytics, AI &amp; Data</span>
+        <span class="cs-meta-label">Partners</span>
+        <span class="cs-meta-value">Data Access, Data Processing, Data Lake, Legal, Compliance, Data Security, Privacy</span>
       </div>
       <div class="cs-meta-item">
         <span class="cs-meta-label">Tools</span>
-        <span class="cs-meta-value">Figma, Jira</span>
+        <span class="cs-meta-value">Figma, FigJam, Cursor, Claude</span>
+      </div>
+    </div>
+
+    <!-- Overview -->
+    <div id="overview" class="cs-section cs-section-grey">
+      <h2 class="cs-section-heading">Overview</h2>
+      <div class="cs-section-body">
+        <p>Every analyst, engineer, and data scientist at Intuit runs into the same problem before they can work: <strong>they need access to data, and getting it is slow, fragmented, and easy to get wrong.</strong> The data lives in different places (the data lake, feature stores, the event bus, third-party sources), in different shapes (tables, Kafka topics, ML features), under different restrictions (PII encryption, IRS 7216, SOX). <strong>Before this work, getting access meant hopping between four or more disconnected tools</strong>, filing tickets into spreadsheets, and waiting weeks, sometimes in the wrong system entirely.</p>
+        <p>What makes this a hard <em>design</em> space isn't the interface. <strong>It's that access is the one domain where faster-for-the-user isn't automatically the goal.</strong> Every request sits between two opposing forces: the consumer who wants access <em>now</em>, and the legal, compliance, and security teams whose job is to ensure the wrong person never gets the wrong data. Optimize only for the consumer and you fail the business; optimize only for control and you rebuild the wall. <strong>The real design problem is finding the balance point, and defending it to both sides.</strong></p>
+        <p>I led design for this capability for two years, shipping ten features across the lifecycle of a request. Three principles came out of that work, and they run against how design usually works. They organize the rest of this case study.</p>
+
+        <div class="balance-graphic">
+          <svg viewBox="0 0 760 380" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="A balance scale with Design as the fulcrum, weighing Consumers who want speed against Legal, Compliance and Security who want control.">
+            <defs>
+              <linearGradient id="balancePan" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0%" stop-color="#FFF8F1"/>
+                <stop offset="100%" stop-color="#EAF1FF"/>
+              </linearGradient>
+            </defs>
+
+            <!-- Left pan group: Consumers -->
+            <g>
+              <line x1="180" y1="120" x2="120" y2="188" stroke="#c3ccdb" stroke-width="1.5"/>
+              <line x1="180" y1="120" x2="240" y2="188" stroke="#c3ccdb" stroke-width="1.5"/>
+              <path d="M108 188 h144 a12 12 0 0 1 -12 22 h-120 a12 12 0 0 1 -12 -22 z" fill="url(#balancePan)" stroke="#d7dee9" stroke-width="1.5"/>
+              <text x="180" y="252" text-anchor="middle" font-family="Instrument Serif, serif" font-style="italic" font-size="26" fill="#353535">Consumers</text>
+              <text x="180" y="282" text-anchor="middle" font-family="Manrope, sans-serif" font-size="13" font-weight="600" letter-spacing="1.5" fill="#0077C5">WANT SPEED</text>
+            </g>
+
+            <!-- Right pan group: Governance -->
+            <g>
+              <line x1="580" y1="120" x2="520" y2="188" stroke="#c3ccdb" stroke-width="1.5"/>
+              <line x1="580" y1="120" x2="640" y2="188" stroke="#c3ccdb" stroke-width="1.5"/>
+              <path d="M508 188 h144 a12 12 0 0 1 -12 22 h-120 a12 12 0 0 1 -12 -22 z" fill="url(#balancePan)" stroke="#d7dee9" stroke-width="1.5"/>
+              <text x="580" y="252" text-anchor="middle" font-family="Instrument Serif, serif" font-style="italic" font-size="26" fill="#353535">Legal · Compliance · Security</text>
+              <text x="580" y="282" text-anchor="middle" font-family="Manrope, sans-serif" font-size="13" font-weight="600" letter-spacing="1.5" fill="#0077C5">WANT CONTROL</text>
+            </g>
+
+            <!-- Beam -->
+            <line x1="180" y1="120" x2="580" y2="120" stroke="#353535" stroke-width="3" stroke-linecap="round"/>
+            <circle cx="380" cy="120" r="7" fill="#353535"/>
+
+            <!-- Fulcrum / Design -->
+            <path d="M380 130 L344 196 L416 196 Z" fill="#0077C5"/>
+            <rect x="300" y="196" width="160" height="2.5" fill="#c3ccdb"/>
+            <text x="380" y="234" text-anchor="middle" font-family="Instrument Serif, serif" font-style="italic" font-size="30" fill="#0077C5">Design</text>
+            <text x="380" y="262" text-anchor="middle" font-family="Manrope, sans-serif" font-size="12" font-weight="600" letter-spacing="2" fill="#8a93a8">THE BALANCE POINT</text>
+          </svg>
+        </div>
+        <span class="cs-img-caption">The entire domain is a balancing act between what users want and what governance requires.</span>
       </div>
     </div>
 
     <!-- Callout -->
     <div class="cs-callout">
-      <span class="cs-callout-label">Project Brief</span>
-      <span class="cs-callout-text">How might we help 8,000+ data workers request and govern access to sensitive data — faster, with less friction, and without sacrificing compliance?</span>
+      <span class="cs-callout-text">Access is the one domain where faster-for-the-user isn't automatically the goal. The real design problem is finding the balance point, and defending it to both sides.</span>
     </div>
 
-    <!-- Overview -->
-    <div id="overview" class="cs-section">
-      <h2 class="cs-section-heading">Overview</h2>
+    <!-- Principle 1 -->
+    <div id="principle-1" class="cs-section">
+      <h2 class="cs-section-heading">Principle 1: Small interventions, not new tools</h2>
       <div class="cs-section-body">
-        <div class="cs-placeholder">Content coming soon</div>
+        <p>In most product work the deliverable is a new screen. In access, the strongest solutions were often the <em>smallest</em>: <strong>removing a step, or adding one small element to a flow that already existed, rather than building another tool.</strong> The hard part is knowing which single step to change, and being certain it's safe to.</p>
+
+        <h3>Unifying four tools into one request (Real-time-data Access)</h3>
+        <p>Requesting access to real-time data (Kafka topics) meant navigating four fragmented tools and could take two to three weeks. The intervention wasn't a new platform, it was <strong>folding real-time-data access requests into the table access experience users already knew.</strong> Time-to-access dropped from <strong>2 to 3 weeks to 3 days</strong>, with <strong>61% of requests now auto-approved</strong>.</p>
+        <div class="cs-img-placeholder">Image coming soon: real-time-data access request within the unified table access flow</div>
+        <span class="cs-img-caption">Four fragmented tools collapsed into one request surface users already knew, not a new tool.</span>
+
+        <h3>Bringing BI-tool access to where the data is created (BI Tools Access at the Data Processing Layer)</h3>
+        <p>Analysts often built the output tables themselves, joining and processing inputs in the data-processing layer, yet still couldn't explore that data in BI tools like Athena, Tableau, or QlikSense without filing a separate access ticket for each one. They'd created the table, but had to wait on three different requests just to use it. So I moved access to where the work already happened: <strong>right as they defined the output, they could pre-request access to it for whichever BI tools they'd need.</strong> The moment the table was created, it was ready to explore, no separate tickets, no tool-hopping.</p>
+        <div class="cs-img-placeholder">Image coming soon: BI-tool access pre-requested at the point where the output table is defined</div>
+        <span class="cs-img-caption">Access added at the point of work, rather than as another destination to visit.</span>
+
+        <h3>A setting instead of a request (steward auto-approval)</h3>
+        <p>Stewards were fielding manual, one-off requests to enable auto-approval for data they owned. Instead of a richer request queue, I added <strong>one steward-facing configuration surface</strong>: set preferences once, and the individual requests disappear. Approval time for internal-intent data fell from <strong>24 hours to near-instant</strong>.</p>
+        <div class="cs-img-placeholder">Image coming soon: Steward auto-approval configuration setting</div>
+        <span class="cs-img-caption">One small configuration control removed an entire recurring request loop.</span>
+
+        <p>In each case the smallest intervention that satisfied both the user and governance was the right one, whether that was a new surface, a checkbox, a step, or a placement.</p>
       </div>
     </div>
 
-    <!-- Problem -->
-    <div id="problem" class="cs-section">
-      <h2 class="cs-section-heading">Problem</h2>
+    <!-- Principle 2 -->
+    <div id="principle-2" class="cs-section cs-section-grey">
+      <h2 class="cs-section-heading">Principle 2: Simplify and stay compliant</h2>
       <div class="cs-section-body">
-        <div class="cs-placeholder">Content coming soon</div>
+        <p>The hardest both-and in this space: <strong>make it genuinely faster and easier for the user while fully satisfying compliance.</strong> When it works, the user just feels speed and never sees the governance logic underneath.</p>
+
+        <h3>Declaring intent up front to unlock the back end (7216 Compliance Tagging)</h3>
+        <p>Analysis of real request data showed compliance, specifically IRS 7216 tax-data restrictions, was <strong>the single biggest cause of denials.</strong> The move was to make compliance <em>purpose</em> explicit at request time by tagging roles and projects with their 7216 status and geo-restrictions. A small amount of structure up front, in exchange for <strong>eliminating 85% of previously-ineligible 7216 denials</strong> downstream.</p>
+        <div class="cs-img-placeholder">Image coming soon: 7216 compliance tagging / geo-restriction validation</div>
+        <span class="cs-img-caption">Making compliance intent explicit early removed 85% of downstream denials, simpler for everyone, without weakening the rule.</span>
+
+        <h3>Collapsing two approvals into one (Unified Decryption Access)</h3>
+        <p>Sensitive columns are encrypted, so using a table with encrypted data meant clearing <strong>two separate approvals in two different tools</strong>, the table in Discovery and then its decryption keys through an unrelated process, averaging <strong>9 days</strong>. I unified them into <strong>a single in-flow request</strong> that lets users select the specific encrypted columns they need and provisions key access automatically on approval, while preserving column-level compliance control underneath. Time-to-access dropped from <strong>9 days to 3</strong>.</p>
+
+        <!-- <a class="cs-crosslink" href="data-access-decryption.html">
+          <span class="cs-crosslink-label">Deep-dive case study</span>
+          <span class="cs-crosslink-title">Read the full Unified Decryption Access case study <span class="cs-crosslink-arrow">&rarr;</span></span>
+        </a> -->
+
+        <h3>Making the safe action easy for stewards (Revoke Access)</h3>
+        <p><strong>Earlier there was no self-serve way to revoke access at all</strong>, whether it had been granted by mistake or was simply no longer used. Stewards reached out on the support channel, which pushed the work onto our platform engineers and increased their load. Because revoking was hard, it often didn't happen, which is itself a compliance risk. I designed a <strong>self-serve revoke flow with the audit and transparency trail compliance needed</strong>, making the compliant action the path of least resistance.</p>
+        <div class="cs-img-placeholder">Image coming soon: Revoke Access, steward flow</div>
+        <span class="cs-img-caption">A self-serve way to revoke stale or mistaken access, replacing support-channel requests that fell on platform engineers.</span>
       </div>
     </div>
 
-    <!-- Solution -->
-    <div id="solution" class="cs-section">
-      <h2 class="cs-section-heading">Solution</h2>
+    <!-- Principle 3 -->
+    <div id="principle-3" class="cs-section">
+      <h2 class="cs-section-heading">Principle 3: Deliberately withholding ease</h2>
       <div class="cs-section-body">
-        <div class="cs-placeholder">Content coming soon</div>
+        <p>The genuinely counterintuitive one, and <strong>the opposite of Principle 2</strong>: everywhere else friction is the enemy, but here <strong>sometimes correct design is making a path harder to find and harder to use, so it's used only for the cases it's meant for.</strong> Not because we couldn't make it effortless, but because effortless would be wrong.</p>
+
+        <h3>Bulk Access, powerful but on purpose not frictionless</h3>
+        <p>Bulk access lets a user request 50+ tables at once instead of one at a time, a big speedup for the right use case. The easy design would be a point-and-click UI: select tables from a list, hit request. <strong>I deliberately chose not to build that.</strong> Instead, bulk requests <strong>require uploading a CSV of table names and role ARNs, and the entry point is intentionally not placed in the most obvious, high-traffic spot.</strong></p>
+        <p>Every one of those was a conscious decision to add just enough friction that bulk access is used for what it's for (data migrations, team ownership changes, cold starts) and <strong>not as a shortcut for everyday exploration</strong>, where it would quietly become a least-privilege and over-provisioning problem. The result still <strong>saved ~4,000 hours/year</strong> and let one customer <strong>migrate 5,000 tables in a week</strong>, proof that withholding the effortless version cost the real use cases nothing.</p>
+        <div class="cs-img-placeholder">Image coming soon: Bulk Access CSV upload flow + note on entry-point placement</div>
+        <span class="cs-img-caption">A CSV upload instead of a click-to-select UI, and a deliberately non-obvious entry point, friction placed on purpose to keep bulk access to its intended use.</span>
       </div>
     </div>
 
-    <!-- Process -->
-    <div id="process" class="cs-section">
-      <h2 class="cs-section-heading">Process</h2>
+    <!-- How they fit together -->
+    <div class="cs-callout">
+      <span class="cs-callout-text">The three principles aren't a sequence. They're three answers to one question: what is the smallest, most correct thing to change so both the user and governance are satisfied? The job is knowing which one a problem calls for, and defending it to both sides.</span>
+    </div>
+
+    <!-- Impact -->
+    <div id="impact" class="cs-section">
+      <h2 class="cs-section-heading">Impact across the capability</h2>
       <div class="cs-section-body">
-        <div class="cs-placeholder">Content coming soon</div>
+        <p>Owning design for the full lifecycle over two years meant the individual features added up to a shift in how the whole capability performed. Across ten shipped features, the work moved the numbers that matter to both sides of the balance, faster for users, tighter for governance.</p>
+
+        <div class="cs-metric-grid">
+          <div class="cs-metric-card">
+            <span class="cs-metric-number">Weeks &rarr; days</span>
+            <span class="cs-metric-desc">Time-to-access dropped across the board, and to near-instant for internal-intent data through steward auto-approval.</span>
+          </div>
+          <div class="cs-metric-card">
+            <span class="cs-metric-number">~4,000</span>
+            <span class="cs-metric-desc">Operational hours saved per year through bulk access, with one customer migrating 5,000 tables in a single week.</span>
+          </div>
+          <div class="cs-metric-card">
+            <span class="cs-metric-number">85%</span>
+            <span class="cs-metric-desc">Of previously-ineligible compliance denials eliminated by moving the 7216 check to request time.</span>
+          </div>
+          <div class="cs-metric-card">
+            <span class="cs-metric-number">61%</span>
+            <span class="cs-metric-desc">Of topic-access requests now auto-approved after unifying four tools into one flow.</span>
+          </div>
+          <div class="cs-metric-card">
+            <span class="cs-metric-number">360K+</span>
+            <span class="cs-metric-desc">Monthly decryption key requests brought into a single governed system, built to absorb the expected 5x growth in encrypted data.</span>
+          </div>
+          <div class="cs-metric-card">
+            <span class="cs-metric-number">Less load</span>
+            <span class="cs-metric-desc">Support-channel load reduced for platform engineers by replacing manual, ticket-driven paths (revoke, access states) with self-serve flows.</span>
+          </div>
+        </div>
+
+        <p>The throughline isn't any single metric. It's that <strong>the same body of work made access faster for users and more governable for compliance at the same time</strong>, which in this domain are usually in tension.</p>
       </div>
     </div>
 
-    <!-- Outcomes -->
-    <div id="outcomes" class="cs-section">
-      <h2 class="cs-section-heading">Outcomes</h2>
+    <!-- Reflection -->
+    <div id="reflection" class="cs-section cs-section-grey">
+      <h2 class="cs-section-heading">Reflection</h2>
       <div class="cs-section-body">
-        <div class="cs-placeholder">Content coming soon</div>
-      </div>
-    </div>
-
-    <!-- Takeaways -->
-    <div id="takeaways" class="cs-section">
-      <h2 class="cs-section-heading">Takeaways</h2>
-      <div class="cs-section-body">
-        <div class="cs-placeholder">Content coming soon</div>
+        <div class="cs-finding-list">
+          <div class="cs-finding-card">
+            <span class="cs-finding-number">01</span>
+            <span class="cs-finding-headline">The user is not the only stakeholder I'm designing for.</span>
+            <span class="cs-finding-body">In most domains, a designer can treat "what does the user want" as the north star. In access, the honest answer is that the user is one voice in a room that also holds legal, compliance, and security, and a design that ignores any of them is not a good design, no matter how clean it looks.</span>
+          </div>
+          <div class="cs-finding-card">
+            <span class="cs-finding-number">02</span>
+            <span class="cs-finding-headline">The best solution isn't always the simplest one, and it isn't always more product.</span>
+            <span class="cs-finding-body">Sometimes it's one small element added to a flow that already exists. Sometimes it's real speed with the governance logic hidden underneath. And sometimes it's deliberately withholding ease so a powerful path is used only when it should be. Learning to tell those apart, and to defend the call to people who each want a different outcome, is the part of this work I carried forward most directly.</span>
+          </div>
+          <div class="cs-finding-card">
+            <span class="cs-finding-number">03</span>
+            <span class="cs-finding-headline">A lot of the real design happened outside Figma.</span>
+            <span class="cs-finding-body">Much of the actual design happened in conversations with compliance and security rather than in a file, and being able to hold a position there, and to translate a governance constraint into a design decision and back, became as important as the screens themselves. That's the capability I've leaned on since across the rest of my platform work.</span>
+          </div>
+        </div>
       </div>
     </div>
 
   </main>
 
   <div class="cs-nav-buttons">
-    <a class="cs-nav-btn" href="work.html">← Work</a>
+    <a class="cs-nav-btn" href="work.html">&larr; Work</a>
   </div>
 
   <!-- Footer -->
   <footer id="contact">
     <div class="container-fluid">
-      <h3>Open to new opportunities, coffee chats, or collaborating on fun side-projects — <span class="footer-cta-italic">let's talk!</span></h3>
+      <h3>Open to new opportunities, coffee chats, or collaborating on fun side-projects.<br><span class="footer-cta-italic">Let's talk!</span></h3>
       <div class="footer-links">
         <a class="footer-link" href="mailto:sanjana2397@gmail.com"><i class="fas fa-envelope"></i> sanjana2397@gmail.com</a>
         <a class="footer-link" href="https://www.linkedin.com/in/sanjana-danait/" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i> LinkedIn</a>

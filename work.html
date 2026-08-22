@@ -27,10 +27,47 @@
   <style>
     /* ── Work page styles (wk- prefix, no overlap with homepage) ── */
 
-    body { font-family: 'Manrope', sans-serif; }
+    body { font-family: 'Manrope', sans-serif; background-color: transparent; }
+
+    /* ── Full-page cloud background (fixed behind everything), same as homepage ── */
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background-image: url('images/footer-clouds.jpg');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      transform: scaleX(-1);
+      z-index: -2;
+      pointer-events: none;
+    }
+
+    body::after {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background: rgba(255, 255, 255, 0.60);
+      z-index: -1;
+      pointer-events: none;
+    }
+
+    /* ── Navbar: transparent by default, white once scrolled (same as homepage) ── */
+    #navbar { background-color: transparent !important; }
+    .navbar {
+      background-color: transparent !important;
+      border-bottom: none !important;
+      transition: background-color 0.25s ease, box-shadow 0.25s ease;
+    }
+    .navbar.nav-scrolled {
+      background-color: #ffffff !important;
+      box-shadow: 0 1px 8px rgba(0, 0, 0, 0.05);
+    }
 
     #work-page {
       padding: 57px 7% 80px;
+      position: relative;
+      z-index: 0;
     }
 
     /* Section headers — match homepage .projects-label */
@@ -38,7 +75,7 @@
       font-family: 'Instrument Serif', serif;
       font-size: 44px;
       font-weight: 400;
-      color: #b0b0b0;
+      color: #353535;
       padding: 72px 0 36px;
       text-align: left;
       display: block;
@@ -60,9 +97,10 @@
       display: block;
       text-decoration: none;
       color: inherit;
+      background: #ffffff;
       border-radius: 12px;
       overflow: hidden;
-      border: 1px solid #ebebeb;
+      border: 8px solid #ffffff;
       transition: box-shadow 0.15s, border-color 0.15s;
     }
 
@@ -77,6 +115,7 @@
       aspect-ratio: 16/9;
       object-fit: cover;
       display: block;
+      border-radius: 8px;
     }
 
     .wk-card-img-placeholder {
@@ -91,6 +130,27 @@
       letter-spacing: 1.5px;
       text-transform: uppercase;
       color: #c0c0c0;
+    }
+
+    /* Gradient frame with a centered auto-looping video (no controls) */
+    .wk-card-video-frame {
+      width: 100%;
+      aspect-ratio: 16/9;
+      background: linear-gradient(105deg, #EEFDFF 0%, #D6E3FF 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      border-radius: 12px;
+    }
+
+    .wk-card-video-frame video {
+      width: 80%;
+      height: auto;
+      max-height: 82%;
+      border-radius: 12px;
+      display: block;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
     }
 
     .wk-card-body {
@@ -127,7 +187,7 @@
       font-family: 'Instrument Serif', serif;
       font-size: 22px;
       font-weight: 400;
-      color: #1a1a1a;
+      color: #353535;
       line-height: 1.25;
       margin-bottom: 14px;
       text-align: left;
@@ -242,6 +302,7 @@
         <div class="wk-card-body">
           <div class="wk-card-meta-row">
             <span class="wk-card-company">Mindstix / Archy</span>
+            <span class="wk-card-lock">🔒 Password protected</span>
           </div>
           <span class="wk-card-title"><em>Archy</em>: Dental Practice Management Platform</span>
           <span class="wk-card-desc">Led end-to-end design of a healthcare SaaS platform — from zero to shipped — helping the client raise $10M+ in seed funding.</span>
@@ -259,7 +320,7 @@
         <div class="wk-card-body">
           <div class="wk-card-meta-row">
             <span class="wk-card-company">Intuit</span>
-            <!-- <span class="wk-card-lock">🔒 Password protected</span> -->
+            <span class="wk-card-lock">🔒 Password protected</span>
           </div>
           <span class="wk-card-title"><em>Clickstream Event Explorer</em>: Chrome Extension</span>
           <span class="wk-card-desc">Designed and shipped a browser extension for real-time event validation — from FMHs to prototype to live in the Chrome Web Store.</span>
@@ -272,31 +333,33 @@
         </div>
       </a>
 
-      <!-- Card 3: Data Access — locked -->
-      <div class="wk-card" style="cursor:default;">
-        <div class="wk-card-img-placeholder" style="background: #f0f6f4;">Coming Soon</div>
+      <!-- Card 3: Data Access — coming soon (not clickable) -->
+      <div class="wk-card coming-soon-card" style="cursor:default;" data-coming-soon>
+        <img class="wk-card-img" src="images/data-access-project-image.png" alt="The Balance Point: Designing for Data Access">
         <div class="wk-card-body">
           <div class="wk-card-meta-row">
             <span class="wk-card-company">Intuit</span>
-            <!-- <span class="wk-card-lock">🔒 Password protected</span> -->
+            <span class="wk-card-lock">🔒 Password protected</span>
           </div>
-          <span class="wk-card-title"><em>Access Unblocked</em>: Data Access and Governance</span>
-          <span class="wk-card-desc">Redesigned how 8,000+ data workers request and govern access to sensitive data — saving 4,000+ hours/year and cutting access time by 66%.</span>
+          <span class="wk-card-title"><em>The Balance Point</em>: Designing for Data Access</span>
+          <span class="wk-card-desc">Two years leading design across the full data-access lifecycle: saving 4,000+ hours/year and cutting access time from weeks to days, without loosening a single compliance control.</span>
           <div class="wk-card-tags">
+            <span class="wk-tag">Design Leadership</span>
             <span class="wk-tag">Enterprise UX</span>
             <span class="wk-tag">Data Governance</span>
-            <span class="wk-tag">Feature Redesigns</span>
           </div>
         </div>
       </div>
 
       <!-- Card 4: Clickstream Studio — locked -->
-      <div class="wk-card" style="cursor:default;">
-        <div class="wk-card-img-placeholder" style="background: #f5f0f6;">Coming Soon</div>
+      <div class="wk-card coming-soon-card" style="cursor:default;" data-coming-soon>
+        <div class="wk-card-video-frame">
+          <video src="images/clickstream-studio.mp4" autoplay muted loop playsinline></video>
+        </div>
         <div class="wk-card-body">
           <div class="wk-card-meta-row">
             <span class="wk-card-company">Intuit</span>
-            <!-- <span class="wk-card-lock">🔒 Password protected</span> -->
+            <span class="wk-card-lock">🔒 Password protected</span>
           </div>
           <span class="wk-card-title"><em>Clickstream Studio</em>: AI-Powered Instrumentation Platform</span>
           <span class="wk-card-desc">Transformed behavior tracking from manual to AI-governed — reducing tracking plan review from 2 weeks to under 1 day.</span>
@@ -305,6 +368,25 @@
             <span class="wk-tag">Product Analytics</span>
             <span class="wk-tag">Zero-to-One</span>
             <span class="wk-tag">End-to-End Design</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 5: Unified Decryption Access — coming soon (not clickable) -->
+      <div class="wk-card coming-soon-card" style="cursor:default;" data-coming-soon>
+        <div class="wk-card-img-placeholder" style="background: #eef5f2;">Coming Soon</div>
+        <div class="wk-card-body">
+          <div class="wk-card-meta-row">
+            <span class="wk-card-company">Intuit</span>
+            <span class="wk-card-lock">🔒 Password protected</span>
+          </div>
+          <span class="wk-card-title"><em>Unified Decryption Access</em>: One Request for Encrypted Data</span>
+          <span class="wk-card-desc">A deep dive into collapsing two approvals into one: cutting time-to-access for encrypted data from 9 days to 3 while preserving column-level governance.</span>
+          <div class="wk-card-tags">
+            <span class="wk-tag">Case Study</span>
+            <span class="wk-tag">Enterprise UX</span>
+            <span class="wk-tag">Data Governance</span>
+            <span class="wk-tag">Workflow Design</span>
           </div>
         </div>
       </div>
@@ -356,7 +438,7 @@
 
   <footer id="contact">
     <div class="container-fluid">
-      <h3>Open to new opportunities, coffee chats, or collaborating on fun side-projects — <span class="footer-cta-italic">let's talk!</span></h3>
+      <h3>Open to new opportunities, coffee chats, or collaborating on fun side-projects.<br><span class="footer-cta-italic">Let's talk!</span></h3>
       <div class="footer-links">
         <a class="footer-link" href="mailto:sanjana2397@gmail.com"><i class="fas fa-envelope"></i> sanjana2397@gmail.com</a>
         <a class="footer-link" href="https://www.linkedin.com/in/sanjana-danait/" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i> LinkedIn</a>
@@ -379,6 +461,22 @@
       cursor.style.display = "block"
     }
   </script> -->
+
+  <script src="js/coming-soon-pill.js"></script>
+
+  <!-- Navbar: transparent at top, white once the user starts scrolling -->
+  <script>
+    (function () {
+      var navbar = document.querySelector('.navbar');
+      if (!navbar) return;
+      function onScroll() {
+        navbar.classList.toggle('nav-scrolled', window.scrollY >= 40);
+      }
+      window.addEventListener('scroll', onScroll, { passive: true });
+      window.addEventListener('resize', onScroll);
+      onScroll();
+    })();
+  </script>
 
 </body>
 

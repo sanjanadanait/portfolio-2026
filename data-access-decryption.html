@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-S3QXSR4H4Q"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-S3QXSR4H4Q');
+  </script>
+
+  <meta charset="utf-8">
+  <title>SanjanaDanait / Unified Decryption Access</title>
+  <link rel="icon" href="favicon.ico">
+
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    /* ── Case study base styles ── */
+    .cs-body { font-family: 'Manrope', sans-serif; color: #353535; }
+    .cs-body p, .cs-body li, .cs-body td, .cs-body th { font-family: 'Manrope', sans-serif; font-size: 16px; line-height: 1.75; color: #353535; }
+    .cs-body h1, .cs-body h2, .cs-body h3, .cs-body h4 { font-family: 'Instrument Serif', serif; font-weight: 400; font-style: italic; color: #353535; }
+    .cs-body h2 { font-size: 2rem; margin-bottom: 16px; }
+    .cs-body h3 { font-size: 1.4rem; margin-bottom: 12px; }
+    .cs-body footer h3 { font-family: 'Manrope', sans-serif; font-style: normal; font-weight: 500; font-size: 18px !important; color: #353535; }
+    .cs-body strong { font-family: 'Manrope', sans-serif; font-weight: 700; color: #353535; }
+
+    /* Sidebar */
+    .cs-sidebar { position: fixed; top: 50%; transform: translateY(-50%); left: 0; width: 148px; padding: 16px 16px 16px 20px; z-index: 10; background: rgba(255,255,255,0.75); backdrop-filter: blur(4px); border-radius: 0 8px 8px 0; }
+    .cs-sidenav { display: flex; flex-direction: column; gap: 2px; }
+    .cs-sidenav-divider { height: 1px; background: #e0e0e0; margin: 10px 0; }
+    .cs-sidenav-back { font-family: 'Manrope', sans-serif; font-size: 12px; font-weight: 500; color: #9d9d9d; text-decoration: none; padding: 5px 0; line-height: 1.4; text-align: left; transition: color 0.15s; cursor: pointer; background: none; border: none; }
+    .cs-sidenav-back:hover { color: #353535; }
+    .cs-sidenav-link { font-family: 'Manrope', sans-serif; font-size: 12px; font-weight: 500; color: #6a6a6a; text-decoration: none; padding: 5px 0; line-height: 1.4; text-align: left; transition: color 0.15s; }
+    .cs-sidenav-link:hover { color: #353535; text-decoration: none; }
+    .cs-sidenav-link.active { color: #353535; font-weight: 700; }
+
+    /* Content */
+    .cs-content { padding: 48px 10% 80px 180px; }
+    .cs-section { display: grid; grid-template-columns: 250px 1fr; gap: 28px; align-items: start; padding-top: 40px; padding-bottom: 40px; }
+    .cs-section-heading { font-family: 'Instrument Serif', serif; font-size: 2rem; font-weight: 400; font-style: italic; color: #353535; line-height: 1.15; margin: 0; padding-top: 4px; text-align: left; }
+    .cs-section-body { text-align: left; }
+    .cs-section-body p { font-family: 'Manrope', sans-serif; font-size: 16px; color: #353535; line-height: 1.75; text-align: left; display: block !important; width: 100%; margin-bottom: 16px; }
+    .cs-section-body h3 { font-family: 'Instrument Serif', serif; font-size: 1.3rem; font-style: italic; font-weight: 400; color: #353535; margin: 56px 0 12px; text-align: left; display: block !important; width: 100%; }
+    .cs-section-body h3:first-child { margin-top: 0; }
+    .cs-section-body ul { padding-left: 20px; margin-bottom: 16px; }
+    .cs-section-body li { font-family: 'Manrope', sans-serif; font-size: 16px; color: #353535; line-height: 1.75; display: block !important; margin-bottom: 8px; }
+    .cs-section-body a { color: #236cff; text-decoration: none; font-weight: 500; }
+    .cs-section-body a:hover { text-decoration: underline; }
+    .cs-img { width: 100%; border-radius: 8px; display: block; margin-bottom: 8px; }
+
+    /* Grey section full-bleed */
+    .cs-section-grey {
+      margin-left: -220px;
+      margin-right: calc(-10vw);
+      padding-left: 220px;
+      padding-right: 10vw;
+      width: calc(100% + 220px + 10vw);
+      box-sizing: border-box;
+      background: #f7f7f7;
+    }
+
+    /* Hero */
+    .cs-hero { margin-top: 57px; display: flex; flex-direction: column; }
+    .cs-hero-text { padding: 24px 7% 24px; }
+    .cs-hero-title { font-family: 'Instrument Serif', serif; font-size: 32px; font-weight: 400; font-style: italic; color: #353535; letter-spacing: -0.5px; line-height: 1.2; margin: 0 0 8px; }
+    .cs-hero-subtitle { font-family: 'Manrope', sans-serif; font-size: 16px; color: #6a6a6a; line-height: 1.5; margin: 0; display: block !important; }
+    .cs-hero-image-placeholder { width: 100%; height: 80vh; background: #eef5f2; display: flex; align-items: center; justify-content: center; font-family: 'Manrope', sans-serif; font-size: 13px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: #b0b0b0; }
+
+    /* Metadata bar */
+    .cs-meta-bar { display: flex; flex-wrap: wrap; gap: 0; padding: 0; margin-bottom: 48px; }
+    .cs-meta-item { flex: 1 1 15%; padding: 24px 24px 24px 0; min-width: 120px; text-align: left; }
+    .cs-meta-label { display: block; font-family: 'Manrope', sans-serif; font-size: 12px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: #b0b0b0; margin-bottom: 8px; }
+    .cs-meta-value { display: block; font-family: 'Manrope', sans-serif; font-size: 16px; font-weight: 500; color: #353535; line-height: 1.5; }
+
+    /* Callout - full bleed */
+    .cs-callout {
+      background: linear-gradient(to bottom right, #F0F9FF, #E8FFF1);
+      margin-left: -220px;
+      margin-right: calc(-10vw);
+      padding: 48px 10vw 48px 220px;
+      width: calc(100% + 220px + 10vw);
+      box-sizing: border-box;
+      margin-bottom: 0;
+    }
+    .cs-callout-label { font-family: 'Manrope', sans-serif; font-size: 12px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: #9d9d9d; display: block; margin-bottom: 16px; text-align: left; }
+    .cs-callout-text { font-family: 'Manrope', sans-serif; font-size: 22px; font-weight: 700; color: #236cff; line-height: 1.45; display: block; text-align: left; }
+
+    /* Problem-statement callout (quieter, quote-style) */
+    .cs-problem-quote { font-family: 'Manrope', sans-serif; font-size: 18px; font-weight: 500; color: #353535; line-height: 1.7; display: block; text-align: left; font-style: normal; }
+    .cs-problem-quote strong { color: #236cff; }
+
+    /* Image placeholder */
+    .cs-img-placeholder { width: 100%; border-radius: 8px; background: #eef5f2; display: flex; align-items: center; justify-content: center; font-family: 'Manrope', sans-serif; font-size: 12px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; color: #b0b0b0; margin-bottom: 8px; min-height: 320px; text-align: center; padding: 24px; }
+    .cs-img-caption { font-family: 'Manrope', sans-serif; font-size: 13px; color: #9d9d9d; line-height: 1.5; display: block !important; margin-bottom: 32px; text-align: center; }
+
+    /* Finding cards */
+    .cs-finding-list { display: flex; flex-direction: column; gap: 16px; margin: 24px 0 8px; }
+    .cs-finding-card { background: #fff; border-radius: 10px; border: 1px solid #e8e8e8; padding: 24px 28px; }
+    .cs-finding-number { font-family: 'Manrope', sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: #236cff; display: block !important; margin-bottom: 8px; }
+    .cs-finding-headline { font-family: 'Manrope', sans-serif; font-size: 15px; font-weight: 700; color: #353535; display: block !important; margin-bottom: 10px; line-height: 1.4; }
+    .cs-finding-body { font-family: 'Manrope', sans-serif; font-size: 15px; color: #353535; line-height: 1.7; display: block !important; margin: 0; }
+
+    /* Impact metric cards (3-up grid inside the section body) */
+    .cs-metric-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin: 24px 0 8px; }
+    .cs-metric-card { background: #f5f5f5; border-radius: 10px; padding: 24px 24px 22px; }
+    .cs-metric-number { font-family: 'Instrument Serif', serif; font-style: italic; font-weight: 400; font-size: 2.4rem; color: #236cff; line-height: 1; display: block !important; margin-bottom: 12px; }
+    .cs-metric-desc { font-family: 'Manrope', sans-serif; font-size: 14px; color: #353535; line-height: 1.6; display: block !important; margin: 0; }
+    @media (max-width: 900px) {
+      .cs-metric-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 600px) {
+      .cs-metric-grid { grid-template-columns: 1fr; }
+    }
+
+    /* Cross-link card */
+    .cs-crosslink { display: block; background: #f5f5f5; border-radius: 12px; padding: 22px 26px; margin: 20px 0 8px; text-decoration: none; transition: background 0.15s; border: 1px solid #ececec; }
+    .cs-crosslink:hover { background: #eef2ff; text-decoration: none; }
+    .cs-crosslink-label { font-family: 'Manrope', sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: #9d9d9d; display: block; margin-bottom: 6px; }
+    .cs-crosslink-title { font-family: 'Manrope', sans-serif; font-size: 16px; font-weight: 700; color: #236cff; display: block; }
+    .cs-crosslink-arrow { font-weight: 700; }
+
+    /* Nav buttons */
+    .cs-nav-buttons { padding: 40px 10% 80px 180px; }
+    .cs-nav-btn { font-family: 'Manrope', sans-serif; font-size: 14px; font-weight: 600; color: #6a6a6a; text-decoration: none; }
+    .cs-nav-btn:hover { color: #353535; text-decoration: none; }
+  </style>
+
+  <!-- CSS Stylesheets -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link rel="stylesheet" href="css/styles.css">
+  <script defer src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+  <!-- Password gate (soft, client-side). Shared password across gated case studies. -->
+  <script>window.CS_GATE = { hash: "a70614c6882047800f3905a32d0b9cd8216be64db496e1836a0dffe839cea7d0", key: "cs-unlock-shared" };</script>
+  <script src="js/case-study-gate.js"></script>
+</head>
+
+<body class="cs-body">
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">Sanjana <em>Danait</em></a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggler">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarToggler">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item"><a class="nav-link" href="work.html">Work</a></li>
+          <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="index.html#contact">Contact</a></li>
+          <li class="nav-item"><a class="nav-link" href="sanjanadanait-resume.pdf" target="_blank" rel="noopener noreferrer">Resume</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Fixed sidebar -->
+  <aside class="cs-sidebar">
+    <nav class="cs-sidenav">
+      <a class="cs-sidenav-link active" href="#overview">Overview</a>
+      <a class="cs-sidenav-link" href="#problem">The Problem</a>
+      <a class="cs-sidenav-link" href="#research">Research</a>
+      <a class="cs-sidenav-link" href="#exploration-1">Exploration 1</a>
+      <a class="cs-sidenav-link" href="#exploration-2">Exploration 2</a>
+      <a class="cs-sidenav-link" href="#scoping">Scoping</a>
+      <a class="cs-sidenav-link" href="#impact">Impact</a>
+      <a class="cs-sidenav-link" href="#reflection">Reflection</a>
+      <div class="cs-sidenav-divider"></div>
+      <button class="cs-sidenav-back" onclick="window.scrollTo({top:0,behavior:'smooth'})">Back to Top</button>
+    </nav>
+  </aside>
+
+  <!-- Hero -->
+  <div class="cs-hero">
+    <div class="cs-hero-text">
+      <h1 class="cs-hero-title">Unified Decryption Access</h1>
+      <span class="cs-hero-subtitle">How I cut time-to-access for encrypted data from 9 days to 3 while preserving column-level governance.</span>
+    </div>
+    <div class="cs-hero-image">
+      <div class="cs-hero-image-placeholder">Hero image coming soon</div>
+    </div>
+  </div>
+
+  <!-- Main content -->
+  <main class="cs-content">
+
+    <!-- Metadata bar -->
+    <div class="cs-meta-bar">
+      <div class="cs-meta-item">
+        <span class="cs-meta-label">Role</span>
+        <span class="cs-meta-value">Lead Product Designer (user research + product design)</span>
+      </div>
+      <div class="cs-meta-item">
+        <span class="cs-meta-label">Timeline</span>
+        <span class="cs-meta-value">FY25, Q3 to Q4</span>
+      </div>
+      <div class="cs-meta-item">
+        <span class="cs-meta-label">Scope</span>
+        <span class="cs-meta-value">End-to-end: research, journey mapping, workflow design, steward and requestor experiences, MVP and post-MVP scoping</span>
+      </div>
+      <div class="cs-meta-item">
+        <span class="cs-meta-label">Partners</span>
+        <span class="cs-meta-value">Data Access, Data Lake, Data Security, key-owner teams, Legal / Compliance</span>
+      </div>
+      <div class="cs-meta-item">
+        <span class="cs-meta-label">Tools</span>
+        <span class="cs-meta-value">Figma, FigJam, Cursor, Claude</span>
+      </div>
+    </div>
+
+    <!-- Overview -->
+    <div id="overview" class="cs-section cs-section-grey">
+      <h2 class="cs-section-heading">Overview</h2>
+      <div class="cs-section-body">
+        <p>At Intuit, any data field classified as restricted or sensitive (most often PII) is encrypted at the application level, and <strong>about 10% of tables in the data lake contain columns that need decryption to be usable.</strong> That small percentage caused a disproportionate amount of pain for the analysts, engineers, and data scientists who depend on this data.</p>
+        <p>To actually use one of those tables, a user had to clear <strong>two entirely separate approvals, in two different tools</strong>: first request access to the table itself, then go through an unrelated process to request the decryption keys for its encrypted columns. The two systems didn't know about each other, so people would clear the first approval, start working, and only then discover a second gate they hadn't known existed. Start to finish, getting to usable data <strong>averaged 9 days.</strong></p>
+        <p>I owned this project end to end, from the research that quantified the problem through the shipped design. The result unified the two approvals into a single request and <strong>cut time-to-access from 9 days to 3</strong>, without giving up any of the compliance control that governs encrypted data. This case study walks through how, and why the hardest parts were underneath the surface rather than on it.</p>
+
+        <div class="cs-img-placeholder">Image coming soon: before-state user journey map showing the two disconnected approval paths totaling 9 days</div>
+        <span class="cs-img-caption">The before state, two disconnected approvals in two different tools. Total time to usable data averaged 9 days.</span>
+      </div>
+    </div>
+
+    <!-- The Problem -->
+    <div id="problem" class="cs-section">
+      <h2 class="cs-section-heading">The problem</h2>
+      <div class="cs-section-body">
+        <p>The core issue was <strong>fragmentation between two approval systems that should have been one.</strong> Table access lived in Data Discovery. Decryption-key access lived in a separate process entirely. Nothing connected them, and nothing told a user at the start that a table even had encrypted columns, so the second gate was usually a surprise discovered mid-task.</p>
+        <p>The problem statement I worked from:</p>
+      </div>
+    </div>
+
+    <!-- Problem-statement callout -->
+    <div class="cs-callout">
+      <span class="cs-problem-quote"><strong>I am</strong> a data analyst <strong>trying to</strong> confirm whether a table can power my report, dashboard, or model, <strong>but</strong> it takes a long time to get usable access, <strong>because</strong> after requesting and receiving access to the table I find I have to go through a <em>separate</em> process to decrypt the columns I need, <strong>which makes me feel</strong> frustrated and inefficient.</span>
+    </div>
+
+    <!-- Problem, continued -->
+    <div class="cs-section">
+      <div class="cs-section-heading"></div>
+      <div class="cs-section-body">
+        <p>The design goal followed directly: <strong>make getting to encrypted data feel like one request instead of two, without weakening any of the controls that make encryption meaningful in the first place.</strong> That second half is what made this hard. This is a domain where the analyst is not the only stakeholder. Legal, security, and the key-owner teams all have a legitimate say in who decrypts what, and a design that quietly loosened those controls to feel faster would have been a failure, no matter how clean it looked.</p>
+      </div>
+    </div>
+
+    <!-- Research -->
+    <div id="research" class="cs-section cs-section-grey">
+      <h2 class="cs-section-heading">Research</h2>
+      <div class="cs-section-body">
+        <p>I approached this with a mix of quantitative and qualitative work, and the qualitative side is what surfaced the real design challenge.</p>
+        <p>On the quantitative side, I reviewed query logs and Slack support-channel data to confirm the 9-day average was real and widespread, and analyzed encrypted-column data from the internal key-management system to understand how often and where decryption was needed. On the qualitative side, I ran <strong>follow-me-home sessions</strong> with analysts to watch the current process firsthand, and built a <strong>user journey diagram</strong> to map exactly where time was being lost. Throughout, I worked with two distinct sets of people: the <strong>data consumers, stewards, and key owners</strong> who live inside the flow, and the <strong>governance and legal/compliance stakeholders</strong> who define the rules the flow has to satisfy.</p>
+        <p>Four insights came out of that research. The first two confirmed the problem; the last two defined how hard it would be to solve well:</p>
+
+        <div class="cs-finding-list">
+          <div class="cs-finding-card">
+            <span class="cs-finding-number">Insight 01</span>
+            <span class="cs-finding-headline">The journey was fragmented and high-friction.</span>
+            <span class="cs-finding-body">Exactly as the problem statement described: two disconnected approvals, in two different tools, with no signal at the start that a second gate even existed.</span>
+          </div>
+          <div class="cs-finding-card">
+            <span class="cs-finding-number">Insight 02</span>
+            <span class="cs-finding-headline">Encrypted data was growing fast.</span>
+            <span class="cs-finding-body">There had been roughly 360,000 calls to obtain encryption keys in a single month, and the org expected a 5x growth in encrypted data. Whatever I designed had to scale.</span>
+          </div>
+          <div class="cs-finding-card">
+            <span class="cs-finding-number">Insight 03</span>
+            <span class="cs-finding-headline">Keys and columns have a complex relationship.</span>
+            <span class="cs-finding-body">A single table can have multiple encrypted columns, and those columns can be protected by different keys with different owners.</span>
+          </div>
+          <div class="cs-finding-card">
+            <span class="cs-finding-number">Insight 04</span>
+            <span class="cs-finding-headline">Key ownership is genuinely complicated.</span>
+            <span class="cs-finding-body">The owner of a table is often not the owner of its decryption keys. In 80% of legacy cases the table owner and key owner were different, while about 90% of new requests going forward would have the same owner. The design had to handle both cleanly.</span>
+          </div>
+        </div>
+
+        <div class="cs-img-placeholder">Image coming soon: research insight visuals, key-and-column relationship complexity + key ownership split</div>
+        <span class="cs-img-caption">The two insights that shaped the design, one table can hold multiple keys with multiple owners, and table owners frequently aren't the key owners.</span>
+      </div>
+    </div>
+
+    <!-- Exploration 1 -->
+    <div id="exploration-1" class="cs-section">
+      <h2 class="cs-section-heading">Exploration 1 (rejected): point users to the second process earlier</h2>
+      <div class="cs-section-body">
+        <p>My first exploration was the obvious, low-effort one: <strong>highlight the encrypted columns in Discovery and add a message in the table request flow, with a link out to the separate decryption process.</strong> Show people the second door earlier so they aren't surprised by it.</p>
+        <p>I rejected it. <strong>It only provided better directions to a broken process rather than fixing it.</strong> It gave users earlier visibility but left the two systems just as disconnected, and modeling showed it would save only about two days. It didn't touch the core fragmentation, so it didn't deserve to ship.</p>
+
+        <div class="cs-img-placeholder">Image coming soon: Exploration 1, the nudge-and-link approach that was rejected</div>
+        <span class="cs-img-caption">The rejected first pass, earlier visibility into the second process, but the fragmentation stayed. A ~2-day gain wasn't enough.</span>
+      </div>
+    </div>
+
+    <!-- Exploration 2 -->
+    <div id="exploration-2" class="cs-section cs-section-grey">
+      <h2 class="cs-section-heading">Exploration 2 (shipped): one request, with compliance control preserved</h2>
+      <div class="cs-section-body">
+        <p>The design that shipped <strong>collapsed the two approvals into a single in-flow request.</strong> When a user requests table access in Discovery, the flow now tells them how many columns are encrypted, lets them <strong>select the specific columns</strong> they need, and captures justification for that decryption need in the same step. They submit once and get a link to track status. On approval, <strong>key access is provisioned automatically with no further user action.</strong></p>
+        <p>From the user's point of view it went from two processes to one, faster and simpler. The craft was in doing that <strong>without weakening a single compliance control</strong>, which meant handling the workflow complexity honestly rather than smoothing it over:</p>
+
+        <ul>
+          <li><strong>Column-level selection and justification.</strong> Users request only the specific encrypted columns they need and say why, which keeps access minimized to what's actually required rather than decrypting everything by default.</li>
+          <li><strong>Partial approval by design.</strong> A steward or key owner can approve some columns and deny others, each denial carrying a justification the requestor sees. The outcome "you can have three of these columns but not the fourth, and here's why" is a first-class result of the flow, not an error state.</li>
+          <li><strong>Splitting one request into many only when ownership requires it.</strong> When the table owner and key owner are the same (the ~90% forward case), the user gets a single request. When they differ (the 80% legacy case), the system generates separate requests to each owner behind the scenes, so each owner only approves what they're responsible for. The user still experiences one submission; the routing complexity is hidden.</li>
+          <li><strong>A safe fallback when ownership is unknown.</strong> Key-ownership information didn't exist for every column. Rather than fail silently, the design detects that a column is encrypted and directs the requestor to reach out to the steward for guidance when it can't resolve the owner, so the user is never left at a dead end.</li>
+        </ul>
+
+        <div class="cs-img-placeholder">Image coming soon: shipped design, in-flow column selection + justification within the table request</div>
+        <span class="cs-img-caption">The shipped request, column selection and decryption justification folded into the table access flow, one submission.</span>
+
+        <div class="cs-img-placeholder">Image coming soon: shipped design, steward partial-approval view</div>
+        <span class="cs-img-caption">Partial approval as a first-class outcome, stewards grant some columns and deny others with justification, keeping access minimized.</span>
+      </div>
+    </div>
+
+    <!-- Scoping -->
+    <div id="scoping" class="cs-section">
+      <h2 class="cs-section-heading">Scoping: MVP vs. post-MVP</h2>
+      <div class="cs-section-body">
+        <p>I split delivery to get value out fast without compromising the foundation. The <strong>MVP was unified decryption access for tables</strong>, prioritized because it attacked the biggest bottleneck (the 9-day table case), delivered an immediate ~67% time-to-access reduction, and established the integrated workflow every future decryption capability would build on. The <strong>post-MVP</strong> extended the model to Kafka topics for real-time use cases and completed integration with the central request-tracking hub so all access status lives in one source of truth. One more decision worth noting: to avoid sync problems between the two underlying systems, <strong>all new requests were routed through a single system of record</strong> rather than trying to keep two systems in lockstep.</p>
+
+        <div class="cs-img-placeholder">Image coming soon: after-state user journey map, 9 days condensed to 3</div>
+        <span class="cs-img-caption">The after state, one integrated request. Time to usable data dropped from 9 days to 3.</span>
+      </div>
+    </div>
+
+    <!-- Impact -->
+    <div id="impact" class="cs-section cs-section-grey">
+      <h2 class="cs-section-heading">Impact</h2>
+      <div class="cs-section-body">
+        <div class="cs-metric-grid">
+          <div class="cs-metric-card">
+            <span class="cs-metric-number">9 &rarr; 3 days</span>
+            <span class="cs-metric-desc">To get access to tables with encrypted columns, a ~67% reduction.</span>
+          </div>
+          <div class="cs-metric-card">
+            <span class="cs-metric-number">2 &rarr; 1</span>
+            <span class="cs-metric-desc">Fragmented approval workflows collapsed into one integrated request.</span>
+          </div>
+          <div class="cs-metric-card">
+            <span class="cs-metric-number">360K+</span>
+            <span class="cs-metric-desc">Monthly decryption key requests supported, built to scale with the expected 5x growth in encrypted data.</span>
+          </div>
+          <div class="cs-metric-card">
+            <span class="cs-metric-number">One system</span>
+            <span class="cs-metric-desc">Reduced security risk from untracked decryption by bringing every request into one governed, auditable system of record.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Reflection -->
+    <div id="reflection" class="cs-section">
+      <h2 class="cs-section-heading">Reflection</h2>
+      <div class="cs-section-body">
+        <div class="cs-finding-list">
+          <div class="cs-finding-card">
+            <span class="cs-finding-number">01</span>
+            <span class="cs-finding-headline">The simplest surface often sits on top of the most complexity.</span>
+            <span class="cs-finding-body">Hiding that complexity from the user is the work, not a shortcut around it. The user experiences one request. Underneath it are column-level minimization, partial approval, owner-based routing, and a safe fallback for missing ownership data, none of which I was willing to drop to make the screen look cleaner.</span>
+          </div>
+          <div class="cs-finding-card">
+            <span class="cs-finding-number">02</span>
+            <span class="cs-finding-headline">The hardest design decisions weren't visual.</span>
+            <span class="cs-finding-body">They were about how to honor a compliance rule without passing its complexity on to the user, and most of them were worked out in conversations with the security, key-owner, and governance teams rather than in Figma. Shipping a genuinely simpler experience in a domain this sensitive depended as much on aligning those partners as on the interface itself.</span>
+          </div>
+          <div class="cs-finding-card">
+            <span class="cs-finding-number">03</span>
+            <span class="cs-finding-headline">The clearest next step is closing the loop with analytics.</span>
+            <span class="cs-finding-body">Tracking how often partial approvals happen, where users still hit the ownership-unknown fallback, and whether the single-request model holds up as encrypted data grows toward the projected 5x. That measurement would turn a strong launch into a continuously improving one.</span>
+          </div>
+        </div>
+
+        <a class="cs-crosslink" href="data-access.html">
+          <span class="cs-crosslink-label">Part of a broader body of work</span>
+          <span class="cs-crosslink-title">Read The Balance Point: Designing for Data Access <span class="cs-crosslink-arrow">&rarr;</span></span>
+        </a>
+      </div>
+    </div>
+
+  </main>
+
+  <div class="cs-nav-buttons">
+    <a class="cs-nav-btn" href="work.html">&larr; Work</a>
+  </div>
+
+  <!-- Footer -->
+  <footer id="contact">
+    <div class="container-fluid">
+      <h3>Open to new opportunities, coffee chats, or collaborating on fun side-projects.<br><span class="footer-cta-italic">Let's talk!</span></h3>
+      <div class="footer-links">
+        <a class="footer-link" href="mailto:sanjana2397@gmail.com"><i class="fas fa-envelope"></i> sanjana2397@gmail.com</a>
+        <a class="footer-link" href="https://www.linkedin.com/in/sanjana-danait/" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i> LinkedIn</a>
+      </div>
+      <hr>
+      <p>Designed and developed by Sanjana Danait with <img src="icons/claudecode-color.svg" alt="Claude Code" style="width:18px;height:18px;vertical-align:middle;display:inline-block;margin:0 3px 2px 3px"> &copy; 2026. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Scroll-spy
+    const sections = document.querySelectorAll('.cs-section[id]');
+    const navLinks = document.querySelectorAll('.cs-sidenav-link');
+    window.addEventListener('scroll', () => {
+      const threshold = window.innerHeight * 0.5;
+      let current = '';
+      sections.forEach(section => {
+        const rect = section.getBoundingClientRect();
+        if (rect.top <= threshold) current = section.getAttribute('id');
+      });
+      navLinks.forEach(link => {
+        link.classList.toggle('active', link.getAttribute('href') === '#' + current);
+      });
+    });
+  </script>
+
+</body>
+</html>
