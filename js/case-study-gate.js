@@ -48,7 +48,7 @@
       '<div class="cs-gate-card">' +
         '<span class="cs-gate-lock">🔒</span>' +
         '<span class="cs-gate-title">This case study is password protected</span>' +
-        '<span class="cs-gate-desc">This work covers confidential enterprise projects at Intuit. Enter the password to view it.</span>' +
+        '<span class="cs-gate-desc">This case study covers confidential work. Enter the password to view it.</span>' +
         '<form class="cs-gate-form" autocomplete="off">' +
           '<input class="cs-gate-input" type="password" placeholder="Enter password" aria-label="Password" autofocus>' +
           '<button class="cs-gate-btn" type="submit">Unlock</button>' +
